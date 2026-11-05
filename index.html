@@ -206,22 +206,6 @@
     }
     .visual:hover .tractor-photo-trigger img { transform: scale(1.32); }
     .tractor-photo-trigger:focus-visible { outline-offset: -4px; }
-    .tractor-photo-trigger .photo-hint {
-      position: absolute;
-      bottom: 12px;
-      right: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--verde);
-      background: var(--blanco);
-      font-size: .75rem;
-      font-weight: 700;
-      padding: 7px 10px;
-      border: 1px solid var(--gris-claro);
-      border-radius: 3px;
-    }
-    .tractor-photo-trigger .photo-hint svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; }
 
     /* Visor de las cuatro fotografías del tractor (PC y celular) */
     .photo-viewer {
@@ -576,10 +560,6 @@
             <div class="visual tractor-photo tractor-photo--130">
               <button class="tractor-photo-trigger" id="openTractor130Photos" type="button" aria-label="Ver cuatro fotografías ampliadas del tractor LOVOL TD 1304 de 130 HP">
                 <img src="TRACTOR_130_01.jpg" alt="Tractor LOVOL TD 1304 de 130 HP azul, vista de tres cuartos" loading="lazy" decoding="async" width="1024" height="1536">
-                <span class="photo-hint" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5m-10.5-14v7m-3.5-3.5h7"/></svg>
-                  Ver 2 fotos
-                </span>
               </button>
             </div>
             <div class="tractor-info">
