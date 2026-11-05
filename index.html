@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#00765A">
-  <meta name="description" content="Agromaquinaria Agrícola C.A. Tractores LOVOL disponibles en Acarigua, Calabozo y Valencia, Venezuela. Cotizaciones por WhatsApp: +58 414 342 1151.">
+  <meta name="description" content="Agromaquinaria Latina C.A Tractores LOVOL disponibles en Acarigua, Calabozo y Valencia, Venezuela. Cotizaciones por WhatsApp: +58 414 342 1151.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Agromaquinaria Agrícola C.A. | Fuerza, Eficiencia y Durabilidad">
+  <meta property="og:title" content="Agromaquinaria Latina C.A | Fuerza, Eficiencia y Durabilidad">
   <meta property="og:description" content="La fuerza que mueve tu tierra. Tractores LOVOL en Acarigua, Calabozo y Valencia. Contáctanos para cotizar.">
-  <title>Agromaquinaria Agrícola C.A. | Tractores LOVOL</title>
+  <title>Agromaquinaria Latina C.A | Tractores LOVOL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -51,28 +51,35 @@
     .button-outline{color:var(--blanco);border-color:var(--blanco)}
     .button-outline:hover{background:var(--blanco);color:var(--verde)}
 
-    /* Flecha diagonal blanca, dibujada como la referencia y ajustada al botón */
-    .button-arrow{
-      display:block;
-      width:18px;
-      height:18px;
-      flex:0 0 18px;
-      fill:none;
-      stroke:var(--blanco);
-      stroke-width:3.2;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-    /* En botones blancos, la flecha sigue blanca dentro de un pequeño círculo verde.
-       En los botones transparentes la misma solución mantiene el icono visible al pasar el cursor. */
+    /* Flechas diagonales blancas: SIN fondo, círculo, caja ni relleno. */
+    .button-arrow,
     .button-white .button-arrow,
-    .button-outline .button-arrow{
-      padding:5px;
-      box-sizing:content-box;
-      background:var(--verde);
-      border-radius:50%;
+    .button-outline .button-arrow,
+    .button-green .button-arrow {
+      display: block;
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      fill: none;
+      color: var(--blanco);
+      stroke: var(--blanco);
+      stroke-width: 3.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
+    /* Evita que desaparezca la flecha blanca cuando el botón se ilumina al pasar el cursor. */
+    .button-outline:hover {
+      background: color-mix(in srgb, var(--verde) 25%, transparent);
+      color: var(--blanco);
+    }
 
     /* 2. Menú fijo y logo horizontal sin fondo añadido */
     .header{position:fixed;inset:0 0 auto;z-index:50;height:85px;border-bottom:1px solid color-mix(in srgb,var(--blanco) 25%,transparent);transition:background .35s,box-shadow .35s}
@@ -302,12 +309,12 @@
       </video>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <span class="hero-eyebrow">LOVOL VENEZUELA · AGROMAQUINARIA AGRÍCOLA C.A.</span>
+        <span class="hero-eyebrow">LOVOL VENEZUELA · AGROMAQUINARIA Latina C.A</span>
         <h1 id="heroTitle">Fuerza,<br>Eficiencia<br>y Durabilidad.</h1>
         <p>La fuerza que mueve tu tierra.</p>
         <div class="hero-actions">
-          <a class="button button-white" href="#tractores">Ver tractores <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
-          <a class="button button-outline js-whatsapp" href="#contacto" data-message="Hola, quiero cotizar un tractor LOVOL.">Cotizar por WhatsApp <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
+          <a class="button button-green" href="#tractores">Ver tractores <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
+          <a class="button button-outline js-whatsapp" href="#contacto" data-message="Hola, quiero cotizar un tractor LOVOL.">Cotizar <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
         </div>
       </div>
       <span class="scroll-hint">Desliza para descubrir</span>
@@ -323,7 +330,7 @@
         <div class="reveal about-content">
           <span class="eyebrow">Sobre nosotros</span>
           <h2 class="title" id="aboutTitle">Impulsamos el futuro del campo.</h2>
-          <p>En Agromaquinaria Agrícola C.A. creemos que el progreso del campo comienza con las herramientas adecuadas.</p>
+          <p>En Agromaquinaria Latina C.A creemos que el progreso del campo comienza con las herramientas adecuadas.</p>
           <p>Nuestro compromiso es acercar maquinaria agrícola de alto rendimiento a productores venezolanos que buscan potencia, eficiencia y durabilidad.</p>
           <p>Queremos ayudarte a encontrar la maquinaria adecuada para que tu operación agrícola continúe creciendo.</p>
           <div class="stats" aria-label="Nuestra propuesta">
@@ -412,13 +419,13 @@
     <section class="section contact" id="contacto" aria-labelledby="contactTitle">
       <div class="container contact-grid">
         <div class="reveal">
-          <span class="eyebrow">Hablemos de tu proyecto</span>
+          <span class="eyebrow"></span>
           <h2 class="title" id="contactTitle">Tu próximo tractor comienza aquí.</h2>
           <p class="description">Nuestro equipo está disponible para ayudarte a conocer nuestros modelos y encontrar la alternativa adecuada para tu operación.</p>
           <!-- Ciudades con tractores disponibles (no son direcciones de oficinas) -->
           <div class="contact-detail">
             <strong>Tractores en Venezuela</strong>
-            <span>Disponibilidad en estas ciudades:</span>
+            <span>Disponibilidad inmediata en estas ciudades:</span>
             <div class="cities" aria-label="Ciudades con tractores">
               <span class="city">Acarigua</span>
               <span class="city">Calabozo</span>
@@ -459,7 +466,7 @@
       <div class="footer-grid">
         <div class="footer-about">
           <a class="footer-logo" href="#inicio" aria-label="Agromaquinaria - Inicio"><img src="agromaquinaria.png" alt="Logotipo completo de Agromaquinaria" width="1773" height="488"></a>
-          <p>La fuerza que mueve tu tierra.<br>Tractores disponibles en Acarigua, Calabozo y Valencia, Venezuela.</p>
+          <p>Distribuidor Oficial en Venezuela.<br>Tractores disponibles en toda Venezuela.</p>
           <span class="footer-rif">RIF: J-506542161</span>
         </div>
         <div class="footer-col"><h4>Explorar</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#tractores">Tractores</a><a href="#ventajas">Ventajas</a><a href="#galeria">Galería</a></div>
@@ -478,7 +485,7 @@
           </div>
         </div>
       </div>
-      <div class="footer-bottom"><span>© <span id="year"></span> Agromaquinaria Agrícola C.A. Todos los derechos reservados.</span><span>Fuerza, Eficiencia y Durabilidad.</span></div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Agromaquinaria Latina C.A Todos los derechos reservados.</span><span>Fuerza, Eficiencia y Durabilidad.</span></div>
     </div>
   </footer>
 
@@ -626,7 +633,7 @@
       const telefono = document.getElementById("telefono").value.trim();
       const modelo = document.getElementById("modelo").value;
       const mensaje = document.getElementById("mensaje").value.trim();
-      abrirWhatsApp("Hola, soy " + nombre + ".\n\nQuisiera una cotización en Agromaquinaria Agrícola C.A.\nTeléfono: " + telefono + "\nTractor de interés: " + modelo + "\nUbicaciones: Acarigua, Calabozo y Valencia.\nMensaje: " + (mensaje || "Solicito información comercial."));
+      abrirWhatsApp("Hola, soy " + nombre + ".\n\nQuisiera una cotización en Agromaquinaria Latina C.A\nTeléfono: " + telefono + "\nTractor de interés: " + modelo + "\nUbicaciones: Acarigua, Calabozo y Valencia.\nMensaje: " + (mensaje || "Solicito información comercial."));
     });
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
