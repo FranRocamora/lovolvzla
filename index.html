@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#00765A">
-  <meta name="description" content="Agromaquinaria Agrícola C.A. Fuerza, eficiencia y durabilidad. Descubre nuestros tractores LOVOL y solicita una cotización en Venezuela.">
+  <meta name="description" content="Agromaquinaria Agrícola C.A. Tractores LOVOL disponibles en Acarigua, Calabozo y Valencia, Venezuela. Cotizaciones por WhatsApp: +58 414 342 1151.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Agromaquinaria Agrícola C.A. | Fuerza, Eficiencia y Durabilidad">
-  <meta property="og:description" content="La fuerza que mueve tu tierra. Conoce nuestros tractores LOVOL en Venezuela.">
+  <meta property="og:description" content="La fuerza que mueve tu tierra. Tractores LOVOL en Acarigua, Calabozo y Valencia. Contáctanos para cotizar.">
   <title>Agromaquinaria Agrícola C.A. | Tractores LOVOL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,6 +124,12 @@
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(35px,7vw,95px)}
     .contact-detail{padding:20px 0;border-bottom:1px solid var(--gris-claro)}
     .contact-detail strong{display:block;color:var(--verde);letter-spacing:.15em;text-transform:uppercase;font-size:.72rem;margin-bottom:10px}
+    .contact-detail a{color:var(--verde);font-weight:600;overflow-wrap:anywhere}
+    .contact-detail a:hover{text-decoration:underline}
+    .cities{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+    .city{border:1px solid var(--azul-plata);border-radius:3px;padding:9px 13px;color:var(--verde);background:var(--blanco);font-size:.83rem;font-weight:700}
+    .availability-note{font-size:.78rem;line-height:1.7;margin-top:13px}
+
     .contact-form{background:var(--blanco);padding:clamp(24px,4vw,48px);border-radius:4px;box-shadow:0 18px 50px color-mix(in srgb,var(--azul-acero) 18%,transparent)}
     .contact-form h3{font:700 1.9rem var(--display);color:var(--verde);margin:0 0 25px}
     .form-group{margin-bottom:19px}
@@ -139,6 +145,9 @@
     .footer-logo{display:inline-block;max-width:100%}
     .footer-logo img{width:min(360px,100%);height:auto;object-fit:contain;background:transparent;padding:0;border:0;border-radius:0;box-shadow:none}
     .footer-about p{max-width:370px;font-size:.87rem;line-height:1.85}
+    .footer-rif{display:block;color:var(--verde);font-size:.81rem;font-weight:700;margin-top:10px}
+    .footer-col a[href^="mailto:"],.footer-col a[href^="tel:"]{overflow-wrap:anywhere}
+
     .footer-col h4{font:700 1.1rem var(--display);color:var(--verde);margin:0 0 22px}
     .footer-col a{display:block;font-size:.84rem;margin-bottom:14px;transition:color .2s}
     .footer-col a:hover{color:var(--verde)}
@@ -345,9 +354,29 @@
           <span class="eyebrow">Hablemos de tu proyecto</span>
           <h2 class="title" id="contactTitle">Tu próximo tractor comienza aquí.</h2>
           <p class="description">Nuestro equipo está disponible para ayudarte a conocer nuestros modelos y encontrar la alternativa adecuada para tu operación.</p>
-          <div class="contact-detail"><strong>Ubicación</strong><span>Venezuela · dirección comercial por confirmar</span></div>
-          <div class="contact-detail"><strong>WhatsApp</strong><span>Atención personalizada para cotizaciones</span></div>
-          <div class="contact-detail"><strong>Horario</strong><span>Consultar disponibilidad con nuestro equipo</span></div>
+          <!-- Ciudades con tractores disponibles (no son direcciones de oficinas) -->
+          <div class="contact-detail">
+            <strong>Tractores en Venezuela</strong>
+            <span>Disponibilidad en estas ciudades:</span>
+            <div class="cities" aria-label="Ciudades con tractores">
+              <span class="city">Acarigua</span>
+              <span class="city">Calabozo</span>
+              <span class="city">Valencia</span>
+            </div>
+            <p class="availability-note">Consulta por WhatsApp la disponibilidad y ubicación exacta del modelo que te interesa.</p>
+          </div>
+          <div class="contact-detail">
+            <strong>Teléfono y WhatsApp</strong>
+            <a href="tel:+584143421151">+58 414 342 1151</a>
+          </div>
+          <div class="contact-detail">
+            <strong>Correo electrónico</strong>
+            <a href="mailto:lovolvzla@gmail.com">lovolvzla@gmail.com</a>
+          </div>
+          <div class="contact-detail">
+            <strong>RIF</strong>
+            <span>J-506542161</span>
+          </div>
         </div>
         <div class="contact-form reveal">
           <h3>Solicita tu cotización</h3>
@@ -369,10 +398,18 @@
       <div class="footer-grid">
         <div class="footer-about">
           <a class="footer-logo" href="#inicio" aria-label="Agromaquinaria - Inicio"><img src="agromaquinaria.png" alt="Logotipo completo de Agromaquinaria" width="1773" height="488"></a>
-          <p>La fuerza que mueve tu tierra.</p>
+          <p>La fuerza que mueve tu tierra.<br>Tractores disponibles en Acarigua, Calabozo y Valencia, Venezuela.</p>
+          <span class="footer-rif">RIF: J-506542161</span>
         </div>
         <div class="footer-col"><h4>Explorar</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#tractores">Tractores</a><a href="#ventajas">Ventajas</a><a href="#galeria">Galería</a></div>
-        <div class="footer-col"><h4>Conecta</h4><a href="#contacto">Contacto</a><a class="js-whatsapp" href="#contacto" data-message="Hola, quiero más información sobre Agromaquinaria.">WhatsApp</a><a class="social-pending" href="#">Instagram (configurar)</a><a class="social-pending" href="#">Facebook (configurar)</a></div>
+        <div class="footer-col">
+          <h4>Conecta</h4>
+          <a href="#contacto">Contacto</a>
+          <a class="js-whatsapp" href="#contacto" data-message="Hola, quisiera información sobre tractores LOVOL disponibles en Acarigua, Calabozo y Valencia.">Cotizar por WhatsApp</a>
+          <a href="tel:+584143421151">+58 414 342 1151</a>
+          <a href="mailto:lovolvzla@gmail.com">lovolvzla@gmail.com</a>
+          <a href="https://www.instagram.com/lovol.vzla/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de LOVOL Venezuela (@lovol.vzla)">Instagram · @lovol.vzla</a>
+        </div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Agromaquinaria Agrícola C.A. Todos los derechos reservados.</span><span>Fuerza, Eficiencia y Durabilidad.</span></div>
     </div>
@@ -395,7 +432,7 @@
 
   <script>
     /* 24. CONFIGURAR WHATSAPP: código de país + número, sin + ni espacios */
-    const WHATSAPP_NUMBER = ""; // Ejemplo: "584121234567"
+    const WHATSAPP_NUMBER = "584143421151"; // WhatsApp empresarial, formato internacional
     function abrirWhatsApp(mensaje) {
       if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
         alert("Configura el número empresarial en la variable WHATSAPP_NUMBER del HTML.");
@@ -409,7 +446,6 @@
         abrirWhatsApp(a.dataset.message || "Hola, quiero información de los tractores LOVOL.");
       });
     });
-    document.querySelectorAll(".social-pending").forEach(a => a.addEventListener("click", e => e.preventDefault()));
 
     /* 25. HEADER Y MENÚ MÓVIL */
     const header = document.getElementById("header");
@@ -521,7 +557,7 @@
       const telefono = document.getElementById("telefono").value.trim();
       const modelo = document.getElementById("modelo").value;
       const mensaje = document.getElementById("mensaje").value.trim();
-      abrirWhatsApp("Hola, soy " + nombre + ".\n\nQuisiera una cotización en Agromaquinaria Agrícola C.A.\nTeléfono: " + telefono + "\nTractor de interés: " + modelo + "\nMensaje: " + (mensaje || "Solicito información comercial."));
+      abrirWhatsApp("Hola, soy " + nombre + ".\n\nQuisiera una cotización en Agromaquinaria Agrícola C.A.\nTeléfono: " + telefono + "\nTractor de interés: " + modelo + "\nUbicaciones: Acarigua, Calabozo y Valencia.\nMensaje: " + (mensaje || "Solicito información comercial."));
     });
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
