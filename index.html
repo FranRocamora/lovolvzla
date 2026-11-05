@@ -176,7 +176,7 @@
     .stat-label{font-size:.75rem;line-height:1.6;margin:8px 0 0}
 
     
-    /* 5.A Tractor LOVOL 130 HP: fotografía completa sin recortes */
+    /* 5.A Tractor LOVOL TD 1304: fotos ampliadas sin cortar la maquinaria */
     .tractor-photo--130 {
       height: 345px;
       background: var(--blanco);
@@ -200,9 +200,11 @@
       object-fit: contain; /* Nunca cortar el tractor */
       object-position: center;
       background: var(--blanco);
-      transform: none;
+      /* Acerca la maquinaria sin cortar sus ruedas ni el techo. */
+      transform: scale(1.32);
+      transition: transform .35s ease;
     }
-    .visual:hover .tractor-photo-trigger img { transform: none; }
+    .visual:hover .tractor-photo-trigger img { transform: scale(1.32); }
     .tractor-photo-trigger:focus-visible { outline-offset: -4px; }
     .tractor-photo-trigger .photo-hint {
       position: absolute;
@@ -282,10 +284,14 @@
       display: block;
       width: 100%;
       height: 100%;
-      padding: 8px clamp(38px, 6vw, 72px);
-      object-fit: contain; /* Fotografía COMPLETA con fondo blanco */
+      padding: 0;
+      object-fit: contain;
       object-position: center center;
       background: var(--blanco);
+      /* Amplía el tractor usando únicamente los márgenes blancos de las fotografías.
+         El tractor, las ruedas y el techo permanecen completos. */
+      transform: scale(1.20);
+      transform-origin: center center;
       user-select: none;
       -webkit-user-drag: none;
     }
@@ -309,19 +315,14 @@
     .photo-viewer-nav:hover { transform: translateY(-50%) scale(1.12); }
     .photo-viewer-prev { left: 3px; }
     .photo-viewer-next { right: 3px; }
-    .photo-viewer-bottom {
-      padding: 11px 18px 16px;
-      border-top: 1px solid var(--gris-claro);
-      text-align: center;
-      color: var(--gris);
-      font-size: .8rem;
-    }
-    .photo-viewer-count { color: var(--verde); font-weight: 700; }
     @media (max-width: 580px) {
       .tractor-photo--130 { height: 295px; }
       .photo-viewer { padding: 5px; }
       .photo-viewer-panel { width: 100%; height: min(900px, 96dvh); }
-      .photo-viewer-image { padding-inline: 33px; }
+      .photo-viewer-image {
+        padding: 0;
+        transform: none; /* Amplia el espacio útil sin cortar los bordes en móviles. */
+      }
       .photo-viewer-nav { width: 32px; font-size: 35px; }
     }
 
@@ -576,8 +577,8 @@
           <article class="tractor-card reveal">
             <!-- Foto principal del tractor de 130 HP: al pulsar, abre la galería -->
             <div class="visual tractor-photo tractor-photo--130">
-              <button class="tractor-photo-trigger" id="openTractor130Photos" type="button" aria-label="Ver dos fotografías ampliadas del tractor LOVOL de 130 HP">
-                <img src="TRACTOR_130_01.jpg" alt="Tractor LOVOL de 130 HP azul, vista de tres cuartos" loading="lazy" decoding="async" width="1024" height="1536">
+              <button class="tractor-photo-trigger" id="openTractor130Photos" type="button" aria-label="Ver dos fotografías ampliadas del tractor LOVOL TD 1304 de 130 HP">
+                <img src="TRACTOR_130_01.jpg" alt="Tractor LOVOL TD 1304 de 130 HP azul, vista de tres cuartos" loading="lazy" decoding="async" width="1024" height="1536">
                 <span class="photo-hint" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5m-10.5-14v7m-3.5-3.5h7"/></svg>
                   Ver 2 fotos
@@ -586,25 +587,25 @@
             </div>
             <div class="tractor-info">
               <span class="tractor-category">Tractor agrícola</span>
-              <h3>LOVOL — Modelo 01</h3>
+              <h3>LOVOL — TD 1304</h3>
               <div class="specs"><span>Caballaje</span><strong>130 HP</strong></div>
-              <button class="detail-button" type="button" data-model="LOVOL Modelo 01" data-power="130 HP">Más información <span aria-hidden="true">→</span></button>
+              <button class="detail-button" type="button" data-model="LOVOL TD 1304" data-power="130 HP">Más información <span aria-hidden="true">→</span></button>
             </div>
           </article>
           <article class="tractor-card reveal">
             <div class="visual tractor-photo">
               <div class="placeholder">TRACTOR_02.jpg</div>
-              <img src="TRACTOR_02.jpg" alt="Tractor LOVOL Modelo 02" loading="lazy" onerror="this.hidden=true">
+              <img src="TRACTOR_02.jpg" alt="Tractor LOVOL TD 904" loading="lazy" onerror="this.hidden=true">
             </div>
             <div class="tractor-info">
               <span class="tractor-category">Tractor agrícola</span>
-              <h3>LOVOL — Modelo 02</h3>
+              <h3>LOVOL — TD 904</h3>
               <div class="specs"><span>Caballaje</span><strong>90 HP</strong></div>
-              <button class="detail-button" type="button" data-model="LOVOL Modelo 02" data-power="90 HP">Más información <span aria-hidden="true">→</span></button>
+              <button class="detail-button" type="button" data-model="LOVOL TD 904" data-power="90 HP">Más información <span aria-hidden="true">→</span></button>
             </div>
           </article>
         </div>
-        <p class="catalog-note">Los caballajes indicados corresponden a los dos tractores disponibles. Los nombres «Modelo 01» y «Modelo 02» son provisionales hasta incorporar su denominación comercial exacta.</p>
+        <p class="catalog-note">Conoce nuestros tractores LOVOL TD 1304 de 130 HP y TD 904 de 90 HP. Consulta sus especificaciones y disponibilidad con nuestro equipo.</p>
         <div style="text-align:center;margin-top:35px"><a class="button button-green" href="#contacto">Solicitar catálogo completo <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a></div>
       </div>
     </section>
@@ -694,7 +695,7 @@
           <form id="contactForm">
             <div class="form-group"><label for="nombre">Nombre completo *</label><input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="100" placeholder="Tu nombre" required></div>
             <div class="form-group"><label for="telefono">Número de teléfono *</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="35" placeholder="+58 412 000 0000" required></div>
-            <div class="form-group"><label for="modelo">Tractor de interés</label><select id="modelo" name="modelo"><option value="Asesoría general">Seleccionar una opción</option><option value="LOVOL Modelo 01 (130 HP)">LOVOL Modelo 01 — 130 HP</option><option value="LOVOL Modelo 02 (90 HP)">LOVOL Modelo 02 — 90 HP</option><option value="Otro modelo">Otro modelo</option></select></div>
+            <div class="form-group"><label for="modelo">Tractor de interés</label><select id="modelo" name="modelo"><option value="Asesoría general">Seleccionar una opción</option><option value="LOVOL TD 1304 (130 HP)">LOVOL TD 1304 — 130 HP</option><option value="LOVOL TD 904 (90 HP)">LOVOL TD 904 — 90 HP</option><option value="Otro modelo">Otro modelo</option></select></div>
             <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" maxlength="1000" placeholder="Cuéntanos qué tractor necesitas..."></textarea></div>
             <button class="button button-green" type="submit">Enviar por WhatsApp <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></button>
           </form>
@@ -742,17 +743,13 @@
   <div class="photo-viewer" id="tractor130Viewer" role="dialog" aria-modal="true" aria-labelledby="tractor130ViewerTitle" hidden>
     <div class="photo-viewer-panel">
       <div class="photo-viewer-head">
-        <h2 class="photo-viewer-title" id="tractor130ViewerTitle">LOVOL 130 HP · Fotografías</h2>
+        <h2 class="photo-viewer-title" id="tractor130ViewerTitle">TD 1304</h2>
         <button type="button" class="photo-viewer-close" id="tractor130Close" aria-label="Cerrar galería">&times;</button>
       </div>
       <div class="photo-viewer-stage" id="tractor130Stage">
         <button type="button" class="photo-viewer-nav photo-viewer-prev" id="tractor130Prev" aria-label="Fotografía anterior">&#8249;</button>
-        <img class="photo-viewer-image" id="tractor130Image" src="TRACTOR_130_01.jpg" alt="Tractor LOVOL de 130 HP, vista de tres cuartos" draggable="false" width="1024" height="1536">
+        <img class="photo-viewer-image" id="tractor130Image" src="TRACTOR_130_01.jpg" alt="Tractor LOVOL TD 1304 de 130 HP, vista de tres cuartos" draggable="false" width="1024" height="1536">
         <button type="button" class="photo-viewer-nav photo-viewer-next" id="tractor130Next" aria-label="Fotografía siguiente">&#8250;</button>
-      </div>
-      <div class="photo-viewer-bottom">
-        <span class="photo-viewer-count" id="tractor130Count" aria-live="polite">1 / 2</span>
-        <span> · Desliza o usa las flechas para cambiar de foto</span>
       </div>
     </div>
   </div>
@@ -980,14 +977,13 @@
     }
 
 
-    /* 27.B Galería del tractor LOVOL de 130 HP: ventana, flechas y swipe */
+    /* 27.B Galería del tractor LOVOL TD 1304 de 130 HP: ventana, flechas y swipe */
     const tractor130Photos = [
-      { src: "TRACTOR_130_01.jpg", alt: "Tractor LOVOL de 130 HP, vista de tres cuartos" },
-      { src: "TRACTOR_130_02.jpg", alt: "Tractor LOVOL de 130 HP, vista frontal" }
+      { src: "TRACTOR_130_01.jpg", alt: "Tractor LOVOL TD 1304 de 130 HP, vista de tres cuartos" },
+      { src: "TRACTOR_130_02.jpg", alt: "Tractor LOVOL TD 1304 de 130 HP, vista frontal" }
     ];
     const tractor130Viewer = document.getElementById("tractor130Viewer");
     const tractor130Image = document.getElementById("tractor130Image");
-    const tractor130Count = document.getElementById("tractor130Count");
     const tractor130Close = document.getElementById("tractor130Close");
     const tractor130Stage = document.getElementById("tractor130Stage");
     let tractor130PhotoIndex = 0;
@@ -1000,7 +996,6 @@
       const photo = tractor130Photos[tractor130PhotoIndex];
       tractor130Image.src = photo.src;
       tractor130Image.alt = photo.alt;
-      tractor130Count.textContent = `${tractor130PhotoIndex + 1} / ${tractor130Photos.length}`;
     }
 
     function openTractor130Viewer() {
