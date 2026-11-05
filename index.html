@@ -115,6 +115,52 @@
     .visual:hover img{transform:scale(1.05)}
     .visual img[hidden]{display:none}
     .placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:700 .74rem var(--display);letter-spacing:.15em;color:var(--azul-acero);padding:20px}
+
+    /* 4.1 Carrusel de seis fotografías en "Impulsamos el futuro del campo" */
+    .about-slideshow { isolation:isolate; }
+    .about-slideshow .about-slide {
+      opacity:0;
+      transform:none;
+      pointer-events:none;
+      transition:opacity .95s ease;
+      object-fit:cover;
+      object-position:center center;
+    }
+    .about-slideshow .about-slide.is-active { opacity:1; }
+    .about-slideshow:hover .about-slide { transform:none; }
+    .about-slideshow .about-slide[hidden] { display:none; }
+    /* Las dos fotos verticales priorizan la máquina, no el cielo ni el pavimento. */
+    .about-slideshow .about-slide:nth-of-type(5),
+    .about-slideshow .about-slide:nth-of-type(6) { object-position:center 42%; }
+    .about-slideshow .about-dots {
+      position:absolute;
+      z-index:3;
+      inset:auto 12px 17px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+    }
+    .about-slideshow .about-dot {
+      width:10px;
+      height:10px;
+      min-width:10px;
+      padding:0;
+      border:1.5px solid var(--blanco);
+      border-radius:999px;
+      background:transparent;
+      box-shadow:0 1px 8px color-mix(in srgb, var(--azul-acero) 55%, transparent);
+      transition:width .3s ease,background .3s ease;
+    }
+    .about-slideshow .about-dot.is-active {
+      width:28px;
+      background:var(--blanco);
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .about-slideshow .about-slide,
+      .about-slideshow .about-dot { transition:none; }
+    }
+
     .about-content p{line-height:1.9}
     .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:1px solid var(--gris-claro);padding-top:32px;margin-top:30px}
     .stat-number{font:800 clamp(2rem,4vw,3rem) var(--display);color:var(--verde)}
@@ -328,9 +374,22 @@
     <!-- 16. NOSOTROS -->
     <section class="section" id="nosotros" aria-labelledby="aboutTitle">
       <div class="container about-grid">
-        <div class="visual about-photo reveal">
-          <div class="placeholder">FOTO_NOSOTROS.jpg</div>
-          <img src="FOTO_NOSOTROS.jpg" alt="Tractor LOVOL trabajando en el campo" loading="lazy" onerror="this.hidden=true">
+        <div class="visual about-photo about-slideshow reveal" id="aboutSlideshow" role="region" aria-label="Fotografías de maquinaria LOVOL">
+          <div class="placeholder" aria-hidden="true">Fotografías de maquinaria LOVOL</div>
+          <img class="about-slide is-active" src="FOTO_NOSOTROS_01.jpg" alt="Cosechadora LOVOL roja, vista lateral de la maquinaria." loading="eager" decoding="async" aria-hidden="false">
+          <img class="about-slide" src="FOTO_NOSOTROS_02.jpg" alt="Cosechadora LOVOL roja y blanca, vista lateral." loading="eager" decoding="async" aria-hidden="true">
+          <img class="about-slide" src="FOTO_NOSOTROS_03.jpg" alt="Cosechadora LOVOL roja vista desde el frente y el lateral." loading="eager" decoding="async" aria-hidden="true">
+          <img class="about-slide" src="FOTO_NOSOTROS_04.jpg" alt="Cosechadora LOVOL con cabezal para maíz, vista frontal." loading="eager" decoding="async" aria-hidden="true">
+          <img class="about-slide" src="FOTO_NOSOTROS_05.jpg" alt="Cosechadora LOVOL roja con cabezal para maíz, vista diagonal." loading="eager" decoding="async" aria-hidden="true">
+          <img class="about-slide" src="FOTO_NOSOTROS_06.jpeg" alt="Cosechadora LOVOL roja de perfil, con cabezal agrícola." loading="eager" decoding="async" aria-hidden="true">
+          <div class="about-dots" role="group" aria-label="Seleccionar fotografía">
+            <button class="about-dot is-active" type="button" data-slide="0" aria-label="Mostrar foto 1 de 6" aria-pressed="true"></button>
+            <button class="about-dot" type="button" data-slide="1" aria-label="Mostrar foto 2 de 6" aria-pressed="false"></button>
+            <button class="about-dot" type="button" data-slide="2" aria-label="Mostrar foto 3 de 6" aria-pressed="false"></button>
+            <button class="about-dot" type="button" data-slide="3" aria-label="Mostrar foto 4 de 6" aria-pressed="false"></button>
+            <button class="about-dot" type="button" data-slide="4" aria-label="Mostrar foto 5 de 6" aria-pressed="false"></button>
+            <button class="about-dot" type="button" data-slide="5" aria-label="Mostrar foto 6 de 6" aria-pressed="false"></button>
+          </div>
         </div>
         <div class="reveal about-content">
           <span class="eyebrow"></span>
@@ -596,7 +655,91 @@
       document.querySelectorAll(".stat-number").forEach(el => obs.observe(el));
     }
 
-    /* 27. VIDEO, REPRODUCCIÓN Y PARALLAX */
+
+    /* 27.A Carrusel automático: seis fotos, fundido suave y repetición infinita. */
+    const aboutSlideshow = document.getElementById("aboutSlideshow");
+    if (aboutSlideshow) {
+      const slides = [...aboutSlideshow.querySelectorAll(".about-slide")];
+      const dots = [...aboutSlideshow.querySelectorAll(".about-dot")];
+      let currentSlide = 0;
+      let slideshowTimer = null;
+      let slideshowInView = false;
+      const slideInterval = 5000;
+
+      // Si alguna imagen no se ha subido todavía, omitirla sin romper el carrusel.
+      slides.forEach(img => {
+        const markFailed = () => {
+          img.dataset.failed = "true";
+          img.hidden = true;
+        };
+        img.addEventListener("error", markFailed);
+        if (img.complete && img.naturalWidth === 0) markFailed();
+      });
+
+      function showAboutSlide(index) {
+        if (!slides.length) return;
+        // Buscar la siguiente imagen disponible si algún archivo falta.
+        let next = ((index % slides.length) + slides.length) % slides.length;
+        let attempts = 0;
+        while (slides[next].dataset.failed === "true" && attempts < slides.length) {
+          next = (next + 1) % slides.length;
+          attempts++;
+        }
+        if (attempts === slides.length) return;
+        currentSlide = next;
+        slides.forEach((img, i) => {
+          const active = i === currentSlide;
+          img.classList.toggle("is-active", active);
+          img.setAttribute("aria-hidden", String(!active));
+        });
+        dots.forEach((dot, i) => {
+          const active = i === currentSlide;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-pressed", String(active));
+        });
+      }
+
+      function stopAboutSlideshow() {
+        if (slideshowTimer !== null) {
+          window.clearInterval(slideshowTimer);
+          slideshowTimer = null;
+        }
+      }
+
+      function startAboutSlideshow() {
+        stopAboutSlideshow();
+        if (reducirMovimiento || document.hidden || !slideshowInView) return;
+        slideshowTimer = window.setInterval(() => {
+          showAboutSlide(currentSlide + 1);
+        }, slideInterval);
+      }
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          showAboutSlide(Number(dot.dataset.slide));
+          startAboutSlideshow(); // Reiniciar la cuenta después de una selección manual.
+        });
+      });
+
+      if ("IntersectionObserver" in window) {
+        const visibilityObserver = new IntersectionObserver(entries => {
+          slideshowInView = entries[0].isIntersecting;
+          if (slideshowInView) startAboutSlideshow();
+          else stopAboutSlideshow();
+        }, { threshold: 0.15 });
+        visibilityObserver.observe(aboutSlideshow);
+      } else {
+        slideshowInView = true;
+        startAboutSlideshow();
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stopAboutSlideshow();
+        else startAboutSlideshow();
+      });
+    }
+
+        /* 27. VIDEO, REPRODUCCIÓN Y PARALLAX */
     const heroVideo = document.getElementById("heroVideo");
     heroVideo.muted = true;
     const reproduccion = heroVideo.play();
