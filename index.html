@@ -175,6 +175,156 @@
     .stat-number{font:800 clamp(2rem,4vw,3rem) var(--display);color:var(--verde)}
     .stat-label{font-size:.75rem;line-height:1.6;margin:8px 0 0}
 
+    
+    /* 5.A Tractor LOVOL 130 HP: fotografía completa sin recortes */
+    .tractor-photo--130 {
+      height: 345px;
+      background: var(--blanco);
+    }
+    .tractor-photo-trigger {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 12px;
+      background: var(--blanco);
+      border: 0;
+      cursor: zoom-in;
+    }
+    .tractor-photo-trigger img,
+    .visual .tractor-photo-trigger img {
+      position: static;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Nunca cortar el tractor */
+      object-position: center;
+      background: var(--blanco);
+      transform: none;
+    }
+    .visual:hover .tractor-photo-trigger img { transform: none; }
+    .tractor-photo-trigger:focus-visible { outline-offset: -4px; }
+    .tractor-photo-trigger .photo-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--verde);
+      background: var(--blanco);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 7px 10px;
+      border: 1px solid var(--gris-claro);
+      border-radius: 3px;
+    }
+    .tractor-photo-trigger .photo-hint svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+    /* Visor de las dos fotografías del tractor (PC y celular) */
+    .photo-viewer {
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      padding: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(15, 25, 25, .84);
+      backdrop-filter: blur(8px);
+    }
+    .photo-viewer[hidden] { display: none; }
+    .photo-viewer-panel {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: min(1050px, 96vw);
+      height: min(920px, 92dvh);
+      min-height: 0;
+      overflow: hidden;
+      background: var(--blanco);
+      border-radius: 6px;
+      box-shadow: 0 22px 80px rgba(0, 0, 0, .2);
+    }
+    .photo-viewer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px clamp(14px, 3vw, 28px);
+      border-bottom: 1px solid var(--gris-claro);
+    }
+    .photo-viewer-title {
+      margin: 0;
+      color: var(--verde);
+      font: 700 clamp(1.05rem, 2vw, 1.3rem)/1.3 var(--display);
+    }
+    .photo-viewer-close {
+      color: var(--verde);
+      background: transparent;
+      border: 0;
+      width: 34px;
+      height: 34px;
+      font-size: 30px;
+      line-height: 1;
+    }
+    .photo-viewer-stage {
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+      background: var(--blanco);
+      touch-action: pan-y;
+    }
+    .photo-viewer-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 8px clamp(38px, 6vw, 72px);
+      object-fit: contain; /* Fotografía COMPLETA con fondo blanco */
+      object-position: center center;
+      background: var(--blanco);
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .photo-viewer-nav {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      background: transparent; /* Flechas sin círculos ni fondos */
+      color: var(--verde);
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1;
+      transition: transform .2s ease;
+    }
+    .photo-viewer-nav:hover { transform: translateY(-50%) scale(1.12); }
+    .photo-viewer-prev { left: 3px; }
+    .photo-viewer-next { right: 3px; }
+    .photo-viewer-bottom {
+      padding: 11px 18px 16px;
+      border-top: 1px solid var(--gris-claro);
+      text-align: center;
+      color: var(--gris);
+      font-size: .8rem;
+    }
+    .photo-viewer-count { color: var(--verde); font-weight: 700; }
+    @media (max-width: 580px) {
+      .tractor-photo--130 { height: 295px; }
+      .photo-viewer { padding: 5px; }
+      .photo-viewer-panel { width: 100%; height: min(900px, 96dvh); }
+      .photo-viewer-image { padding-inline: 33px; }
+      .photo-viewer-nav { width: 32px; font-size: 35px; }
+    }
+
     /* 5. Catálogo: exactamente 2 tractores */
     .catalog{background:var(--azul-hielo)}
     .catalog-intro{margin-bottom:48px}
@@ -424,9 +574,15 @@
         </div>
         <div class="tractor-grid">
           <article class="tractor-card reveal">
-            <div class="visual tractor-photo">
-              <div class="placeholder">TRACTOR_01.jpg</div>
-              <img src="TRACTOR_01.jpg" alt="Tractor LOVOL Modelo 01" loading="lazy" onerror="this.hidden=true">
+            <!-- Foto principal del tractor de 130 HP: al pulsar, abre la galería -->
+            <div class="visual tractor-photo tractor-photo--130">
+              <button class="tractor-photo-trigger" id="openTractor130Photos" type="button" aria-label="Ver dos fotografías ampliadas del tractor LOVOL de 130 HP">
+                <img src="TRACTOR_130_01.jpg" alt="Tractor LOVOL de 130 HP azul, vista de tres cuartos" loading="lazy" decoding="async" width="1024" height="1536">
+                <span class="photo-hint" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5m-10.5-14v7m-3.5-3.5h7"/></svg>
+                  Ver 2 fotos
+                </span>
+              </button>
             </div>
             <div class="tractor-info">
               <span class="tractor-category">Tractor agrícola</span>
@@ -580,6 +736,26 @@
   <a href="https://wa.me/584143421151" class="whatsapp-float js-whatsapp" data-message="Hola, quisiera información y una cotización de tractores LOVOL." aria-label="Contactar por WhatsApp" title="Cotizar por WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
   </a>
+
+
+  <!-- Visor de imágenes del tractor LOVOL 130 HP: sin recortes -->
+  <div class="photo-viewer" id="tractor130Viewer" role="dialog" aria-modal="true" aria-labelledby="tractor130ViewerTitle" hidden>
+    <div class="photo-viewer-panel">
+      <div class="photo-viewer-head">
+        <h2 class="photo-viewer-title" id="tractor130ViewerTitle">LOVOL 130 HP · Fotografías</h2>
+        <button type="button" class="photo-viewer-close" id="tractor130Close" aria-label="Cerrar galería">&times;</button>
+      </div>
+      <div class="photo-viewer-stage" id="tractor130Stage">
+        <button type="button" class="photo-viewer-nav photo-viewer-prev" id="tractor130Prev" aria-label="Fotografía anterior">&#8249;</button>
+        <img class="photo-viewer-image" id="tractor130Image" src="TRACTOR_130_01.jpg" alt="Tractor LOVOL de 130 HP, vista de tres cuartos" draggable="false" width="1024" height="1536">
+        <button type="button" class="photo-viewer-nav photo-viewer-next" id="tractor130Next" aria-label="Fotografía siguiente">&#8250;</button>
+      </div>
+      <div class="photo-viewer-bottom">
+        <span class="photo-viewer-count" id="tractor130Count" aria-live="polite">1 / 2</span>
+        <span> · Desliza o usa las flechas para cambiar de foto</span>
+      </div>
+    </div>
+  </div>
 
   <!-- 23. VENTANA PARA MÁS INFORMACIÓN -->
   <div class="modal" id="tractorModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
@@ -803,6 +979,74 @@
       }, { passive: true });
     }
 
+
+    /* 27.B Galería del tractor LOVOL de 130 HP: ventana, flechas y swipe */
+    const tractor130Photos = [
+      { src: "TRACTOR_130_01.jpg", alt: "Tractor LOVOL de 130 HP, vista de tres cuartos" },
+      { src: "TRACTOR_130_02.jpg", alt: "Tractor LOVOL de 130 HP, vista frontal" }
+    ];
+    const tractor130Viewer = document.getElementById("tractor130Viewer");
+    const tractor130Image = document.getElementById("tractor130Image");
+    const tractor130Count = document.getElementById("tractor130Count");
+    const tractor130Close = document.getElementById("tractor130Close");
+    const tractor130Stage = document.getElementById("tractor130Stage");
+    let tractor130PhotoIndex = 0;
+    let tractor130FocusBefore = null;
+    let tractor130TouchStartX = null;
+    let tractor130TouchStartY = null;
+
+    function selectTractor130Photo(index) {
+      tractor130PhotoIndex = (index + tractor130Photos.length) % tractor130Photos.length;
+      const photo = tractor130Photos[tractor130PhotoIndex];
+      tractor130Image.src = photo.src;
+      tractor130Image.alt = photo.alt;
+      tractor130Count.textContent = `${tractor130PhotoIndex + 1} / ${tractor130Photos.length}`;
+    }
+
+    function openTractor130Viewer() {
+      tractor130FocusBefore = document.activeElement;
+      selectTractor130Photo(0);
+      tractor130Viewer.hidden = false;
+      document.body.classList.add("sin-scroll");
+      tractor130Close.focus();
+      // Carga anticipada de la segunda foto mientras se visualiza la primera.
+      const secondPhoto = new Image();
+      secondPhoto.src = tractor130Photos[1].src;
+    }
+
+    function closeTractor130Viewer() {
+      tractor130Viewer.hidden = true;
+      document.body.classList.remove("sin-scroll");
+      if (tractor130FocusBefore && typeof tractor130FocusBefore.focus === "function") {
+        tractor130FocusBefore.focus();
+      }
+    }
+
+    document.getElementById("openTractor130Photos").addEventListener("click", openTractor130Viewer);
+    tractor130Close.addEventListener("click", closeTractor130Viewer);
+    document.getElementById("tractor130Prev").addEventListener("click", () => selectTractor130Photo(tractor130PhotoIndex - 1));
+    document.getElementById("tractor130Next").addEventListener("click", () => selectTractor130Photo(tractor130PhotoIndex + 1));
+    tractor130Viewer.addEventListener("click", event => {
+      if (event.target === tractor130Viewer) closeTractor130Viewer();
+    });
+
+    // Deslizar el dedo horizontalmente entre las dos fotos (sin impedir el gesto vertical).
+    tractor130Stage.addEventListener("touchstart", event => {
+      if (event.touches.length !== 1) return;
+      tractor130TouchStartX = event.touches[0].clientX;
+      tractor130TouchStartY = event.touches[0].clientY;
+    }, { passive: true });
+    tractor130Stage.addEventListener("touchend", event => {
+      if (tractor130TouchStartX === null || !event.changedTouches.length) return;
+      const dx = event.changedTouches[0].clientX - tractor130TouchStartX;
+      const dy = event.changedTouches[0].clientY - tractor130TouchStartY;
+      tractor130TouchStartX = null;
+      tractor130TouchStartY = null;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        selectTractor130Photo(tractor130PhotoIndex + (dx < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+
     /* 28. VENTANAS DE LOS TRACTORES */
     const modal = document.getElementById("tractorModal");
     const modalClose = document.getElementById("modalClose");
@@ -825,6 +1069,20 @@
     modalClose.addEventListener("click", cerrarModal);
     modal.addEventListener("click", e => { if (e.target === modal) cerrarModal(); });
     document.addEventListener("keydown", e => {
+      // La galería de fotografías tiene prioridad cuando está abierta.
+      if (!tractor130Viewer.hidden) {
+        if (e.key === "Escape") { e.preventDefault(); closeTractor130Viewer(); return; }
+        if (e.key === "ArrowRight") { e.preventDefault(); selectTractor130Photo(tractor130PhotoIndex + 1); return; }
+        if (e.key === "ArrowLeft") { e.preventDefault(); selectTractor130Photo(tractor130PhotoIndex - 1); return; }
+        if (e.key === "Tab") {
+          const focusable = [...tractor130Viewer.querySelectorAll('button:not([disabled])')];
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+        return;
+      }
       if (e.key === "Escape") {
         if (!modal.hidden) cerrarModal(); else cerrarMenu();
       }
