@@ -150,7 +150,13 @@
     /* 7. Galería */
     .gallery-grid{display:grid;grid-template-columns:1.25fr .75fr;grid-template-rows:250px 250px;gap:18px;margin-top:50px}
     .gallery-item:first-child{grid-row:span 2}
-    .gallery-caption{position:absolute;bottom:23px;left:23px;font:700 clamp(1.15rem,2vw,1.6rem) var(--display);color:var(--blanco);text-shadow:0 2px 15px var(--azul-acero)}
+    .gallery-caption{position:absolute;bottom:23px;left:23px;z-index:2;font:700 clamp(1.15rem,2vw,1.6rem) var(--display);color:var(--blanco);text-shadow:0 2px 15px var(--azul-acero)}
+    /* Overlay suave: mantiene legibles las leyendas sin alterar las fotos originales. */
+    .gallery-item::after{content:"";position:absolute;inset:45% 0 0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,transparent,color-mix(in srgb,var(--azul-acero) 48%,transparent))}
+    /* Encuadre de cada foto para destacar el tractor en pantallas anchas. */
+    .gallery-item:nth-child(1) img{object-position:center 29%}
+    .gallery-item:nth-child(2) img{object-position:center 38%}
+    .gallery-item:nth-child(3) img{object-position:center center}
 
     /* 8. Contacto */
     .contact{background:var(--azul-hielo)}
@@ -407,9 +413,24 @@
           <p class="description">Descubre nuestra maquinaria en su elemento: el campo.</p>
         </div>
         <div class="gallery-grid">
-          <div class="visual gallery-item reveal"><div class="placeholder">GALERIA_01.jpg</div><img src="GALERIA_01.jpg" alt="Tractor LOVOL trabajando la tierra" loading="lazy" onerror="this.hidden=true"><span class="gallery-caption">Rendimiento en cada jornada.</span></div>
-          <div class="visual gallery-item reveal"><div class="placeholder">GALERIA_02.jpg</div><img src="GALERIA_02.jpg" alt="Maquinaria agrícola LOVOL" loading="lazy" onerror="this.hidden=true"><span class="gallery-caption">Tecnología agrícola.</span></div>
-          <div class="visual gallery-item reveal"><div class="placeholder">GALERIA_03.jpg</div><img src="GALERIA_03.jpg" alt="Tractor LOVOL en el campo" loading="lazy" onerror="this.hidden=true"><span class="gallery-caption">Potencia para avanzar.</span></div>
+          <!-- IMAGEN TRACTOR3: Rendimiento en cada jornada (cuadro grande a la izquierda) -->
+          <div class="visual gallery-item reveal">
+            <div class="placeholder">GALERIA_01.jpg</div>
+            <img src="GALERIA_01.jpg" alt="Tractor LOVOL azul transportando pasto cortado en el campo" loading="lazy" decoding="async" onerror="this.hidden=true">
+            <span class="gallery-caption">Rendimiento en cada jornada.</span>
+          </div>
+          <!-- IMAGEN TRACTOR1: Tecnología agrícola (cuadro superior derecho) -->
+          <div class="visual gallery-item reveal">
+            <div class="placeholder">GALERIA_02.jpg</div>
+            <img src="GALERIA_02.jpg" alt="Tractor LOVOL en terreno agrícola bajo cielo azul" loading="lazy" decoding="async" onerror="this.hidden=true">
+            <span class="gallery-caption">Tecnología agrícola.</span>
+          </div>
+          <!-- IMAGEN TRACTOR2: Potencia para avanzar (cuadro inferior derecho) -->
+          <div class="visual gallery-item reveal">
+            <div class="placeholder">GALERIA_03.jpg</div>
+            <img src="GALERIA_03.jpg" alt="Tractor LOVOL trabajando en un terreno fangoso" loading="lazy" decoding="async" onerror="this.hidden=true">
+            <span class="gallery-caption">Potencia para avanzar.</span>
+          </div>
         </div>
       </div>
     </section>
