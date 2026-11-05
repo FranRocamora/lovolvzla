@@ -1,3657 +1,634 @@
 <!DOCTYPE html>
 <html lang="es-VE">
-
 <head>
-  <!-- ==========================================
-       CONFIGURACIÓN Y SEO
-  ========================================== -->
-
+  <!-- SEO y configuración -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#00765A">
-
-  <meta
-    name="description"
-    content="Agromaquinaria Latina C.A Tractores LOVOL disponibles en Acarigua, Calabozo y Valencia, Venezuela. Cotizaciones por WhatsApp: +58 414 342 1151."
-  >
-
+  <meta name="description" content="Agromaquinaria Agrícola C.A. Tractores LOVOL disponibles en Acarigua, Calabozo y Valencia, Venezuela. Cotizaciones por WhatsApp: +58 414 342 1151.">
   <meta property="og:type" content="website">
-
-  <meta
-    property="og:title"
-    content="Agromaquinaria Latina C.A | Fuerza, Eficiencia y Durabilidad"
-  >
-
-  <meta
-    property="og:description"
-    content="La fuerza que mueve tu tierra. Tractores LOVOL en Acarigua, Calabozo y Valencia. Contáctanos para cotizar."
-  >
-
-  <title>Agromaquinaria Latina C.A | Tractores LOVOL</title>
-
+  <meta property="og:title" content="Agromaquinaria Agrícola C.A. | Fuerza, Eficiencia y Durabilidad">
+  <meta property="og:description" content="La fuerza que mueve tu tierra. Tractores LOVOL en Acarigua, Calabozo y Valencia. Contáctanos para cotizar.">
+  <title>Agromaquinaria Agrícola C.A. | Tractores LOVOL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-
-    /* ==========================================
-       01. COLORES Y ESTILOS GENERALES
-    ========================================== */
-
+    /* 1. Colores de marca y base */
     :root {
-      --verde: #00765A;
-      --blanco: #FFFFFF;
-      --gris: #777776;
-      --gris-claro: #DDDDDC;
-      --plata: #CCCCCC;
-
-      --azul: #0000FF;
-      --azul-medio: #70A0FF;
-      --azul-claro: #C6D9FF;
-      --azul-hielo: #E9F0FF;
-
-      --azul-acero: #6B78A4;
-      --azul-pizarra: #848FB3;
-      --azul-plata: #ACB3CC;
-
-      --display: 'Outfit', sans-serif;
-      --texto: 'Inter', sans-serif;
-
-      --suave: cubic-bezier(.22, 1, .36, 1);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--blanco);
-      color: var(--gris);
-      font-family: var(--texto);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body.sin-scroll {
-      overflow: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    img,
-    svg,
-    video {
-      display: block;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--azul-medio);
-      outline-offset: 3px;
-    }
-
-    .container {
-      width: min(90%, 1240px);
-      margin: auto;
-    }
-
-    .section {
-      padding: clamp(80px, 10vw, 130px) 0;
-    }
-
-    .eyebrow {
-      display: block;
-      color: var(--verde);
-      font-size: .73rem;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .title {
-      font: 700 clamp(2.5rem, 5.5vw, 4.8rem)/1.06 var(--display);
-      letter-spacing: -.045em;
-      color: var(--verde);
-      margin: 0 0 25px;
-    }
-
-    .description {
-      max-width: 650px;
-      font-size: 1rem;
-      line-height: 1.9;
-    }
-
-    .center {
-      text-align: center;
-    }
-
-    .center .description {
-      margin-inline: auto;
-    }
-
-
-    /* ==========================================
-       02. BOTONES
-    ========================================== */
-
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 13px;
-
-      min-height: 53px;
-      padding: 15px 24px;
-
-      border: 1px solid transparent;
-      border-radius: 3px;
-
-      font-size: .84rem;
-      font-weight: 700;
-
-      transition:
-        transform .3s var(--suave),
-        background .3s,
-        box-shadow .3s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-    }
-
-    .button-green {
-      background: var(--verde);
-      color: var(--blanco);
-    }
-
-    .button-green:hover {
-      box-shadow: 0 12px 28px
-        color-mix(in srgb, var(--verde) 30%, transparent);
-    }
-
-    .button-white {
-      background: var(--blanco);
-      color: var(--verde);
-    }
-
-    .button-white:hover {
-      background: var(--azul-hielo);
-    }
-
-    .button-outline {
-      color: var(--blanco);
-      border-color: var(--blanco);
-    }
-
-    .button-outline:hover {
-      background: var(--blanco);
-      color: var(--verde);
-    }
-
-
-    /* ==========================================
-       03. HEADER Y LOGO AGROMAQUINARIA
-
-       Archivo:
-       agromaquinaria agricola.png
-
-       SIN FONDO AÑADIDO
-    ========================================== */
-
-    .header {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 50;
-
-      height: 85px;
-
-      border-bottom: 1px solid
-        color-mix(in srgb, var(--blanco) 25%, transparent);
-
-      transition:
-        background .35s,
-        box-shadow .35s;
-    }
-
-    .header.scrolled,
-    .header.menu-open {
-      background: var(--blanco);
-
-      box-shadow: 0 8px 30px
-        color-mix(in srgb, var(--azul-acero) 17%, transparent);
-
-      border-color: var(--gris-claro);
-    }
-
-    .nav {
-      height: 100%;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      gap: 24px;
-    }
-
-    .header-logo {
-      flex-shrink: 0;
-
-      display: flex;
-      align-items: center;
-    }
-
-    .header-logo img {
-      display: block;
-
-      width: clamp(185px, 23vw, 280px);
-      height: auto;
-      max-height: 55px;
-
-      object-fit: contain;
-
-      background: transparent;
-      padding: 0;
-      border: 0;
-      box-shadow: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-
-      gap: clamp(13px, 2vw, 30px);
-    }
-
-    .nav-links a {
-      font-size: .8rem;
-      font-weight: 600;
-      color: var(--blanco);
-
-      transition: color .25s;
-    }
-
-    .nav-links a:hover {
-      color: var(--azul-claro);
-    }
-
-    .header.scrolled .nav-links a,
-    .header.menu-open .nav-links a {
-      color: var(--verde);
-    }
-
-    .nav-links .nav-cta,
-    .header.scrolled .nav-links .nav-cta {
-      background: var(--verde);
-      color: var(--blanco);
-
-      padding: 13px 17px;
-
-      border-radius: 3px;
-    }
-
-    .menu-toggle {
-      display: none;
-
-      background: transparent;
-      border: 0;
-
-      color: var(--blanco);
-      font-size: 29px;
-
-      padding: 5px;
-    }
-
-    .header.scrolled .menu-toggle,
-    .header.menu-open .menu-toggle {
-      color: var(--verde);
-    }
-
-
-    /* ==========================================
-       04. HERO CON VIDEO DE FONDO
-
-       Archivo:
-       TD904 TD1304.mp4
-    ========================================== */
-
-    .hero {
-      position: relative;
-      isolation: isolate;
-
-      min-height: 680px;
-      height: 100svh;
-      max-height: 1150px;
-
-      display: flex;
-      align-items: center;
-
-      overflow: hidden;
-
-      color: var(--blanco);
-
-      background: linear-gradient(
-        130deg,
-        var(--verde),
-        var(--azul-acero)
-      );
-    }
-
-    .hero-video {
-      position: absolute;
-
-      inset: -5% 0;
-
-      width: 100%;
-      height: 110%;
-
-      object-fit: cover;
-      object-position: center;
-
-      z-index: -3;
-
-      transform: translateY(var(--parallax, 0px));
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-
-      z-index: -2;
-
-      background: linear-gradient(
-        90deg,
-
-        color-mix(
-          in srgb,
-          var(--verde) 78%,
-          transparent
-        ) 0%,
-
-        color-mix(
-          in srgb,
-          var(--azul-acero) 48%,
-          transparent
-        ) 58%,
-
-        color-mix(
-          in srgb,
-          var(--azul-acero) 25%,
-          transparent
-        ) 100%
-      );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-
-      padding: 115px 0 90px;
-    }
-
-    .hero-eyebrow {
-      display: block;
-
-      font-size: .76rem;
-      font-weight: 700;
-
-      letter-spacing: .24em;
-      text-transform: uppercase;
-
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font: 800 clamp(3.5rem, 8vw, 7.8rem)/.98 var(--display);
-
-      letter-spacing: -.06em;
-
-      max-width: 1050px;
-
-      margin: 0 0 30px;
-    }
-
-    .hero p {
-      max-width: 580px;
-
-      font-size: clamp(1rem, 1.7vw, 1.2rem);
-      line-height: 1.8;
-
-      margin: 0 0 35px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .scroll-hint {
-      position: absolute;
-
-      bottom: 35px;
-      left: 5%;
-
-      font-size: .68rem;
-      letter-spacing: .19em;
-      text-transform: uppercase;
-
-      display: flex;
-      align-items: center;
-
-      gap: 15px;
-    }
-
-    .scroll-hint::before {
-      content: "";
-
-      width: 45px;
-      height: 1px;
-
-      background: var(--blanco);
-    }
-
-
-    /* ==========================================
-       05. NOSOTROS
-    ========================================== */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      gap: clamp(35px, 7vw, 95px);
-      align-items: center;
-    }
-
-    .visual {
-      position: relative;
-      overflow: hidden;
-
-      background: linear-gradient(
-        140deg,
-        var(--azul-hielo),
-        var(--azul-claro),
-        var(--azul-pizarra)
-      );
-
-      border-radius: 4px;
-    }
-
-    .about-photo {
-      height: 520px;
-    }
-
-    .visual img {
-      position: absolute;
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      transition: transform .7s var(--suave);
-    }
-
-    .visual:hover img {
-      transform: scale(1.05);
-    }
-
-    .visual img[hidden] {
-      display: none;
-    }
-
-    .placeholder {
-      position: absolute;
-      inset: 0;
-
-      display: grid;
-      place-items: center;
-
-      text-align: center;
-
-      font: 700 .74rem var(--display);
-      letter-spacing: .15em;
-
-      color: var(--azul-acero);
-
-      padding: 20px;
-    }
-
-    .about-content p {
-      line-height: 1.9;
-    }
-
-    .stats {
-      display: grid;
-
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-
-      gap: 18px;
-
-      border-top: 1px solid var(--gris-claro);
-
-      padding-top: 32px;
-      margin-top: 30px;
-    }
-
-    .stat-number {
-      font: 800 clamp(2rem, 4vw, 3rem) var(--display);
-      color: var(--verde);
-    }
-
-    .stat-label {
-      font-size: .75rem;
-      line-height: 1.6;
-
-      margin: 8px 0 0;
-    }
-
-
-    /* ==========================================
-       06. CATÁLOGO - SOLO 2 TRACTORES
-    ========================================== */
-
-    .catalog {
-      background: var(--azul-hielo);
-    }
-
-    .catalog-intro {
-      margin-bottom: 48px;
-    }
-
-    .tractor-grid {
-      display: grid;
-
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-
-      gap: 28px;
-    }
-
-    .tractor-card {
-      background: var(--blanco);
-
-      border: 1px solid var(--gris-claro);
-      border-radius: 4px;
-
-      overflow: hidden;
-
-      transition:
-        transform .45s var(--suave),
-        box-shadow .45s;
-    }
-
-    .tractor-card:hover {
-      transform: translateY(-8px);
-
-      box-shadow: 0 18px 45px
-        color-mix(
-          in srgb,
-          var(--azul-acero) 20%,
-          transparent
-        );
-    }
-
-    .tractor-photo {
-      height: 315px;
-    }
-
-    .tractor-info {
-      padding: 30px;
-    }
-
-    .tractor-category {
-      color: var(--verde);
-
-      font-size: .7rem;
-      font-weight: 700;
-
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-
-    .tractor-info h3 {
-      font: 700 1.65rem var(--display);
-      color: var(--verde);
-
-      margin: 14px 0 24px;
-    }
-
-    .specs {
-      display: flex;
-      justify-content: space-between;
-
-      gap: 12px;
-
-      border-top: 1px solid var(--gris-claro);
-      border-bottom: 1px solid var(--gris-claro);
-
-      padding: 17px 0;
-
-      font-size: .84rem;
-    }
-
-    .specs strong {
-      color: var(--verde);
-    }
-
-    .detail-button {
-      background: none;
-      border: 0;
-
-      padding: 24px 0 0;
-
-      color: var(--verde);
-
-      font-weight: 700;
-      font-size: .83rem;
-
-      display: flex;
-      gap: 12px;
-      align-items: center;
-
-      transition: gap .3s;
-    }
-
-    .detail-button:hover {
-      gap: 20px;
-    }
-
-    .catalog-note {
-      margin-top: 24px;
-
-      font-size: .74rem;
-      line-height: 1.8;
-    }
-
-
-    /* ==========================================
-       07. VENTAJAS
-
-       ICONOS LINEALES PREMIUM
-
-       NUEVO ICONO DE TUERCA
-    ========================================== */
-
-    .benefits {
-      display: grid;
-
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-
-      gap: 18px;
-
-      margin-top: 60px;
-    }
-
-    .benefit {
-      border-top: 2px solid var(--gris-claro);
-
-      padding: 30px 14px;
-
-      transition:
-        border-color .3s,
-        transform .3s;
-    }
-
-    .benefit:hover {
-      border-color: var(--verde);
-      transform: translateY(-4px);
-    }
-
-    .benefit-icon {
-      display: grid;
-      place-items: center;
-
-      width: 55px;
-      height: 55px;
-
-      border-radius: 50%;
-
-      background: var(--azul-hielo);
-      color: var(--verde);
-
-      margin-bottom: 25px;
-    }
-
-    .benefit-svg {
-      width: 25px;
-      height: 25px;
-
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.7;
-
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* Tuerca de repuestos: definición mejorada */
-
-    .benefit-icon .nut-icon {
-      width: 26px;
-      height: 26px;
-
-      stroke-width: 1.9;
-    }
-
-    .benefit h3 {
-      font: 700 1.2rem var(--display);
-
-      color: var(--verde);
-
-      margin: 0 0 14px;
-    }
-
-    .benefit p {
-      font-size: .8rem;
-      line-height: 1.8;
-
-      margin: 0;
-    }
-
-
-    /* ==========================================
-       08. GALERÍA
-    ========================================== */
-
-    .gallery-grid {
-      display: grid;
-
-      grid-template-columns: 1.25fr .75fr;
-      grid-template-rows: 250px 250px;
-
-      gap: 18px;
-
-      margin-top: 50px;
-    }
-
-    .gallery-item:first-child {
-      grid-row: span 2;
-    }
-
-    .gallery-caption {
-      position: absolute;
-
-      bottom: 23px;
-      left: 23px;
-
-      font: 700 clamp(1.15rem, 2vw, 1.6rem) var(--display);
-
-      color: var(--blanco);
-
-      text-shadow: 0 2px 15px var(--azul-acero);
-    }
-
-
-    /* ==========================================
-       09. CONTACTO
-    ========================================== */
-
-    .contact {
-      background: var(--azul-hielo);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      gap: clamp(35px, 7vw, 95px);
-    }
-
-    .contact-detail {
-      padding: 20px 0;
-
-      border-bottom: 1px solid var(--gris-claro);
-    }
-
-    .contact-detail strong {
-      display: block;
-
-      color: var(--verde);
-
-      letter-spacing: .15em;
-      text-transform: uppercase;
-
-      font-size: .72rem;
-
-      margin-bottom: 10px;
-    }
-
-    .contact-detail a {
-      color: var(--verde);
-      font-weight: 600;
-
-      overflow-wrap: anywhere;
-    }
-
-    .contact-detail a:hover {
-      text-decoration: underline;
-    }
-
-    .cities {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 9px;
-      margin-top: 14px;
-    }
-
-    .city {
-      border: 1px solid var(--azul-plata);
-      border-radius: 3px;
-
-      padding: 9px 13px;
-
-      color: var(--verde);
-      background: var(--blanco);
-
-      font-size: .83rem;
-      font-weight: 700;
-    }
-
-    .availability-note {
-      font-size: .78rem;
-      line-height: 1.7;
-
-      margin-top: 13px;
-    }
-
-    .contact-form {
-      background: var(--blanco);
-
-      padding: clamp(24px, 4vw, 48px);
-
-      border-radius: 4px;
-
-      box-shadow: 0 18px 50px
-        color-mix(
-          in srgb,
-          var(--azul-acero) 18%,
-          transparent
-        );
-    }
-
-    .contact-form h3 {
-      font: 700 1.9rem var(--display);
-
-      color: var(--verde);
-
-      margin: 0 0 25px;
-    }
-
-    .form-group {
-      margin-bottom: 19px;
-    }
-
-    .form-group label {
-      display: block;
-
-      color: var(--verde);
-
-      font-size: .79rem;
-      font-weight: 700;
-
-      margin-bottom: 9px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      display: block;
-
-      width: 100%;
-
-      border: 1px solid var(--gris-claro);
-
-      background: var(--blanco);
-      color: var(--gris);
-
-      border-radius: 3px;
-
-      outline: 0;
-      padding: 14px;
-    }
-
-    .form-group :is(input, select, textarea):focus {
-      border-color: var(--verde);
-    }
-
-    .form-group textarea {
-      height: 120px;
-      resize: vertical;
-    }
-
-    .contact-form .button {
-      width: 100%;
-    }
-
-
-    /* ==========================================
-       10. FOOTER
-
-       LOGO:
-       agromaquinaria.png
-
-       SIN FONDO AÑADIDO
-    ========================================== */
-
-    .footer {
-      background: var(--blanco);
-
-      border-top: 1px solid var(--gris-claro);
-
-      padding: 80px 0 28px;
-    }
-
-    .footer-grid {
-      display: grid;
-
-      grid-template-columns: 2fr 1fr 1fr;
-
-      gap: 50px;
-      margin-bottom: 60px;
-    }
-
-    .footer-logo {
-      display: inline-block;
-      max-width: 100%;
-    }
-
-    .footer-logo img {
-      width: min(360px, 100%);
-      height: auto;
-
-      object-fit: contain;
-
-      background: transparent;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .footer-about p {
-      max-width: 370px;
-
-      font-size: .87rem;
-      line-height: 1.85;
-    }
-
-    .footer-rif {
-      display: block;
-
-      color: var(--verde);
-
-      font-size: .81rem;
-      font-weight: 700;
-
-      margin-top: 10px;
-    }
-
-    .footer-col h4 {
-      font: 700 1.1rem var(--display);
-
-      color: var(--verde);
-
-      margin: 0 0 22px;
-    }
-
-    .footer-col a {
-      display: block;
-
-      font-size: .84rem;
-      margin-bottom: 14px;
-
-      transition: color .2s;
-    }
-
-    .footer-col a:hover {
-      color: var(--verde);
-    }
-
-    /* CONTACTO: SOLO WHATSAPP, CORREO E INSTAGRAM */
-
-    .footer-socials {
-      display: flex;
-      align-items: center;
-
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .footer-col .footer-social {
-      display: grid;
-      place-items: center;
-
-      width: 49px;
-      height: 49px;
-
-      margin: 0;
-
-      border: 1px solid var(--gris-claro);
-      border-radius: 50%;
-
-      background: transparent;
-      color: var(--verde);
-
-      transition:
-        background .25s,
-        color .25s,
-        transform .25s,
-        border-color .25s;
-    }
-
-    .footer-col .footer-social:hover {
-      background: var(--verde);
-      color: var(--blanco);
-
-      border-color: var(--verde);
-
-      transform: translateY(-3px);
-    }
-
-    .footer-social svg {
-      width: 24px;
-      height: 24px;
-
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.7;
-
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .footer-social .social-brand {
-      fill: currentColor;
-      stroke: none;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-
-      gap: 20px;
-
-      border-top: 1px solid var(--gris-claro);
-
-      padding-top: 25px;
-
-      font-size: .75rem;
-    }
-
-
-    /* ==========================================
-       11. WHATSAPP FLOTANTE
-
-       LOGO SVG DE WHATSAPP
-    ========================================== */
-
-    .whatsapp-float {
-      position: fixed;
-
-      right: 25px;
-      bottom: 25px;
-
-      z-index: 45;
-
-      width: 60px;
-      height: 60px;
-
-      border-radius: 50%;
-
-      display: grid;
-      place-items: center;
-
-      background: var(--verde);
-      color: var(--blanco);
-
-      box-shadow: 0 11px 28px
-        color-mix(
-          in srgb,
-          var(--verde) 35%,
-          transparent
-        );
-
-      transition: transform .3s;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.08);
-    }
-
-    .whatsapp-float svg {
-      width: 32px;
-      height: 32px;
-
-      fill: currentColor;
-      stroke: none;
-    }
-
-
-    /* ==========================================
-       12. MODAL DE INFORMACIÓN
-    ========================================== */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-
-      z-index: 100;
-
-      display: grid;
-      place-items: center;
-
-      padding: 20px;
-
-      background: color-mix(
-        in srgb,
-        var(--azul-acero) 82%,
-        transparent
-      );
-
-      backdrop-filter: blur(6px);
-    }
-
-    .modal[hidden] {
-      display: none;
-    }
-
-    .modal-box {
-      position: relative;
-
-      width: min(100%, 530px);
-      max-height: 90dvh;
-
-      overflow: auto;
-
-      border-radius: 4px;
-
-      background: var(--blanco);
-
-      padding: clamp(25px, 5vw, 48px);
-    }
-
-    .modal-box h2 {
-      font: 700 2rem var(--display);
-
-      color: var(--verde);
-
-      margin: 0 0 18px;
-    }
-
-    .modal-box p {
-      line-height: 1.85;
-    }
-
-    .modal-close {
-      position: absolute;
-
-      right: 20px;
-      top: 10px;
-
-      background: none;
-      border: 0;
-
-      color: var(--verde);
-
-      font-size: 2rem;
-    }
-
-
-    /* ==========================================
-       13. ANIMACIONES
-    ========================================== */
-
-    .reveal {
-      opacity: 1;
-      transform: none;
-    }
-
-    .js .reveal {
-      opacity: 0;
-
-      transform: translateY(28px);
-
-      transition:
-        opacity .8s var(--suave),
-        transform .8s var(--suave);
-    }
-
-    .js .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-
-    /* ==========================================
-       14. RESPONSIVE TABLETS
-    ========================================== */
-
-    @media (max-width: 1100px) {
-
-      .benefits {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .about-grid {
-        gap: 40px;
-      }
-
-    }
-
-
-    /* ==========================================
-       15. RESPONSIVE CELULARES
-    ========================================== */
-
-    @media (max-width: 820px) {
-
-      .header {
-        height: 75px;
-      }
-
-      .nav {
-        height: 75px;
-      }
-
-      .header-logo img {
-        width: clamp(145px, 42vw, 210px);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-
-        position: absolute;
-
-        top: 75px;
-        left: 0;
-
-        width: 100%;
-
-        max-height: calc(100dvh - 75px);
-
-        overflow: auto;
-
-        background: var(--blanco);
-
-        padding: 24px 5% 34px;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 0;
-
-        box-shadow: 0 18px 35px
-          color-mix(
-            in srgb,
-            var(--azul-acero) 18%,
-            transparent
-          );
-      }
-
-      .header.menu-open .nav-links {
-        display: flex;
-      }
-
-      .header .nav-links a {
-        color: var(--verde);
-
-        padding: 13px 5px;
-
-        font-size: 1rem;
-      }
-
-      .header .nav-links .nav-cta {
-        color: var(--blanco);
-
-        text-align: center;
-        margin-top: 12px;
-      }
-
-      .hero h1 {
-        font-size: clamp(3.2rem, 10vw, 5.8rem);
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-photo {
-        height: 360px;
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-about {
-        grid-column: 1 / -1;
-      }
-
-    }
-
-
-    @media (max-width: 580px) {
-
-      .section {
-        padding: 80px 0;
-      }
-
-      .hero {
-        min-height: 650px;
-        max-height: none;
-      }
-
-      .hero-content {
-        padding-top: 125px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.9rem, 11.8vw, 4.9rem);
-      }
-
-      .hero-overlay {
-        background: linear-gradient(
-          90deg,
-
-          color-mix(
-            in srgb,
-            var(--verde) 87%,
-            transparent
-          ),
-
-          color-mix(
-            in srgb,
-            var(--azul-acero) 55%,
-            transparent
-          )
-        );
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-
-        max-width: 310px;
-      }
-
-      .scroll-hint {
-        bottom: 20px;
-      }
-
-      .tractor-grid,
-      .benefits {
-        grid-template-columns: 1fr;
-      }
-
-      .tractor-photo {
-        height: 260px;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 240px);
-      }
-
-      .gallery-item:first-child {
-        grid-row: auto;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-      }
-
-      .footer-logo img {
-        width: min(310px, 100%);
-      }
-
-      .whatsapp-float {
-        width: 54px;
-        height: 54px;
-
-        right: 18px;
-        bottom: 18px;
-      }
-
+      --verde:#00765A; --blanco:#FFFFFF; --gris:#777776;
+      --gris-claro:#DDDDDC; --plata:#CCCCCC; --azul:#0000FF;
+      --azul-medio:#70A0FF; --azul-claro:#C6D9FF;
+      --azul-hielo:#E9F0FF; --azul-acero:#6B78A4;
+      --azul-pizarra:#848FB3; --azul-plata:#ACB3CC;
+      --display:'Outfit',sans-serif; --texto:'Inter',sans-serif;
+      --suave:cubic-bezier(.22,1,.36,1);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:85px}
+    body{margin:0;background:var(--blanco);color:var(--gris);font-family:var(--texto);-webkit-font-smoothing:antialiased}
+    body.sin-scroll{overflow:hidden}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    img,svg,video{display:block}
+    img{max-width:100%}
+    :focus-visible{outline:3px solid var(--azul-medio);outline-offset:3px}
+    .container{width:min(90%,1240px);margin:auto}
+    .section{padding:clamp(80px,10vw,130px) 0}
+    .eyebrow{display:block;color:var(--verde);font-size:.73rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px}
+    .title{font:700 clamp(2.5rem,5.5vw,4.8rem)/1.06 var(--display);letter-spacing:-.045em;color:var(--verde);margin:0 0 25px}
+    .description{max-width:650px;font-size:1rem;line-height:1.9}
+    .center{text-align:center}
+    .center .description{margin-inline:auto}
+    .button{display:inline-flex;justify-content:center;align-items:center;gap:13px;min-height:53px;padding:15px 24px;border:1px solid transparent;border-radius:3px;font-size:.84rem;font-weight:700;transition:transform .3s var(--suave),background .3s,box-shadow .3s}
+    .button:hover{transform:translateY(-3px)}
+    .button-green{background:var(--verde);color:var(--blanco)}
+    .button-green:hover{box-shadow:0 12px 28px color-mix(in srgb,var(--verde) 30%,transparent)}
+    .button-white{background:var(--blanco);color:var(--verde)}
+    .button-white:hover{background:var(--azul-hielo)}
+    .button-outline{color:var(--blanco);border-color:var(--blanco)}
+    .button-outline:hover{background:var(--blanco);color:var(--verde)}
+
+    /* Flecha diagonal blanca, dibujada como la referencia y ajustada al botón */
+    .button-arrow{
+      display:block;
+      width:18px;
+      height:18px;
+      flex:0 0 18px;
+      fill:none;
+      stroke:var(--blanco);
+      stroke-width:3.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+    /* En botones blancos, la flecha sigue blanca dentro de un pequeño círculo verde.
+       En los botones transparentes la misma solución mantiene el icono visible al pasar el cursor. */
+    .button-white .button-arrow,
+    .button-outline .button-arrow{
+      padding:5px;
+      box-sizing:content-box;
+      background:var(--verde);
+      border-radius:50%;
+    }
+
+
+    /* 2. Menú fijo y logo horizontal sin fondo añadido */
+    .header{position:fixed;inset:0 0 auto;z-index:50;height:85px;border-bottom:1px solid color-mix(in srgb,var(--blanco) 25%,transparent);transition:background .35s,box-shadow .35s}
+    .header.scrolled,.header.menu-open{background:var(--blanco);box-shadow:0 8px 30px color-mix(in srgb,var(--azul-acero) 17%,transparent);border-color:var(--gris-claro)}
+    .nav{height:100%;display:flex;justify-content:space-between;align-items:center;gap:24px}
+    .header-logo{flex-shrink:0;display:flex;align-items:center}
+    .header-logo img{display:block;width:clamp(185px,23vw,280px);height:auto;max-height:55px;object-fit:contain;background:transparent;padding:0;border:0;box-shadow:none}
+    .nav-links{display:flex;align-items:center;gap:clamp(13px,2vw,30px)}
+    .nav-links a{font-size:.8rem;font-weight:600;color:var(--blanco);transition:color .25s}
+    .nav-links a:hover{color:var(--azul-claro)}
+    .header.scrolled .nav-links a,.header.menu-open .nav-links a{color:var(--verde)}
+    .nav-links .nav-cta,.header.scrolled .nav-links .nav-cta{background:var(--verde);color:var(--blanco);padding:13px 17px;border-radius:3px}
+    .menu-toggle{display:none;background:transparent;border:0;color:var(--blanco);font-size:29px;padding:5px}
+    .header.scrolled .menu-toggle,.header.menu-open .menu-toggle{color:var(--verde)}
+
+    /* 3. Hero cinematográfico con video TD904 TD1304.mp4 */
+    .hero{position:relative;isolation:isolate;min-height:680px;height:100svh;max-height:1150px;display:flex;align-items:center;overflow:hidden;color:var(--blanco);background:linear-gradient(130deg,var(--verde),var(--azul-acero))}
+    .hero-video{position:absolute;inset:-5% 0;width:100%;height:110%;object-fit:cover;object-position:center;z-index:-3;transform:translateY(var(--parallax,0px))}
+    .hero-overlay{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,color-mix(in srgb,var(--verde) 78%,transparent) 0%,color-mix(in srgb,var(--azul-acero) 48%,transparent) 58%,color-mix(in srgb,var(--azul-acero) 25%,transparent) 100%)}
+    .hero-content{position:relative;z-index:2;padding:115px 0 90px}
+    .hero-eyebrow{display:block;font-size:.76rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;margin-bottom:28px}
+    .hero h1{font:800 clamp(3.5rem,8vw,7.8rem)/.98 var(--display);letter-spacing:-.06em;max-width:1050px;margin:0 0 30px}
+    .hero p{max-width:580px;font-size:clamp(1rem,1.7vw,1.2rem);line-height:1.8;margin:0 0 35px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+    .scroll-hint{position:absolute;bottom:35px;left:5%;font-size:.68rem;letter-spacing:.19em;text-transform:uppercase;display:flex;align-items:center;gap:15px}
+    .scroll-hint::before{content:"";width:45px;height:1px;background:var(--blanco)}
+
+    /* 4. Nosotros y cifras */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(35px,7vw,95px);align-items:center}
+    .visual{position:relative;overflow:hidden;background:linear-gradient(140deg,var(--azul-hielo),var(--azul-claro),var(--azul-pizarra));border-radius:4px}
+    .about-photo{height:520px}
+    .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--suave)}
+    .visual:hover img{transform:scale(1.05)}
+    .visual img[hidden]{display:none}
+    .placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:700 .74rem var(--display);letter-spacing:.15em;color:var(--azul-acero);padding:20px}
+    .about-content p{line-height:1.9}
+    .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:1px solid var(--gris-claro);padding-top:32px;margin-top:30px}
+    .stat-number{font:800 clamp(2rem,4vw,3rem) var(--display);color:var(--verde)}
+    .stat-label{font-size:.75rem;line-height:1.6;margin:8px 0 0}
+
+    /* 5. Catálogo: exactamente 2 tractores */
+    .catalog{background:var(--azul-hielo)}
+    .catalog-intro{margin-bottom:48px}
+    .tractor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+    .tractor-card{background:var(--blanco);border:1px solid var(--gris-claro);border-radius:4px;overflow:hidden;transition:transform .45s var(--suave),box-shadow .45s}
+    .tractor-card:hover{transform:translateY(-8px);box-shadow:0 18px 45px color-mix(in srgb,var(--azul-acero) 20%,transparent)}
+    .tractor-photo{height:315px}
+    .tractor-info{padding:30px}
+    .tractor-category{color:var(--verde);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .tractor-info h3{font:700 1.65rem var(--display);color:var(--verde);margin:14px 0 24px}
+    .specs{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--gris-claro);border-bottom:1px solid var(--gris-claro);padding:17px 0;font-size:.84rem}
+    .specs strong{color:var(--verde)}
+    .detail-button{background:none;border:0;padding:24px 0 0;color:var(--verde);font-weight:700;font-size:.83rem;display:flex;gap:12px;align-items:center}
+    .detail-button:hover{gap:20px}
+    .catalog-note{margin-top:24px;font-size:.74rem;line-height:1.8}
+
+    /* 6. Ventajas */
+    .benefits{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin-top:60px}
+    .benefit{border-top:2px solid var(--gris-claro);padding:30px 14px;transition:border-color .3s,transform .3s}
+    .benefit:hover{border-color:var(--verde);transform:translateY(-4px)}
+    .benefit-icon{display:grid;place-items:center;width:55px;height:55px;border-radius:50%;background:var(--azul-hielo);color:var(--verde);font-size:1.7rem;margin-bottom:25px}
+    /* Iconografía lineal premium: el mismo estilo de la primera versión */
+    .benefit-svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .benefit-icon .nut-icon{width:26px;height:26px;stroke-width:1.9}
+    .benefit h3{font:700 1.2rem var(--display);color:var(--verde);margin:0 0 14px}
+    .benefit p{font-size:.8rem;line-height:1.8;margin:0}
+
+    /* 7. Galería */
+    .gallery-grid{display:grid;grid-template-columns:1.25fr .75fr;grid-template-rows:250px 250px;gap:18px;margin-top:50px}
+    .gallery-item:first-child{grid-row:span 2}
+    .gallery-caption{position:absolute;bottom:23px;left:23px;font:700 clamp(1.15rem,2vw,1.6rem) var(--display);color:var(--blanco);text-shadow:0 2px 15px var(--azul-acero)}
+
+    /* 8. Contacto */
+    .contact{background:var(--azul-hielo)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(35px,7vw,95px)}
+    .contact-detail{padding:20px 0;border-bottom:1px solid var(--gris-claro)}
+    .contact-detail strong{display:block;color:var(--verde);letter-spacing:.15em;text-transform:uppercase;font-size:.72rem;margin-bottom:10px}
+    .contact-detail a{color:var(--verde);font-weight:600;overflow-wrap:anywhere}
+    .contact-detail a:hover{text-decoration:underline}
+    .cities{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+    .city{border:1px solid var(--azul-plata);border-radius:3px;padding:9px 13px;color:var(--verde);background:var(--blanco);font-size:.83rem;font-weight:700}
+    .availability-note{font-size:.78rem;line-height:1.7;margin-top:13px}
+
+    .contact-form{background:var(--blanco);padding:clamp(24px,4vw,48px);border-radius:4px;box-shadow:0 18px 50px color-mix(in srgb,var(--azul-acero) 18%,transparent)}
+    .contact-form h3{font:700 1.9rem var(--display);color:var(--verde);margin:0 0 25px}
+    .form-group{margin-bottom:19px}
+    .form-group label{display:block;color:var(--verde);font-size:.79rem;font-weight:700;margin-bottom:9px}
+    .form-group input,.form-group select,.form-group textarea{display:block;width:100%;border:1px solid var(--gris-claro);background:var(--blanco);color:var(--gris);border-radius:3px;outline:0;padding:14px}
+    .form-group :is(input,select,textarea):focus{border-color:var(--verde)}
+    .form-group textarea{height:120px;resize:vertical}
+    .contact-form .button{width:100%}
+
+    /* 9. Footer: nuevo logo agromaquinaria.png, sin fondos añadidos */
+    .footer{background:var(--blanco);border-top:1px solid var(--gris-claro);padding:80px 0 28px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:60px}
+    .footer-logo{display:inline-block;max-width:100%}
+    .footer-logo img{width:min(360px,100%);height:auto;object-fit:contain;background:transparent;padding:0;border:0;border-radius:0;box-shadow:none}
+    .footer-about p{max-width:370px;font-size:.87rem;line-height:1.85}
+    .footer-rif{display:block;color:var(--verde);font-size:.81rem;font-weight:700;margin-top:10px}
+    .footer-col a[href^="mailto:"],.footer-col a[href^="tel:"]{overflow-wrap:anywhere}
+
+    .footer-col h4{font:700 1.1rem var(--display);color:var(--verde);margin:0 0 22px}
+    .footer-col a{display:block;font-size:.84rem;margin-bottom:14px;transition:color .2s}
+    .footer-col a:hover{color:var(--verde)}
+    /* Solo los tres iconos de contacto, sin etiquetas adicionales */
+    .footer-socials{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .footer-col .footer-social{display:grid;place-items:center;width:49px;height:49px;margin:0;border:1px solid var(--gris-claro);border-radius:50%;background:transparent;color:var(--verde);transition:background .25s,color .25s,transform .25s,border-color .25s}
+    .footer-col .footer-social:hover{background:var(--verde);color:var(--blanco);border-color:var(--verde);transform:translateY(-3px)}
+    .footer-social svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .footer-social .social-brand{fill:currentColor;stroke:none}
+
+    .footer-bottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--gris-claro);padding-top:25px;font-size:.75rem}
+
+    /* 10. WhatsApp y ventana de información */
+    .whatsapp-float{position:fixed;right:25px;bottom:25px;z-index:45;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--verde);color:var(--blanco);font:bold 1.45rem var(--texto);box-shadow:0 11px 28px color-mix(in srgb,var(--verde) 35%,transparent);transition:transform .3s}
+    .whatsapp-float:hover{transform:scale(1.08)}
+    .whatsapp-float svg{width:32px;height:32px;fill:currentColor;stroke:none}
+    .modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:color-mix(in srgb,var(--azul-acero) 82%,transparent);backdrop-filter:blur(6px)}
+    .modal[hidden]{display:none}
+    .modal-box{position:relative;width:min(100%,530px);max-height:90dvh;overflow:auto;border-radius:4px;background:var(--blanco);padding:clamp(25px,5vw,48px)}
+    .modal-box h2{font:700 2rem var(--display);color:var(--verde);margin:0 0 18px}
+    .modal-box p{line-height:1.85}
+    .modal-close{position:absolute;right:20px;top:10px;background:none;border:0;color:var(--verde);font-size:2rem}
+
+    /* 11. Animaciones discretas */
+    .reveal{opacity:1;transform:none}
+    .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--suave),transform .8s var(--suave)}
+    .js .reveal.visible{opacity:1;transform:none}
+
+    /* 12. Tablets */
+    @media(max-width:1100px){
+      .benefits{grid-template-columns:repeat(3,1fr)}
+      .nav-links{gap:14px}
+      .about-grid{gap:40px}
+    }
+    /* 13. Celulares */
+    @media(max-width:820px){
+      .header{height:75px}
+      .nav{height:75px}
+      .header-logo img{width:clamp(145px,42vw,210px)}
+      .menu-toggle{display:block}
+      .nav-links{display:none;position:absolute;top:75px;left:0;width:100%;max-height:calc(100dvh - 75px);overflow:auto;background:var(--blanco);padding:24px 5% 34px;flex-direction:column;align-items:stretch;gap:0;box-shadow:0 18px 35px color-mix(in srgb,var(--azul-acero) 18%,transparent)}
+      .header.menu-open .nav-links{display:flex}
+      .header .nav-links a{color:var(--verde);padding:13px 5px;font-size:1rem}
+      .header .nav-links .nav-cta{color:var(--blanco);text-align:center;margin-top:12px}
+      .hero h1{font-size:clamp(3.2rem,10vw,5.8rem)}
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .about-photo{height:360px}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-about{grid-column:1 / -1}
+    }
+    @media(max-width:580px){
+      .section{padding:80px 0}
+      .hero{min-height:650px;max-height:none}
+      .hero-content{padding-top:125px}
+      .hero h1{font-size:clamp(2.9rem,11.8vw,4.9rem)}
+      .hero-overlay{background:linear-gradient(90deg,color-mix(in srgb,var(--verde) 87%,transparent),color-mix(in srgb,var(--azul-acero) 55%,transparent))}
+      .hero-actions{flex-direction:column;align-items:stretch;max-width:310px}
+      .scroll-hint{bottom:20px}
+      .tractor-grid,.benefits{grid-template-columns:1fr}
+      .tractor-photo{height:260px}
+      .gallery-grid{grid-template-columns:1fr;grid-template-rows:repeat(3,240px)}
+      .gallery-item:first-child{grid-row:auto}
+      .footer-bottom{flex-direction:column}
+      .footer-logo img{width:min(310px,100%)}
+      .whatsapp-float{width:54px;height:54px;right:18px;bottom:18px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+      .js .reveal{opacity:1;transform:none}
     }
-
-
-    /* ==========================================
-       16. ACCESIBILIDAD
-    ========================================== */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-
-      .js .reveal {
-        opacity: 1;
-        transform: none;
-      }
-
-    }
-
   </style>
-
 </head>
 
-
 <body>
-
-  <!-- ==========================================
-       17. ICONOS SVG
-
-       TODOS INTEGRADOS EN EL HTML
-    ========================================== -->
-
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    style="position:absolute;width:0;height:0;overflow:hidden"
-  >
-
-    <!-- WHATSAPP -->
-
+  <!-- Iconos SVG integrados: nítidos en pantalla y sin fuentes externas -->
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
     <symbol id="icon-whatsapp" viewBox="0 0 24 24">
-
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.767.967-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.148-.174.198-.298.297-.496.1-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.009-.372-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.875 1.213 3.073c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.005-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.464h-.004a9.936 9.936 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.93 9.93 0 0 1-1.523-5.313c.002-5.49 4.468-9.955 9.958-9.955a9.892 9.892 0 0 1 7.046 2.919 9.89 9.89 0 0 1 2.912 7.05c-.002 5.49-4.469 9.955-9.959 9.955m8.473-18.42A11.92 11.92 0 0 0 12.05 0C5.495 0 .16 5.335 .158 11.89c-.001 2.096.547 4.14 1.588 5.946L.057 24l6.315-1.656a11.85 11.85 0 0 0 5.674 1.446h.005c6.554 0 11.891-5.335 11.894-11.89A11.821 11.821 0 0 0 20.524 3.426"/>
-
     </symbol>
-
-
-    <!-- CORREO -->
-
     <symbol id="icon-email" viewBox="0 0 24 24">
-
       <rect x="3" y="5" width="18" height="14" rx="2"/>
-
       <path d="m3 7 9 7 9-7"/>
-
     </symbol>
-
-
-    <!-- INSTAGRAM -->
-
     <symbol id="icon-instagram" viewBox="0 0 24 24">
-
-      <rect
-        x="2.5"
-        y="2.5"
-        width="19"
-        height="19"
-        rx="5"
-      />
-
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
       <circle cx="12" cy="12" r="4.2"/>
-
-      <circle
-        cx="17.5"
-        cy="6.8"
-        r=".8"
-        fill="currentColor"
-        stroke="none"
-      />
-
+      <circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none"/>
     </symbol>
-
-
-    <!-- POTENCIA -->
-
-    <symbol id="icon-power" viewBox="0 0 24 24">
-
-      <path
-        d="M12 3 4 13h7l-1 8L20 9h-7l1-6z"
-      />
-
-    </symbol>
-
-
-    <!-- DURABILIDAD -->
-
-    <symbol id="icon-durable" viewBox="0 0 24 24">
-
-      <path
-        d="M12 2 20 6v6c0 5-3 8-8 10-5-2-8-5-8-10V6z"
-      />
-
-      <path
-        d="m9 12 2 2 4-4"
-      />
-
-    </symbol>
-
-
-    <!-- ==========================================
-         REPUESTOS
-
-         NUEVO ICONO DE TUERCA
-
-         CONTORNO MECÁNICO Y ORIFICIO CENTRAL
-    ========================================== -->
-
+    <!-- Flecha diagonal del diseño entregado: trazo grueso y puntas redondeadas -->
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M5.2 18.8 18.8 5.2 M8.2 5.2h10.6v10.6"/></symbol>
+    <symbol id="icon-power" viewBox="0 0 24 24"><path d="M12 3 4 13h7l-1 8L20 9h-7l1-6z"/></symbol>
+    <symbol id="icon-durable" viewBox="0 0 24 24"><path d="M12 2 20 6v6c0 5-3 8-8 10-5-2-8-5-8-10V6z"/><path d="m9 12 2 2 4-4"/></symbol>
     <symbol id="icon-parts" viewBox="0 0 24 24">
-
-      <path
-        d="M9 3.5h6l4.5 4.5v6L15 20.5H9L4.5 15V9L9 3.5z"
-      />
-
-      <circle
-        cx="12"
-        cy="12"
-        r="3.2"
-      />
-
+      <!-- Tuerca mecánica biselada: forma octagonal y orificio central -->
+      <path d="M9 3.5h6l4.5 4.5v6L15 20.5H9L4.5 15V9L9 3.5z"/>
+      <circle cx="12" cy="12" r="3.2"/>
     </symbol>
-
-
-    <!-- GARANTÍA -->
-
-    <symbol id="icon-warranty" viewBox="0 0 24 24">
-
-      <circle cx="12" cy="9" r="6"/>
-
-      <path
-        d="m8 14-2 8 6-3 6 3-2-8"
-      />
-
-    </symbol>
-
-
-    <!-- SERVICIO TÉCNICO -->
-
-    <symbol id="icon-service" viewBox="0 0 24 24">
-
-      <path
-        d="M14 6a5 5 0 0 0-6 6l-5 5 4 4 5-5a5 5 0 0 0 6-6l-3 3-4-4z"
-      />
-
-    </symbol>
-
+    <symbol id="icon-warranty" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8"/></symbol>
+    <symbol id="icon-service" viewBox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6l-5 5 4 4 5-5a5 5 0 0 0 6-6l-3 3-4-4z"/></symbol>
   </svg>
 
-
-  <!-- ==========================================
-       18. HEADER
-    ========================================== -->
-
+  <!-- 14. HEADER: solo el logo "agromaquinaria agricola.png" -->
   <header class="header" id="header">
-
     <div class="container nav">
-
-      <!-- LOGO AGROMAQUINARIA -->
-
-      <a
-        class="header-logo"
-        href="#inicio"
-        aria-label="Agromaquinaria - Inicio"
-      >
-
-        <img
-          src="agromaquinaria agricola.png"
-          alt="Logotipo de Agromaquinaria"
-          width="1770"
-          height="220"
-        >
-
+      <a class="header-logo" href="#inicio" aria-label="Agromaquinaria - Inicio">
+        <img src="agromaquinaria agricola.png" alt="Logotipo de Agromaquinaria" width="1770" height="220">
       </a>
-
-
-      <!-- MENÚ MÓVIL -->
-
-      <button
-        type="button"
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Abrir menú"
-        aria-controls="navLinks"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
-
-
-      <!-- NAVEGACIÓN -->
-
-      <nav
-        class="nav-links"
-        id="navLinks"
-        aria-label="Navegación principal"
-      >
-
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-controls="navLinks" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
         <a href="#inicio">Inicio</a>
-
         <a href="#nosotros">Nosotros</a>
-
         <a href="#tractores">Tractores</a>
-
         <a href="#ventajas">Ventajas</a>
-
         <a href="#galeria">Galería</a>
-
-        <a class="nav-cta" href="#contacto">
-          Contáctanos
-        </a>
-
+        <a class="nav-cta" href="#contacto">Contáctanos</a>
       </nav>
-
     </div>
-
   </header>
 
-
   <main>
-
-
-    <!-- ==========================================
-         19. INICIO CON VIDEO
-    ========================================== -->
-
-    <section
-      class="hero"
-      id="inicio"
-      aria-labelledby="heroTitle"
-    >
-
-      <!-- VIDEO TD904 TD1304 -->
-
-      <video
-        class="hero-video"
-        id="heroVideo"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        poster="PORTADA_TRACTORES.jpg"
-        aria-hidden="true"
-      >
-
-        <source
-          src="TD904 TD1304.mp4"
-          type="video/mp4"
-        >
-
+    <!-- 15. HERO CON VIDEO -->
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="PORTADA_TRACTORES.jpg" aria-hidden="true">
+        <source src="TD904 TD1304.mp4" type="video/mp4">
       </video>
-
-
-      <!-- CAPA TRANSPARENTE -->
-
       <div class="hero-overlay"></div>
-
-
-      <!-- TEXTO PRINCIPAL -->
-
       <div class="container hero-content">
-
-        <span class="hero-eyebrow">
-
-          LOVOL VENEZUELA · AGROMAQUINARIA LATINA C.A
-
-        </span>
-
-
-        <h1 id="heroTitle">
-
-          Fuerza,<br>
-          Eficiencia<br>
-          y Durabilidad.
-
-        </h1>
-
-
-        <p>
-
-          La fuerza que mueve tu tierra
-
-        </p>
-
-
+        <span class="hero-eyebrow">LOVOL VENEZUELA · AGROMAQUINARIA AGRÍCOLA C.A.</span>
+        <h1 id="heroTitle">Fuerza,<br>Eficiencia<br>y Durabilidad.</h1>
+        <p>La fuerza que mueve tu tierra.</p>
         <div class="hero-actions">
-
-          <a
-            class="button button-white"
-            href="#tractores"
-          >
-
-            Ver tractores
-
-            <span aria-hidden="true">↗</span>
-
-          </a>
-
-
-          <a
-            class="button button-outline js-whatsapp"
-            href="#contacto"
-            data-message="Hola, quiero cotizar un tractor LOVOL."
-          >
-
-            Cotizar
-
-            <span aria-hidden="true">↗</span>
-
-          </a>
-
+          <a class="button button-white" href="#tractores">Ver tractores <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
+          <a class="button button-outline js-whatsapp" href="#contacto" data-message="Hola, quiero cotizar un tractor LOVOL.">Cotizar por WhatsApp <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
         </div>
-
       </div>
-
-
-      <!-- DESLIZAR -->
-
-      <span class="scroll-hint">
-
-        Desliza para descubrir
-
-      </span>
-
+      <span class="scroll-hint">Desliza para descubrir</span>
     </section>
 
-
-    <!-- ==========================================
-         20. NOSOTROS
-    ========================================== -->
-
-    <section
-      class="section"
-      id="nosotros"
-      aria-labelledby="aboutTitle"
-    >
-
+    <!-- 16. NOSOTROS -->
+    <section class="section" id="nosotros" aria-labelledby="aboutTitle">
       <div class="container about-grid">
-
-        <!-- FOTO -->
-
         <div class="visual about-photo reveal">
-
-          <div class="placeholder">
-
-            FOTO_NOSOTROS.jpg
-
-          </div>
-
-          <img
-            src="FOTO_NOSOTROS.jpg"
-            alt="Tractor LOVOL trabajando en el campo"
-            loading="lazy"
-            onerror="this.hidden=true"
-          >
-
+          <div class="placeholder">FOTO_NOSOTROS.jpg</div>
+          <img src="FOTO_NOSOTROS.jpg" alt="Tractor LOVOL trabajando en el campo" loading="lazy" onerror="this.hidden=true">
         </div>
-
-
-        <!-- PRESENTACIÓN -->
-
         <div class="reveal about-content">
-
-          <span class="eyebrow">
-
-            Sobre nosotros
-
-          </span>
-
-
-          <h2 class="title" id="aboutTitle">
-
-            Impulsamos el futuro del campo.
-
-          </h2>
-
-
-          <p>
-
-            En Agromaquinaria Latina C.A creemos que el
-            progreso del campo comienza con las herramientas
-            adecuadas.
-
-          </p>
-
-
-          <p>
-
-            Nuestro compromiso es acercar maquinaria agrícola
-            de alto rendimiento a productores venezolanos
-            que buscan potencia, eficiencia y durabilidad.
-
-          </p>
-
-
-          <p>
-
-            Queremos ayudarte a encontrar la maquinaria
-            adecuada para que tu operación agrícola
-            continúe creciendo.
-
-          </p>
-
-
-          <!-- CONTADORES -->
-
-          <div
-            class="stats"
-            aria-label="Nuestra propuesta"
-          >
-
-            <div>
-
-              <div
-                class="stat-number"
-                data-target="2"
-              >
-                2
-              </div>
-
-              <p class="stat-label">
-
-                Modelos disponibles
-
-              </p>
-
-            </div>
-
-
-            <div>
-
-              <div
-                class="stat-number"
-                data-target="5"
-              >
-                5
-              </div>
-
-              <p class="stat-label">
-
-                Aspectos clave
-
-              </p>
-
-            </div>
-
-
-            <div>
-
-              <div
-                class="stat-number"
-                data-target="1"
-              >
-                1
-              </div>
-
-              <p class="stat-label">
-
-                Contacto directo
-
-              </p>
-
-            </div>
-
+          <span class="eyebrow">Sobre nosotros</span>
+          <h2 class="title" id="aboutTitle">Impulsamos el futuro del campo.</h2>
+          <p>En Agromaquinaria Agrícola C.A. creemos que el progreso del campo comienza con las herramientas adecuadas.</p>
+          <p>Nuestro compromiso es acercar maquinaria agrícola de alto rendimiento a productores venezolanos que buscan potencia, eficiencia y durabilidad.</p>
+          <p>Queremos ayudarte a encontrar la maquinaria adecuada para que tu operación agrícola continúe creciendo.</p>
+          <div class="stats" aria-label="Nuestra propuesta">
+            <div><div class="stat-number" data-target="2">2</div><p class="stat-label">Modelos disponibles</p></div>
+            <div><div class="stat-number" data-target="5">5</div><p class="stat-label">Aspectos clave</p></div>
+            <div><div class="stat-number" data-target="1">1</div><p class="stat-label">Contacto directo</p></div>
           </div>
-
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- ==========================================
-         21. CATÁLOGO DE TRACTORES
-
-         DOS MODELOS
-         130 HP Y 90 HP
-    ========================================== -->
-
-    <section
-      class="section catalog"
-      id="tractores"
-      aria-labelledby="catalogTitle"
-    >
-
+    <!-- 17. CATÁLOGO: DOS TARJETAS ÚNICAMENTE -->
+    <section class="section catalog" id="tractores" aria-labelledby="catalogTitle">
       <div class="container">
-
         <div class="catalog-intro reveal">
-
-          <span class="eyebrow">
-
-            Nuestra maquinaria
-
-          </span>
-
-
-          <h2 class="title" id="catalogTitle">
-
-            Potencia para cada desafío.
-
-          </h2>
-
-
-          <p class="description">
-
-            Descubre nuestra selección de tractores LOVOL
-            para diferentes necesidades del campo venezolano.
-
-          </p>
-
+          <span class="eyebrow">Nuestra maquinaria</span>
+          <h2 class="title" id="catalogTitle">Potencia para cada desafío.</h2>
+          <p class="description">Descubre nuestra selección de tractores LOVOL para diferentes necesidades del campo venezolano.</p>
         </div>
-
-
         <div class="tractor-grid">
-
-
-          <!-- ==================================
-               TRACTOR 01 - 130 HP
-          ================================== -->
-
           <article class="tractor-card reveal">
-
             <div class="visual tractor-photo">
-
-              <div class="placeholder">
-
-                TRACTOR_01.jpg
-
-              </div>
-
-
-              <img
-                src="TRACTOR_01.jpg"
-                alt="Tractor LOVOL Modelo 01"
-                loading="lazy"
-                onerror="this.hidden=true"
-              >
-
+              <div class="placeholder">TRACTOR_01.jpg</div>
+              <img src="TRACTOR_01.jpg" alt="Tractor LOVOL Modelo 01" loading="lazy" onerror="this.hidden=true">
             </div>
-
-
             <div class="tractor-info">
-
-              <span class="tractor-category">
-
-                Tractor agrícola
-
-              </span>
-
-
-              <h3>
-
-                LOVOL — Modelo 01
-
-              </h3>
-
-
-              <div class="specs">
-
-                <span>Caballaje</span>
-
-                <strong>130 HP</strong>
-
-              </div>
-
-
-              <button
-                class="detail-button"
-                type="button"
-                data-model="LOVOL Modelo 01"
-                data-power="130 HP"
-              >
-
-                Más información
-
-                <span aria-hidden="true">→</span>
-
-              </button>
-
+              <span class="tractor-category">Tractor agrícola</span>
+              <h3>LOVOL — Modelo 01</h3>
+              <div class="specs"><span>Caballaje</span><strong>130 HP</strong></div>
+              <button class="detail-button" type="button" data-model="LOVOL Modelo 01" data-power="130 HP">Más información <span aria-hidden="true">→</span></button>
             </div>
-
           </article>
-
-
-          <!-- ==================================
-               TRACTOR 02 - 90 HP
-          ================================== -->
-
           <article class="tractor-card reveal">
-
             <div class="visual tractor-photo">
-
-              <div class="placeholder">
-
-                TRACTOR_02.jpg
-
-              </div>
-
-
-              <img
-                src="TRACTOR_02.jpg"
-                alt="Tractor LOVOL Modelo 02"
-                loading="lazy"
-                onerror="this.hidden=true"
-              >
-
+              <div class="placeholder">TRACTOR_02.jpg</div>
+              <img src="TRACTOR_02.jpg" alt="Tractor LOVOL Modelo 02" loading="lazy" onerror="this.hidden=true">
             </div>
-
-
             <div class="tractor-info">
-
-              <span class="tractor-category">
-
-                Tractor agrícola
-
-              </span>
-
-
-              <h3>
-
-                LOVOL — Modelo 02
-
-              </h3>
-
-
-              <div class="specs">
-
-                <span>Caballaje</span>
-
-                <strong>90 HP</strong>
-
-              </div>
-
-
-              <button
-                class="detail-button"
-                type="button"
-                data-model="LOVOL Modelo 02"
-                data-power="90 HP"
-              >
-
-                Más información
-
-                <span aria-hidden="true">→</span>
-
-              </button>
-
+              <span class="tractor-category">Tractor agrícola</span>
+              <h3>LOVOL — Modelo 02</h3>
+              <div class="specs"><span>Caballaje</span><strong>90 HP</strong></div>
+              <button class="detail-button" type="button" data-model="LOVOL Modelo 02" data-power="90 HP">Más información <span aria-hidden="true">→</span></button>
             </div>
-
           </article>
-
         </div>
-
-
-        <p class="catalog-note">
-
-          Los caballajes indicados corresponden a los dos
-          tractores disponibles. Los nombres «Modelo 01»
-          y «Modelo 02» son provisionales hasta incorporar
-          su denominación comercial exacta.
-
-        </p>
-
-
-        <div style="text-align:center;margin-top:35px">
-
-          <a
-            class="button button-green"
-            href="#contacto"
-          >
-
-            Solicitar catálogo completo ↗
-
-          </a>
-
-        </div>
-
+        <p class="catalog-note">Los caballajes indicados corresponden a los dos tractores disponibles. Los nombres «Modelo 01» y «Modelo 02» son provisionales hasta incorporar su denominación comercial exacta.</p>
+        <div style="text-align:center;margin-top:35px"><a class="button button-green" href="#contacto">Solicitar catálogo completo <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a></div>
       </div>
-
     </section>
 
-
-    <!-- ==========================================
-         22. VENTAJAS
-
-         CINCO ICONOS LINEALES
-         NUEVA TUERCA EN REPUESTOS
-    ========================================== -->
-
-    <section
-      class="section"
-      id="ventajas"
-      aria-labelledby="benefitsTitle"
-    >
-
+    <!-- 18. VENTAJAS -->
+    <section class="section" id="ventajas" aria-labelledby="benefitsTitle">
       <div class="container">
-
         <div class="center reveal">
-
-          <span class="eyebrow">
-
-            Nuestra diferencia
-
-          </span>
-
-
-          <h2 class="title" id="benefitsTitle">
-
-            Diseñados para llegar más lejos.
-
-          </h2>
-
-
-          <p class="description">
-
-            Cada jornada exige potencia, resistencia
-            y confianza. Conoce cinco aspectos
-            importantes al elegir tu tractor.
-
-          </p>
-
+          <span class="eyebrow">Nuestra diferencia</span>
+          <h2 class="title" id="benefitsTitle">Diseñados para llegar más lejos.</h2>
+          <p class="description">Cada jornada exige potencia, resistencia y confianza. Conoce cinco aspectos importantes al elegir tu tractor.</p>
         </div>
-
-
         <div class="benefits">
-
-
-          <!-- POTENCIA -->
-
-          <article class="benefit reveal">
-
-            <div class="benefit-icon" aria-hidden="true">
-
-              <svg
-                class="benefit-svg"
-                viewBox="0 0 24 24"
-              >
-
-                <use href="#icon-power"/>
-
-              </svg>
-
-            </div>
-
-            <h3>Potencia</h3>
-
-            <p>
-
-              Maquinaria preparada para afrontar
-              diferentes exigencias agrícolas.
-
-            </p>
-
-          </article>
-
-
-          <!-- DURABILIDAD -->
-
-          <article class="benefit reveal">
-
-            <div class="benefit-icon" aria-hidden="true">
-
-              <svg
-                class="benefit-svg"
-                viewBox="0 0 24 24"
-              >
-
-                <use href="#icon-durable"/>
-
-              </svg>
-
-            </div>
-
-            <h3>Durabilidad</h3>
-
-            <p>
-
-              Equipos diseñados para acompañar
-              el trabajo diario en el campo.
-
-            </p>
-
-          </article>
-
-
-          <!-- ==================================
-               REPUESTOS
-
-               NUEVO ICONO TUERCA
-          ================================== -->
-
-          <article class="benefit reveal">
-
-            <div class="benefit-icon" aria-hidden="true">
-
-              <svg
-                class="benefit-svg nut-icon"
-                viewBox="0 0 24 24"
-              >
-
-                <use href="#icon-parts"/>
-
-              </svg>
-
-            </div>
-
-            <h3>Repuestos</h3>
-
-            <p>
-
-              Consulta la disponibilidad de componentes
-              para cada modelo.
-
-            </p>
-
-          </article>
-
-
-          <!-- GARANTÍA -->
-
-          <article class="benefit reveal">
-
-            <div class="benefit-icon" aria-hidden="true">
-
-              <svg
-                class="benefit-svg"
-                viewBox="0 0 24 24"
-              >
-
-                <use href="#icon-warranty"/>
-
-              </svg>
-
-            </div>
-
-            <h3>Garantía</h3>
-
-            <p>
-
-              Solicita información sobre condiciones
-              y cobertura de garantía.
-
-            </p>
-
-          </article>
-
-
-          <!-- SERVICIO TÉCNICO -->
-
-          <article class="benefit reveal">
-
-            <div class="benefit-icon" aria-hidden="true">
-
-              <svg
-                class="benefit-svg"
-                viewBox="0 0 24 24"
-              >
-
-                <use href="#icon-service"/>
-
-              </svg>
-
-            </div>
-
-            <h3>Servicio técnico</h3>
-
-            <p>
-
-              Consulta opciones de mantenimiento
-              y asistencia para tu tractor.
-
-            </p>
-
-          </article>
-
+          <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg" viewBox="0 0 24 24"><use href="#icon-power"/></svg></div><h3>Potencia</h3><p>Maquinaria preparada para afrontar diferentes exigencias agrícolas.</p></article>
+          <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg" viewBox="0 0 24 24"><use href="#icon-durable"/></svg></div><h3>Durabilidad</h3><p>Equipos diseñados para acompañar el trabajo diario en el campo.</p></article>
+          <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg nut-icon" viewBox="0 0 24 24"><use href="#icon-parts"/></svg></div><h3>Repuestos</h3><p>Consulta la disponibilidad de componentes para cada modelo.</p></article>
+          <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg" viewBox="0 0 24 24"><use href="#icon-warranty"/></svg></div><h3>Garantía</h3><p>Solicita información sobre condiciones y cobertura de garantía.</p></article>
+          <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg" viewBox="0 0 24 24"><use href="#icon-service"/></svg></div><h3>Servicio técnico</h3><p>Consulta opciones de mantenimiento y asistencia para tu tractor.</p></article>
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- ==========================================
-         23. GALERÍA
-    ========================================== -->
-
-    <section
-      class="section"
-      id="galeria"
-      aria-labelledby="galleryTitle"
-    >
-
+    <!-- 19. GALERÍA -->
+    <section class="section" id="galeria" aria-labelledby="galleryTitle">
       <div class="container">
-
         <div class="reveal">
-
-          <span class="eyebrow">
-
-            LOVOL en acción
-
-          </span>
-
-
-          <h2 class="title" id="galleryTitle">
-
-            Donde la potencia se convierte en trabajo.
-
-          </h2>
-
-
-          <p class="description">
-
-            Descubre nuestra maquinaria en su elemento:
-            el campo.
-
-          </p>
-
+          <span class="eyebrow">LOVOL en acción</span>
+          <h2 class="title" id="galleryTitle">Donde la potencia se convierte en trabajo.</h2>
+          <p class="description">Descubre nuestra maquinaria en su elemento: el campo.</p>
         </div>
-
-
         <div class="gallery-grid">
-
-
-          <!-- GALERÍA 01 -->
-
-          <div class="visual gallery-item reveal">
-
-            <div class="placeholder">
-
-              GALERIA_01.jpg
-
-            </div>
-
-            <img
-              src="GALERIA_01.jpg"
-              alt="Tractor LOVOL trabajando la tierra"
-              loading="lazy"
-              onerror="this.hidden=true"
-            >
-
-            <span class="gallery-caption">
-
-              Rendimiento en cada jornada.
-
-            </span>
-
-          </div>
-
-
-          <!-- GALERÍA 02 -->
-
-          <div class="visual gallery-item reveal">
-
-            <div class="placeholder">
-
-              GALERIA_02.jpg
-
-            </div>
-
-            <img
-              src="GALERIA_02.jpg"
-              alt="Maquinaria agrícola LOVOL"
-              loading="lazy"
-              onerror="this.hidden=true"
-            >
-
-            <span class="gallery-caption">
-
-              Tecnología agrícola.
-
-            </span>
-
-          </div>
-
-
-          <!-- GALERÍA 03 -->
-
-          <div class="visual gallery-item reveal">
-
-            <div class="placeholder">
-
-              GALERIA_03.jpg
-
-            </div>
-
-            <img
-              src="GALERIA_03.jpg"
-              alt="Tractor LOVOL en el campo"
-              loading="lazy"
-              onerror="this.hidden=true"
-            >
-
-            <span class="gallery-caption">
-
-              Potencia para avanzar.
-
-            </span>
-
-          </div>
-
+          <div class="visual gallery-item reveal"><div class="placeholder">GALERIA_01.jpg</div><img src="GALERIA_01.jpg" alt="Tractor LOVOL trabajando la tierra" loading="lazy" onerror="this.hidden=true"><span class="gallery-caption">Rendimiento en cada jornada.</span></div>
+          <div class="visual gallery-item reveal"><div class="placeholder">GALERIA_02.jpg</div><img src="GALERIA_02.jpg" alt="Maquinaria agrícola LOVOL" loading="lazy" onerror="this.hidden=true"><span class="gallery-caption">Tecnología agrícola.</span></div>
+          <div class="visual gallery-item reveal"><div class="placeholder">GALERIA_03.jpg</div><img src="GALERIA_03.jpg" alt="Tractor LOVOL en el campo" loading="lazy" onerror="this.hidden=true"><span class="gallery-caption">Potencia para avanzar.</span></div>
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- ==========================================
-         24. CONTACTO
-    ========================================== -->
-
-    <section
-      class="section contact"
-      id="contacto"
-      aria-labelledby="contactTitle"
-    >
-
+    <!-- 20. CONTACTO -->
+    <section class="section contact" id="contacto" aria-labelledby="contactTitle">
       <div class="container contact-grid">
-
-
-        <!-- DATOS COMERCIALES -->
-
         <div class="reveal">
-
-          <span class="eyebrow">
-
-
-          </span>
-
-
-          <h2 class="title" id="contactTitle">
-
-            Tu próximo tractor comienza aquí.
-
-          </h2>
-
-
-          <p class="description">
-
-            Nuestro equipo está disponible para ayudarte
-            a conocer nuestros modelos y encontrar
-            la alternativa adecuada para tu operación.
-
-          </p>
-
-
-          <!-- UBICACIONES -->
-
+          <span class="eyebrow">Hablemos de tu proyecto</span>
+          <h2 class="title" id="contactTitle">Tu próximo tractor comienza aquí.</h2>
+          <p class="description">Nuestro equipo está disponible para ayudarte a conocer nuestros modelos y encontrar la alternativa adecuada para tu operación.</p>
+          <!-- Ciudades con tractores disponibles (no son direcciones de oficinas) -->
           <div class="contact-detail">
-
-            <strong>
-
-              Tractores en Venezuela
-
-            </strong>
-
-
-            <span>
-
-              Disponibilidad inmediata en estas ciudades:
-
-            </span>
-
-
-            <div
-              class="cities"
-              aria-label="Ciudades con tractores"
-            >
-
-              <span class="city">
-
-                Acarigua
-
-              </span>
-
-
-              <span class="city">
-
-                Calabozo
-
-              </span>
-
-
-              <span class="city">
-
-                Valencia
-
-              </span>
-
+            <strong>Tractores en Venezuela</strong>
+            <span>Disponibilidad en estas ciudades:</span>
+            <div class="cities" aria-label="Ciudades con tractores">
+              <span class="city">Acarigua</span>
+              <span class="city">Calabozo</span>
+              <span class="city">Valencia</span>
             </div>
-
-
-            <p class="availability-note">
-
-              Consulta por WhatsApp la disponibilidad
-              y ubicación exacta del modelo que te interesa.
-
-            </p>
-
+            <p class="availability-note">Consulta por WhatsApp la disponibilidad y ubicación exacta del modelo que te interesa.</p>
           </div>
-
-
-          <!-- TELÉFONO -->
-
           <div class="contact-detail">
-
-            <strong>
-
-              Teléfono y WhatsApp
-
-            </strong>
-
-
-            <a href="tel:+584143421151">
-
-              +58 414 342 1151
-
-            </a>
-
+            <strong>Teléfono y WhatsApp</strong>
+            <a href="tel:+584143421151">+58 414 342 1151</a>
           </div>
-
-
-          <!-- CORREO -->
-
           <div class="contact-detail">
-
-            <strong>
-
-              Correo electrónico
-
-            </strong>
-
-
-            <a href="mailto:lovolvzla@gmail.com">
-
-              lovolvzla@gmail.com
-
-            </a>
-
+            <strong>Correo electrónico</strong>
+            <a href="mailto:lovolvzla@gmail.com">lovolvzla@gmail.com</a>
           </div>
-
-
-          <!-- RIF -->
-
           <div class="contact-detail">
-
-            <strong>
-
-              RIF
-
-            </strong>
-
-
-            <span>
-
-              J-506542161
-
-            </span>
-
+            <strong>RIF</strong>
+            <span>J-506542161</span>
           </div>
-
         </div>
-
-
-        <!-- ==================================
-             FORMULARIO DE COTIZACIÓN
-        ================================== -->
-
         <div class="contact-form reveal">
-
-          <h3>
-
-            Solicita tu cotización
-
-          </h3>
-
-
+          <h3>Solicita tu cotización</h3>
           <form id="contactForm">
-
-
-            <div class="form-group">
-
-              <label for="nombre">
-
-                Nombre completo *
-
-              </label>
-
-
-              <input
-                id="nombre"
-                name="nombre"
-                type="text"
-                autocomplete="name"
-                maxlength="100"
-                placeholder="Tu nombre"
-                required
-              >
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="telefono">
-
-                Número de teléfono *
-
-              </label>
-
-
-              <input
-                id="telefono"
-                name="telefono"
-                type="tel"
-                autocomplete="tel"
-                maxlength="35"
-                placeholder="+58 412 000 0000"
-                required
-              >
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="modelo">
-
-                Tractor de interés
-
-              </label>
-
-
-              <select
-                id="modelo"
-                name="modelo"
-              >
-
-                <option value="Asesoría general">
-
-                  Seleccionar una opción
-
-                </option>
-
-
-                <option value="LOVOL Modelo 01 (130 HP)">
-
-                  LOVOL Modelo 01 — 130 HP
-
-                </option>
-
-
-                <option value="LOVOL Modelo 02 (90 HP)">
-
-                  LOVOL Modelo 02 — 90 HP
-
-                </option>
-
-
-                <option value="Otro modelo">
-
-                  Otro modelo
-
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="mensaje">
-
-                Mensaje
-
-              </label>
-
-
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                maxlength="1000"
-                placeholder="Cuéntanos qué tractor necesitas..."
-              ></textarea>
-
-            </div>
-
-
-            <button
-              class="button button-green"
-              type="submit"
-            >
-
-              Enviar por WhatsApp ↗
-
-            </button>
-
+            <div class="form-group"><label for="nombre">Nombre completo *</label><input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="100" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label for="telefono">Número de teléfono *</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="35" placeholder="+58 412 000 0000" required></div>
+            <div class="form-group"><label for="modelo">Tractor de interés</label><select id="modelo" name="modelo"><option value="Asesoría general">Seleccionar una opción</option><option value="LOVOL Modelo 01 (130 HP)">LOVOL Modelo 01 — 130 HP</option><option value="LOVOL Modelo 02 (90 HP)">LOVOL Modelo 02 — 90 HP</option><option value="Otro modelo">Otro modelo</option></select></div>
+            <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" maxlength="1000" placeholder="Cuéntanos qué tractor necesitas..."></textarea></div>
+            <button class="button button-green" type="submit">Enviar por WhatsApp <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></button>
           </form>
-
         </div>
-
       </div>
-
     </section>
-
   </main>
 
-
-  <!-- ==========================================
-       25. FOOTER
-
-       LOGO AGROMAQUINARIA
-
-       SOLO 3 ICONOS DE CONTACTO
-    ========================================== -->
-
+  <!-- 21. FOOTER: solo el logo "agromaquinaria.png" -->
   <footer class="footer">
-
     <div class="container">
-
       <div class="footer-grid">
-
-
-        <!-- LOGO Y DATOS -->
-
         <div class="footer-about">
-
-          <a
-            class="footer-logo"
-            href="#inicio"
-            aria-label="Agromaquinaria - Inicio"
-          >
-
-            <img
-              src="agromaquinaria.png"
-              alt="Logotipo completo de Agromaquinaria"
-              width="1773"
-              height="488"
-            >
-
-          </a>
-
-
-          <p>
-
-            Distribuidor Oficial en Venezuela.
-
-            <br>
-
-            Tractores disponibles en toda Venezuela.
-
-          </p>
-
-
-          <span class="footer-rif">
-
-            RIF: J-506542161
-
-          </span>
-
+          <a class="footer-logo" href="#inicio" aria-label="Agromaquinaria - Inicio"><img src="agromaquinaria.png" alt="Logotipo completo de Agromaquinaria" width="1773" height="488"></a>
+          <p>La fuerza que mueve tu tierra.<br>Tractores disponibles en Acarigua, Calabozo y Valencia, Venezuela.</p>
+          <span class="footer-rif">RIF: J-506542161</span>
         </div>
-
-
-        <!-- NAVEGACIÓN -->
-
+        <div class="footer-col"><h4>Explorar</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#tractores">Tractores</a><a href="#ventajas">Ventajas</a><a href="#galeria">Galería</a></div>
         <div class="footer-col">
-
-          <h4>
-
-            Explorar
-
-          </h4>
-
-
-          <a href="#inicio">
-
-            Inicio
-
-          </a>
-
-
-          <a href="#nosotros">
-
-            Nosotros
-
-          </a>
-
-
-          <a href="#tractores">
-
-            Tractores
-
-          </a>
-
-
-          <a href="#ventajas">
-
-            Ventajas
-
-          </a>
-
-
-          <a href="#galeria">
-
-            Galería
-
-          </a>
-
-        </div>
-
-
-        <!-- ==================================
-             CONTACTO
-
-             SOLO WHATSAPP, CORREO E INSTAGRAM
-        ================================== -->
-
-        <div class="footer-col">
-
-          <h4>
-
-            Contacto
-
-          </h4>
-
-
-          <div
-            class="footer-socials"
-            aria-label="Canales de contacto"
-          >
-
-
-            <!-- WHATSAPP -->
-
-            <a
-              class="footer-social js-whatsapp"
-              href="https://wa.me/584143421151"
-              data-message="Hola, quisiera información sobre tractores LOVOL disponibles en Acarigua, Calabozo y Valencia."
-              aria-label="Contactar por WhatsApp"
-              title="WhatsApp: +58 414 342 1151"
-            >
-
-              <svg
-                class="social-brand"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <use href="#icon-whatsapp"/>
-
-              </svg>
-
+          <h4>Contacto</h4>
+          <div class="footer-socials" aria-label="Canales de contacto">
+            <a class="footer-social js-whatsapp" href="https://wa.me/584143421151" data-message="Hola, quisiera información sobre tractores LOVOL disponibles en Acarigua, Calabozo y Valencia." aria-label="Contactar por WhatsApp" title="WhatsApp: +58 414 342 1151">
+              <svg class="social-brand" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
             </a>
-
-
-            <!-- CORREO -->
-
-            <a
-              class="footer-social"
-              href="mailto:lovolvzla@gmail.com"
-              aria-label="Enviar correo a lovolvzla@gmail.com"
-              title="Correo: lovolvzla@gmail.com"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <use href="#icon-email"/>
-
-              </svg>
-
+            <a class="footer-social" href="mailto:lovolvzla@gmail.com" aria-label="Enviar correo a lovolvzla@gmail.com" title="Correo: lovolvzla@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-email"/></svg>
             </a>
-
-
-            <!-- INSTAGRAM -->
-
-            <a
-              class="footer-social"
-              href="https://www.instagram.com/lovol.vzla/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram oficial: @lovol.vzla"
-              title="Instagram: @lovol.vzla"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-
-                <use href="#icon-instagram"/>
-
-              </svg>
-
+            <a class="footer-social" href="https://www.instagram.com/lovol.vzla/" target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial: @lovol.vzla" title="Instagram: @lovol.vzla">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-instagram"/></svg>
             </a>
-
           </div>
-
         </div>
-
       </div>
-
-
-      <!-- COPYRIGHT -->
-
-      <div class="footer-bottom">
-
-        <span>
-
-          © <span id="year"></span>
-          Agromaquinaria Latina C.A
-          Todos los derechos reservados.
-
-        </span>
-
-
-        <span>
-
-          Fuerza, Eficiencia y Durabilidad.
-
-        </span>
-
-      </div>
-
+      <div class="footer-bottom"><span>© <span id="year"></span> Agromaquinaria Agrícola C.A. Todos los derechos reservados.</span><span>Fuerza, Eficiencia y Durabilidad.</span></div>
     </div>
-
   </footer>
 
-
-  <!-- ==========================================
-       26. BOTÓN FLOTANTE WHATSAPP
-
-       ICONO OFICIAL ESTILO SVG
-    ========================================== -->
-
-  <a
-    href="https://wa.me/584143421151"
-    class="whatsapp-float js-whatsapp"
-    data-message="Hola, quisiera información y una cotización de tractores LOVOL."
-    aria-label="Contactar por WhatsApp"
-    title="Cotizar por WhatsApp"
-  >
-
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-
-      <use href="#icon-whatsapp"/>
-
-    </svg>
-
+  <!-- 22. WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/584143421151" class="whatsapp-float js-whatsapp" data-message="Hola, quisiera información y una cotización de tractores LOVOL." aria-label="Contactar por WhatsApp" title="Cotizar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
   </a>
 
-
-  <!-- ==========================================
-       27. MODAL DE INFORMACIÓN DE TRACTORES
-    ========================================== -->
-
-  <div
-    class="modal"
-    id="tractorModal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modalTitle"
-    hidden
-  >
-
+  <!-- 23. VENTANA PARA MÁS INFORMACIÓN -->
+  <div class="modal" id="tractorModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
     <div class="modal-box">
-
-      <button
-        class="modal-close"
-        id="modalClose"
-        type="button"
-        aria-label="Cerrar ventana"
-      >
-
-        ×
-
-      </button>
-
-
-      <span class="eyebrow">
-
-        Información del tractor
-
-      </span>
-
-
-      <h2 id="modalTitle">
-
-        LOVOL
-
-      </h2>
-
-
+      <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar ventana">×</button>
+      <span class="eyebrow">Información del tractor</span>
+      <h2 id="modalTitle">LOVOL</h2>
       <p id="modalPower"></p>
-
-
-      <p>
-
-        Solicita especificaciones, disponibilidad
-        y una cotización personalizada de este modelo.
-
-      </p>
-
-
-      <a
-        href="#contacto"
-        id="modalWhatsapp"
-        class="button button-green js-whatsapp"
-        data-message="Hola, quiero cotizar un tractor LOVOL."
-      >
-
-        Cotizar este tractor ↗
-
-      </a>
-
+      <p>Solicita especificaciones, disponibilidad y una cotización personalizada de este modelo.</p>
+      <a href="#contacto" id="modalWhatsapp" class="button button-green js-whatsapp" data-message="Hola, quiero cotizar un tractor LOVOL.">Cotizar este tractor <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
     </div>
-
   </div>
 
-
-  <!-- ==========================================
-       28. JAVASCRIPT
-    ========================================== -->
-
   <script>
-
-    /* ==========================================
-       29. WHATSAPP EMPRESARIAL
-    ========================================== */
-
-    const WHATSAPP_NUMBER = "584143421151";
-
-
+    /* 24. CONFIGURAR WHATSAPP: código de país + número, sin + ni espacios */
+    const WHATSAPP_NUMBER = "584143421151"; // WhatsApp empresarial, formato internacional
     function abrirWhatsApp(mensaje) {
-
       if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
-
-        alert(
-          "Configura el número empresarial en la variable WHATSAPP_NUMBER del HTML."
-        );
-
+        alert("Configura el número empresarial en la variable WHATSAPP_NUMBER del HTML.");
         return;
-
       }
-
-      window.open(
-
-        "https://wa.me/" +
-        WHATSAPP_NUMBER +
-        "?text=" +
-        encodeURIComponent(mensaje),
-
-        "_blank",
-
-        "noopener,noreferrer"
-
-      );
-
+      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(mensaje), "_blank", "noopener,noreferrer");
     }
-
-
     document.querySelectorAll(".js-whatsapp").forEach(a => {
-
       a.addEventListener("click", e => {
-
         e.preventDefault();
-
-        abrirWhatsApp(
-
-          a.dataset.message ||
-          "Hola, quiero información de los tractores LOVOL."
-
-        );
-
+        abrirWhatsApp(a.dataset.message || "Hola, quiero información de los tractores LOVOL.");
       });
-
     });
 
-
-    /* ==========================================
-       30. HEADER Y MENÚ MÓVIL
-    ========================================== */
-
+    /* 25. HEADER Y MENÚ MÓVIL */
     const header = document.getElementById("header");
-
     const menuToggle = document.getElementById("menuToggle");
-
     const navLinks = document.getElementById("navLinks");
-
-
-    function actualizarHeader() {
-
-      header.classList.toggle(
-        "scrolled",
-        window.scrollY > 50
-      );
-
-    }
-
-
+    function actualizarHeader() { header.classList.toggle("scrolled", window.scrollY > 50); }
     actualizarHeader();
-
-
-    window.addEventListener(
-      "scroll",
-      actualizarHeader,
-      { passive: true }
-    );
-
-
+    window.addEventListener("scroll", actualizarHeader, { passive: true });
     function cerrarMenu() {
-
       header.classList.remove("menu-open");
-
       navLinks.classList.remove("active");
-
       menuToggle.textContent = "☰";
-
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-
-      menuToggle.setAttribute(
-        "aria-label",
-        "Abrir menú"
-      );
-
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menú");
     }
-
-
     menuToggle.addEventListener("click", () => {
-
       const abierto = header.classList.toggle("menu-open");
-
       navLinks.classList.toggle("active", abierto);
-
       menuToggle.textContent = abierto ? "×" : "☰";
-
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(abierto)
-      );
-
-
-      menuToggle.setAttribute(
-        "aria-label",
-        abierto ? "Cerrar menú" : "Abrir menú"
-      );
-
+      menuToggle.setAttribute("aria-expanded", String(abierto));
+      menuToggle.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
     });
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", cerrarMenu));
+    window.addEventListener("resize", () => { if (window.innerWidth > 820) cerrarMenu(); });
 
-
-    navLinks.querySelectorAll("a").forEach(a => {
-
-      a.addEventListener("click", cerrarMenu);
-
-    });
-
-
-    window.addEventListener("resize", () => {
-
-      if (window.innerWidth > 820) {
-
-        cerrarMenu();
-
-      }
-
-    });
-
-
-    /* ==========================================
-       31. ANIMACIONES DE APARICIÓN
-    ========================================== */
-
-    const reducirMovimiento = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-
+    /* 26. ANIMACIONES DE APARICIÓN Y CONTADORES */
+    const reducirMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const reveals = document.querySelectorAll(".reveal");
-
-
-    if (
-      !reducirMovimiento &&
-      "IntersectionObserver" in window
-    ) {
-
+    if (!reducirMovimiento && "IntersectionObserver" in window) {
       document.documentElement.classList.add("js");
-
-
-      const observer = new IntersectionObserver(
-
-        (entries, obs) => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add("visible");
-
-              obs.unobserve(entry.target);
-
-            }
-
-          });
-
-        },
-
-        {
-          threshold: .08
-        }
-
-      );
-
-
-      reveals.forEach(el => {
-
-        observer.observe(el);
-
-      });
-
-    }
-
-
-    /* ==========================================
-       32. CONTADORES ANIMADOS
-    ========================================== */
-
-    function contar(el) {
-
-      const meta = Number(el.dataset.target);
-
-      const inicio = performance.now();
-
-
-      function frame(now) {
-
-        const p = Math.min(
-          (now - inicio) / 1200,
-          1
-        );
-
-
-        el.textContent = Math.round(
-          meta * (1 - Math.pow(1 - p, 3))
-        );
-
-
-        if (p < 1) {
-
-          requestAnimationFrame(frame);
-
-        }
-
-      }
-
-
-      requestAnimationFrame(frame);
-
-    }
-
-
-    if (
-      !reducirMovimiento &&
-      "IntersectionObserver" in window
-    ) {
-
-      const obs = new IntersectionObserver(
-
-        (entries, observer) => {
-
-          entries.forEach(e => {
-
-            if (e.isIntersecting) {
-
-              contar(e.target);
-
-              observer.unobserve(e.target);
-
-            }
-
-          });
-
-        },
-
-        {
-          threshold: .5
-        }
-
-      );
-
-
-      document.querySelectorAll(".stat-number").forEach(el => {
-
-        obs.observe(el);
-
-      });
-
-    }
-
-
-    /* ==========================================
-       33. VIDEO PRINCIPAL Y PARALLAX
-    ========================================== */
-
-    const heroVideo = document.getElementById("heroVideo");
-
-
-    heroVideo.muted = true;
-
-
-    const reproduccion = heroVideo.play();
-
-
-    if (
-      reproduccion &&
-      typeof reproduccion.catch === "function"
-    ) {
-
-      reproduccion.catch(() => {});
-
-    }
-
-
-    if (!reducirMovimiento) {
-
-      let pendiente = false;
-
-
-      window.addEventListener("scroll", () => {
-
-        if (pendiente) {
-          return;
-        }
-
-        pendiente = true;
-
-
-        requestAnimationFrame(() => {
-
-          const y =
-
-            window.innerWidth > 820 &&
-            window.scrollY < window.innerHeight
-
-              ? window.scrollY * .10
-
-              : 0;
-
-
-          heroVideo.style.setProperty(
-            "--parallax",
-            y + "px"
-          );
-
-
-          pendiente = false;
-
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add("visible"); obs.unobserve(entry.target); }
         });
-
-      }, {
-        passive: true
-      });
-
+      }, { threshold: .08 });
+      reveals.forEach(el => observer.observe(el));
+    }
+    function contar(el) {
+      const meta = Number(el.dataset.target);
+      const inicio = performance.now();
+      function frame(now) {
+        const p = Math.min((now - inicio) / 1200, 1);
+        el.textContent = Math.round(meta * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+    if (!reducirMovimiento && "IntersectionObserver" in window) {
+      const obs = new IntersectionObserver((entries, observer) => entries.forEach(e => {
+        if (e.isIntersecting) { contar(e.target); observer.unobserve(e.target); }
+      }), { threshold: .5 });
+      document.querySelectorAll(".stat-number").forEach(el => obs.observe(el));
     }
 
+    /* 27. VIDEO, REPRODUCCIÓN Y PARALLAX */
+    const heroVideo = document.getElementById("heroVideo");
+    heroVideo.muted = true;
+    const reproduccion = heroVideo.play();
+    if (reproduccion && typeof reproduccion.catch === "function") reproduccion.catch(() => {});
+    if (!reducirMovimiento) {
+      let pendiente = false;
+      window.addEventListener("scroll", () => {
+        if (pendiente) return;
+        pendiente = true;
+        requestAnimationFrame(() => {
+          const y = window.innerWidth > 820 && window.scrollY < window.innerHeight ? window.scrollY * .10 : 0;
+          heroVideo.style.setProperty("--parallax", y + "px");
+          pendiente = false;
+        });
+      }, { passive: true });
+    }
 
-    /* ==========================================
-       34. MODAL DE LOS TRACTORES
-    ========================================== */
-
+    /* 28. VENTANAS DE LOS TRACTORES */
     const modal = document.getElementById("tractorModal");
-
     const modalClose = document.getElementById("modalClose");
-
     const modalWhatsapp = document.getElementById("modalWhatsapp");
-
     let elementoAnterior = null;
-
-
     function cerrarModal() {
-
       modal.hidden = true;
-
       document.body.classList.remove("sin-scroll");
-
-
-      if (elementoAnterior) {
-
-        elementoAnterior.focus();
-
-      }
-
+      if (elementoAnterior) elementoAnterior.focus();
     }
-
-
-    document.querySelectorAll(".detail-button").forEach(boton => {
-
-      boton.addEventListener("click", () => {
-
-        elementoAnterior = document.activeElement;
-
-
-        document.getElementById(
-          "modalTitle"
-        ).textContent = boton.dataset.model;
-
-
-        document.getElementById(
-          "modalPower"
-        ).textContent = "Caballaje: " + boton.dataset.power;
-
-
-        modalWhatsapp.dataset.message =
-
-          "Hola, quiero información y cotización del " +
-          boton.dataset.model +
-          ".";
-
-
-        modal.hidden = false;
-
-        document.body.classList.add("sin-scroll");
-
-        modalClose.focus();
-
-      });
-
-    });
-
-
+    document.querySelectorAll(".detail-button").forEach(boton => boton.addEventListener("click", () => {
+      elementoAnterior = document.activeElement;
+      document.getElementById("modalTitle").textContent = boton.dataset.model;
+      document.getElementById("modalPower").textContent = "Caballaje: " + boton.dataset.power;
+      modalWhatsapp.dataset.message = "Hola, quiero información y cotización del " + boton.dataset.model + ".";
+      modal.hidden = false;
+      document.body.classList.add("sin-scroll");
+      modalClose.focus();
+    }));
     modalClose.addEventListener("click", cerrarModal);
-
-
-    modal.addEventListener("click", e => {
-
-      if (e.target === modal) {
-
-        cerrarModal();
-
-      }
-
-    });
-
-
+    modal.addEventListener("click", e => { if (e.target === modal) cerrarModal(); });
     document.addEventListener("keydown", e => {
-
       if (e.key === "Escape") {
-
-        if (!modal.hidden) {
-
-          cerrarModal();
-
-        } else {
-
-          cerrarMenu();
-
-        }
-
+        if (!modal.hidden) cerrarModal(); else cerrarMenu();
       }
-
-
-      if (e.key !== "Tab" || modal.hidden) {
-
-        return;
-
-      }
-
-
-      const focos = [
-        ...modal.querySelectorAll('button,a[href]')
-      ];
-
-
-      if (
-        e.shiftKey &&
-        document.activeElement === focos[0]
-      ) {
-
-        e.preventDefault();
-
-        focos[focos.length - 1].focus();
-
-      } else if (
-        !e.shiftKey &&
-        document.activeElement === focos[focos.length - 1]
-      ) {
-
-        e.preventDefault();
-
-        focos[0].focus();
-
-      }
-
+      if (e.key !== "Tab" || modal.hidden) return;
+      const focos = [...modal.querySelectorAll('button,a[href]')];
+      if (e.shiftKey && document.activeElement === focos[0]) { e.preventDefault(); focos[focos.length - 1].focus(); }
+      else if (!e.shiftKey && document.activeElement === focos[focos.length - 1]) { e.preventDefault(); focos[0].focus(); }
     });
 
-
-    /* ==========================================
-       35. FORMULARIO DE COTIZACIÓN
-    ========================================== */
-
-    document.getElementById("contactForm").addEventListener(
-
-      "submit",
-
-      e => {
-
-        e.preventDefault();
-
-
-        if (!e.currentTarget.reportValidity()) {
-
-          return;
-
-        }
-
-
-        const nombre = document.getElementById(
-          "nombre"
-        ).value.trim();
-
-
-        const telefono = document.getElementById(
-          "telefono"
-        ).value.trim();
-
-
-        const modelo = document.getElementById(
-          "modelo"
-        ).value;
-
-
-        const mensaje = document.getElementById(
-          "mensaje"
-        ).value.trim();
-
-
-        abrirWhatsApp(
-
-          "Hola, soy " + nombre + ".\n\n" +
-
-          "Quisiera una cotización en Agromaquinaria Latina C.A.\n" +
-
-          "Teléfono: " + telefono + "\n" +
-
-          "Tractor de interés: " + modelo + "\n" +
-
-          "Ubicaciones: Acarigua, Calabozo y Valencia.\n" +
-
-          "Mensaje: " + (
-            mensaje || "Solicito información comercial."
-          )
-
-        );
-
-      }
-
-    );
-
-
-    /* ==========================================
-       36. AÑO AUTOMÁTICO
-    ========================================== */
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
+    /* 29. FORMULARIO: CREA MENSAJE DE WHATSAPP */
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      if (!e.currentTarget.reportValidity()) return;
+      const nombre = document.getElementById("nombre").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+      const modelo = document.getElementById("modelo").value;
+      const mensaje = document.getElementById("mensaje").value.trim();
+      abrirWhatsApp("Hola, soy " + nombre + ".\n\nQuisiera una cotización en Agromaquinaria Agrícola C.A.\nTeléfono: " + telefono + "\nTractor de interés: " + modelo + "\nUbicaciones: Acarigua, Calabozo y Valencia.\nMensaje: " + (mensaje || "Solicito información comercial."));
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
