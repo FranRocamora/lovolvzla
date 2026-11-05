@@ -143,7 +143,7 @@
     .benefit-icon{display:grid;place-items:center;width:55px;height:55px;border-radius:50%;background:var(--azul-hielo);color:var(--verde);font-size:1.7rem;margin-bottom:25px}
     /* Iconografía lineal premium: el mismo estilo de la primera versión */
     .benefit-svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-    .benefit-icon .nut-icon{width:26px;height:26px;stroke-width:1.9}
+    .benefit-icon .nut-icon{width:28px;height:28px;fill:currentColor;stroke:none}
     .benefit h3{font:700 1.2rem var(--display);color:var(--verde);margin:0 0 14px}
     .benefit p{font-size:.8rem;line-height:1.8;margin:0}
 
@@ -274,10 +274,9 @@
     <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M5.2 18.8 18.8 5.2 M8.2 5.2h10.6v10.6"/></symbol>
     <symbol id="icon-power" viewBox="0 0 24 24"><path d="M12 3 4 13h7l-1 8L20 9h-7l1-6z"/></symbol>
     <symbol id="icon-durable" viewBox="0 0 24 24"><path d="M12 2 20 6v6c0 5-3 8-8 10-5-2-8-5-8-10V6z"/><path d="m9 12 2 2 4-4"/></symbol>
-    <symbol id="icon-parts" viewBox="0 0 24 24">
-      <!-- Tuerca mecánica biselada: forma octagonal y orificio central -->
-      <path d="M9 3.5h6l4.5 4.5v6L15 20.5H9L4.5 15V9L9 3.5z"/>
-      <circle cx="12" cy="12" r="3.2"/>
+    <symbol id="icon-parts" viewBox="0 0 512 512">
+      <!-- Engranaje vectorial basado en la imagen proporcionada. -->
+      <path d="M226 0 216 4 207 14 204 58 174 68 152 80 124 53 111 49 104 50 92 57 53 97 49 110 51 120 55 127 80 152 68 174 57 205 20 205 8 211 4 216 0 226 0 285 4 295 14 304 58 307 68 337 80 359 53 387 49 400 50 407 57 419 97 458 110 462 120 460 127 456 152 431 174 443 205 454 205 491 208 499 216 507 226 511 285 511 295 507 304 497 307 453 337 443 359 431 387 458 400 462 407 461 419 454 458 414 462 401 460 391 456 384 431 359 443 337 454 306 491 306 503 300 507 295 511 285 511 226 507 216 497 207 453 204 443 174 431 152 458 124 462 111 461 104 454 92 414 53 401 49 391 51 384 55 359 80 337 68 306 57 306 20 303 12 295 4 285 0 Z M230 25 281 25 282 78 303 82 326 90 362 111 400 74 437 111 400 148 421 185 429 208 433 229 486 230 486 281 433 282 429 303 421 326 400 362 437 400 400 437 363 400 326 421 303 429 282 433 281 486 230 486 229 433 208 429 185 421 149 400 111 437 74 400 111 363 90 326 82 303 78 282 25 281 25 230 78 229 82 208 90 185 111 149 74 111 111 74 148 111 185 90 208 82 229 78 Z M246 128 219 133 193 144 174 157 157 174 144 193 133 219 128 246 128 265 133 292 144 318 157 337 174 354 193 367 219 378 246 383 265 383 292 378 318 367 337 354 354 337 367 318 378 292 383 265 383 246 378 219 367 193 354 174 337 157 318 144 292 133 265 128 Z M243 153 268 153 283 156 305 165 321 176 335 190 346 206 355 228 358 243 358 268 355 283 346 305 335 321 321 335 305 346 283 355 268 358 243 358 228 355 206 346 190 335 176 321 165 305 156 283 153 268 153 243 156 228 165 206 176 190 190 176 206 165 228 156 Z" fill-rule="evenodd" style="fill:currentColor;stroke:none"/>
     </symbol>
     <symbol id="icon-warranty" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8"/></symbol>
     <symbol id="icon-service" viewBox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6l-5 5 4 4 5-5a5 5 0 0 0 6-6l-3 3-4-4z"/></symbol>
@@ -311,7 +310,7 @@
       <div class="container hero-content">
         <span class="hero-eyebrow">LOVOL VENEZUELA · AGROMAQUINARIA Latina C.A</span>
         <h1 id="heroTitle">Fuerza,<br>Eficiencia<br>y Durabilidad.</h1>
-        <p>La fuerza que mueve tu tierra.</p>
+        <p>La fuerza que mueve tu tierra</p>
         <div class="hero-actions">
           <a class="button button-green" href="#tractores">Ver tractores <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
           <a class="button button-outline js-whatsapp" href="#contacto" data-message="Hola, quiero cotizar un tractor LOVOL.">Cotizar <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
