@@ -445,6 +445,84 @@
       *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
       .js .reveal{opacity:1;transform:none}
     }
+
+    /* ==========================================
+       FICHA TÉCNICA TD 1304: ventana independiente.
+       No modifica los estilos de las demás secciones.
+    ========================================== */
+    .td1304-sheet { z-index: 170; }
+    .td1304-sheet .td1304-sheet-panel {
+      width: min(960px, 96vw);
+      max-height: min(940px, 94dvh);
+      min-height: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--blanco);
+    }
+    .td1304-sheet-header {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px clamp(18px, 3vw, 30px);
+      border-bottom: 1px solid var(--gris-claro);
+    }
+    .td1304-sheet-header h2 {
+      margin: 0;
+      color: var(--verde);
+      font: 700 clamp(1.15rem, 2.5vw, 1.55rem) / 1.25 var(--display);
+    }
+    .td1304-sheet-actions { display: flex; align-items: center; gap: 18px; }
+    .td1304-sheet-pdf {
+      color: var(--verde);
+      font-size: .82rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      white-space: nowrap;
+    }
+    .td1304-sheet-close {
+      position: static;
+      flex: 0 0 auto;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      line-height: 1;
+    }
+    .td1304-sheet-pages {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;
+      overscroll-behavior: contain;
+      padding: clamp(10px, 2.5vw, 24px);
+      background: var(--blanco);
+      text-align: center;
+    }
+    .td1304-sheet-pages img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 16px;
+      object-fit: contain;
+      background: var(--blanco);
+    }
+    .td1304-sheet-pages img:last-child { margin-bottom: 0; }
+    @media (max-width: 580px) {
+      .td1304-sheet { padding: 5px; }
+      .td1304-sheet .td1304-sheet-panel {
+        width: 100%;
+        max-height: 96dvh;
+      }
+      .td1304-sheet-header { padding: 14px 12px; gap: 8px; }
+      .td1304-sheet-actions { gap: 10px; }
+      .td1304-sheet-pdf { font-size: .76rem; }
+      .td1304-sheet-pages { padding: 6px; }
+    }
+
   </style>
 </head>
 
@@ -734,6 +812,24 @@
       <p id="modalPower"></p>
       <p>Solicita especificaciones, disponibilidad y una cotización personalizada de este modelo.</p>
       <a href="#contacto" id="modalWhatsapp" class="button button-green js-whatsapp" data-message="Hola, quiero cotizar un tractor LOVOL.">Cotizar este tractor <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></a>
+    </div>
+  </div>
+
+
+  <!-- Ficha técnica oficial del LOVOL TD 1304 (las dos páginas originales) -->
+  <div class="modal td1304-sheet" id="td1304SheetModal" role="dialog" aria-modal="true" aria-labelledby="td1304SheetTitle" hidden>
+    <div class="modal-box td1304-sheet-panel">
+      <div class="td1304-sheet-header">
+        <h2 id="td1304SheetTitle">Ficha técnica · TD 1304</h2>
+        <div class="td1304-sheet-actions">
+          <a class="td1304-sheet-pdf" href="1304 LOVOL FICHA S-C.pdf" target="_blank" rel="noopener noreferrer">Abrir PDF</a>
+          <button class="modal-close td1304-sheet-close" id="td1304SheetClose" type="button" aria-label="Cerrar ficha técnica">&times;</button>
+        </div>
+      </div>
+      <div class="td1304-sheet-pages" tabindex="0" aria-label="Ficha técnica del TD 1304, dos páginas. Desliza hacia abajo para leerla completa.">
+        <img src="FICHA_TD1304_01.jpg" alt="Ficha técnica del LOVOL TD 1304: página 1, portada y características de la serie D" width="1275" height="1650" decoding="async">
+        <img src="FICHA_TD1304_02.jpg" alt="Ficha técnica del LOVOL TD 1304: página 2, características clave y tabla de especificaciones" width="1275" height="1650" loading="lazy" decoding="async">
+      </div>
     </div>
   </div>
 
@@ -1042,6 +1138,31 @@
       }
     }, { passive: true });
 
+    /* Ficha técnica del TD 1304. El TD 904 conserva la ventana de antes. */
+    const td1304SheetModal = document.getElementById("td1304SheetModal");
+    const td1304SheetClose = document.getElementById("td1304SheetClose");
+    let td1304SheetPreviousFocus = null;
+
+    function abrirFichaTD1304() {
+      td1304SheetPreviousFocus = document.activeElement;
+      td1304SheetModal.hidden = false;
+      document.body.classList.add("sin-scroll");
+      td1304SheetClose.focus();
+    }
+
+    function cerrarFichaTD1304() {
+      td1304SheetModal.hidden = true;
+      document.body.classList.remove("sin-scroll");
+      if (td1304SheetPreviousFocus && typeof td1304SheetPreviousFocus.focus === "function") {
+        td1304SheetPreviousFocus.focus();
+      }
+    }
+
+    td1304SheetClose.addEventListener("click", cerrarFichaTD1304);
+    td1304SheetModal.addEventListener("click", event => {
+      if (event.target === td1304SheetModal) cerrarFichaTD1304();
+    });
+
     /* 28. VENTANAS DE LOS TRACTORES */
     const modal = document.getElementById("tractorModal");
     const modalClose = document.getElementById("modalClose");
@@ -1053,6 +1174,10 @@
       if (elementoAnterior) elementoAnterior.focus();
     }
     document.querySelectorAll(".detail-button").forEach(boton => boton.addEventListener("click", () => {
+      if (boton.dataset.model === "LOVOL TD 1304") {
+        abrirFichaTD1304();
+        return;
+      }
       elementoAnterior = document.activeElement;
       document.getElementById("modalTitle").textContent = boton.dataset.model;
       document.getElementById("modalPower").textContent = "Caballaje: " + boton.dataset.power;
@@ -1064,6 +1189,24 @@
     modalClose.addEventListener("click", cerrarModal);
     modal.addEventListener("click", e => { if (e.target === modal) cerrarModal(); });
     document.addEventListener("keydown", e => {
+      if (!td1304SheetModal.hidden) {
+        if (e.key === "Escape") {
+          e.preventDefault();
+          cerrarFichaTD1304();
+          return;
+        }
+        if (e.key === "Tab") {
+          const controles = [...td1304SheetModal.querySelectorAll('a[href],button,[tabindex="0"]')];
+          const primero = controles[0];
+          const ultimo = controles[controles.length - 1];
+          if (e.shiftKey && document.activeElement === primero) {
+            e.preventDefault(); ultimo.focus();
+          } else if (!e.shiftKey && document.activeElement === ultimo) {
+            e.preventDefault(); primero.focus();
+          }
+        }
+        return;
+      }
       // La galería de fotografías tiene prioridad cuando está abierta.
       if (!tractor130Viewer.hidden) {
         if (e.key === "Escape") { e.preventDefault(); closeTractor130Viewer(); return; }
