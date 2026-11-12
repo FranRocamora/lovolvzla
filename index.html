@@ -200,11 +200,11 @@
       object-fit: contain; /* Nunca cortar el tractor */
       object-position: center;
       background: var(--blanco);
-      /* Acerca la maquinaria sin cortar sus ruedas ni el techo. */
-      transform: scale(1.32);
+      /* Mantiene visible el tractor completo en la tarjeta, también en laptop. */
+      transform: none;
       transition: transform .35s ease;
     }
-    .visual:hover .tractor-photo-trigger img { transform: scale(1.32); }
+    .visual:hover .tractor-photo-trigger img { transform: none; }
     .tractor-photo-trigger:focus-visible { outline-offset: -4px; }
 
     /* Visor de las cuatro fotografías del tractor (PC y celular) */
@@ -272,9 +272,8 @@
       object-fit: contain;
       object-position: center center;
       background: var(--blanco);
-      /* Amplía el tractor usando únicamente los márgenes blancos de las fotografías.
-         El tractor, las ruedas y el techo permanecen completos. */
-      transform: scale(var(--photo-zoom, 1.20));
+      /* Sin zoom artificial: object-fit: contain mantiene el tractor entero en PC y móvil. */
+      transform: none;
       transform-origin: center center;
       user-select: none;
       -webkit-user-drag: none;
@@ -1046,12 +1045,12 @@
 
     /* 27.B Galería del tractor LOVOL TD 1304 de 130 HP: ventana, flechas y swipe */
     // Las fotos se muestran en el orden 01 → 02 → 03 → 04.
-    // El zoom de la última foto es ligeramente menor para mostrar todo el tractor.
+    // Sin zoom artificial para evitar recortes en pantallas de laptop.
     const tractor130Photos = [
-      { src: "TRACTOR_130_01.jpg", alt: "Tractor LOVOL TD 1304, vista de tres cuartos", zoom: 1.20 },
-      { src: "TRACTOR_130_02.jpg", alt: "Tractor LOVOL TD 1304, vista frontal", zoom: 1.20 },
-      { src: "TRACTOR_130_03.jpg", alt: "Tractor LOVOL TD 1304, vista posterior", zoom: 1.20 },
-      { src: "TRACTOR_130_04.jpg", alt: "Tractor LOVOL TD 1304, vista frontal en diagonal", zoom: 1.10 }
+      { src: "TRACTOR_130_01.jpg", alt: "Tractor LOVOL TD 1304, vista de tres cuartos", zoom: 1 },
+      { src: "TRACTOR_130_02.jpg", alt: "Tractor LOVOL TD 1304, vista frontal", zoom: 1 },
+      { src: "TRACTOR_130_03.jpg", alt: "Tractor LOVOL TD 1304, vista posterior", zoom: 1 },
+      { src: "TRACTOR_130_04.jpg", alt: "Tractor LOVOL TD 1304, vista frontal en diagonal", zoom: 1 }
     ];
     const tractor130Viewer = document.getElementById("tractor130Viewer");
     const tractor130Image = document.getElementById("tractor130Image");
@@ -1083,7 +1082,6 @@
 
       function mostrarFoto() {
         if (requestId !== tractor130LoadRequest) return;
-        tractor130Image.style.setProperty("--photo-zoom", String(photo.zoom));
         tractor130Image.src = photo.src;
         tractor130Image.alt = photo.alt;
       }
