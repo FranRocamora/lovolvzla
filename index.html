@@ -116,58 +116,63 @@
     .visual img[hidden]{display:none}
     .placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:700 .74rem var(--display);letter-spacing:.15em;color:var(--azul-acero);padding:20px}
 
-    /* 4.1 Carrusel: sin texto provisional y sin destellos entre fotos.
-       La imagen saliente permanece visible mientras entra la siguiente. */
+    /* 4.1 Historia cinematográfica: fotografías sin textos superpuestos.
+       Fundido cruzado sin parpadeos, con movimiento lento tipo Ken Burns.
+       La foto anterior permanece debajo hasta terminar la transición. */
     .about-slideshow {
-      isolation:isolate;
-      background:linear-gradient(140deg,var(--azul-acero),var(--verde));
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: var(--azul-acero);
     }
     .about-slideshow .about-slide {
-      opacity:0;
-      z-index:0;
-      transform:none;
-      pointer-events:none;
-      transition:opacity .9s ease;
-      object-fit:cover;
-      object-position:center center;
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      z-index: 0;
+      transform: scale(1.075);
+      transform-origin: 50% 50%;
+      pointer-events: none;
+      transition:
+        opacity 1.35s ease-in-out,
+        transform 6.8s linear;
+      will-change: opacity, transform;
     }
-    .about-slideshow .about-slide.is-active { opacity:1; z-index:1; }
-    .about-slideshow .about-slide.is-preparing { opacity:0; z-index:2; }
-    .about-slideshow .about-slide.is-entering { opacity:1; z-index:2; }
-    .about-slideshow:hover .about-slide { transform:none; }
-    .about-slideshow .about-slide[hidden] { display:none; }
-    /* Nunca mostrar texto de prueba o nombres de archivos detrás de las fotos. */
-    .about-slideshow .placeholder { display:none !important; }
-    /* Las dos fotos verticales priorizan la máquina, no el cielo ni el pavimento. */
-    .about-slideshow .about-slide:nth-of-type(5),
-    .about-slideshow .about-slide:nth-of-type(6) { object-position:center 42%; }
-    .about-slideshow .about-dots {
-      position:absolute;
-      z-index:3;
-      inset:auto 12px 17px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:10px;
+    /* Variación mínima del punto de acercamiento: movimiento natural y fluido. */
+    .about-slideshow .about-slide:nth-child(2n) { transform-origin: 54% 45%; }
+    .about-slideshow .about-slide:nth-child(3n) { transform-origin: 46% 55%; }
+    .about-slideshow .about-slide:nth-child(5),
+    .about-slideshow .about-slide:nth-child(6) { object-position: center 42%; }
+    .about-slideshow .about-slide.is-active {
+      opacity: 1;
+      z-index: 1;
+      transform: scale(1);
     }
-    .about-slideshow .about-dot {
-      width:10px;
-      height:10px;
-      min-width:10px;
-      padding:0;
-      border:1.5px solid var(--blanco);
-      border-radius:999px;
-      background:transparent;
-      box-shadow:0 1px 8px color-mix(in srgb, var(--azul-acero) 55%, transparent);
-      transition:width .3s ease,background .3s ease;
+    .about-slideshow .about-slide.is-preparing {
+      opacity: 0;
+      z-index: 2;
+      transform: scale(1.075);
     }
-    .about-slideshow .about-dot.is-active {
-      width:28px;
-      background:var(--blanco);
+    .about-slideshow .about-slide.is-entering {
+      opacity: 1;
+      z-index: 2;
+      transform: scale(1);
     }
-    @media (prefers-reduced-motion:reduce) {
-      .about-slideshow .about-slide,
-      .about-slideshow .about-dot { transition:none; }
+    .about-slideshow:hover .about-slide.is-active,
+    .about-slideshow:hover .about-slide.is-entering { transform: scale(1); }
+    .about-slideshow .about-slide[hidden] { display: none; }
+    /* Ninguna capa con letras, leyendas, nombres de archivo o controles. */
+    .about-slideshow .placeholder,
+    .about-slideshow .about-dots,
+    .about-slideshow .cinema-top,
+    .about-slideshow .cinema-bottom { display: none !important; }
+    @media (prefers-reduced-motion: reduce) {
+      .about-slideshow .about-slide { transition: none; transform: none !important; }
     }
 
     .about-content p{line-height:1.9}
@@ -592,21 +597,14 @@
     <!-- 16. NOSOTROS -->
     <section class="section" id="nosotros" aria-labelledby="aboutTitle">
       <div class="container about-grid">
-        <div class="visual about-photo about-slideshow reveal" id="aboutSlideshow" role="region" aria-label="Fotografías de maquinaria LOVOL">
+        <!-- Opción 1: historia cinematográfica SIN textos sobre las imágenes. -->
+        <div class="visual about-photo about-slideshow reveal" id="aboutSlideshow" role="region" aria-label="Fotografías de maquinaria LOVOL en movimiento cinematográfico">
           <img class="about-slide is-active" src="FOTO_NOSOTROS_01.jpg" alt="Cosechadora LOVOL roja, vista lateral de la maquinaria." loading="eager" decoding="async" aria-hidden="false">
           <img class="about-slide" src="FOTO_NOSOTROS_02.jpg" alt="Cosechadora LOVOL roja y blanca, vista lateral." loading="eager" decoding="async" aria-hidden="true">
           <img class="about-slide" src="FOTO_NOSOTROS_03.jpg" alt="Cosechadora LOVOL roja vista desde el frente y el lateral." loading="eager" decoding="async" aria-hidden="true">
           <img class="about-slide" src="FOTO_NOSOTROS_04.jpg" alt="Cosechadora LOVOL con cabezal para maíz, vista frontal." loading="eager" decoding="async" aria-hidden="true">
           <img class="about-slide" src="FOTO_NOSOTROS_05.jpg" alt="Cosechadora LOVOL roja con cabezal para maíz, vista diagonal." loading="eager" decoding="async" aria-hidden="true">
           <img class="about-slide" src="FOTO_NOSOTROS_06.jpeg" alt="Cosechadora LOVOL roja de perfil, con cabezal agrícola." loading="eager" decoding="async" aria-hidden="true">
-          <div class="about-dots" role="group" aria-label="Seleccionar fotografía">
-            <button class="about-dot is-active" type="button" data-slide="0" aria-label="Mostrar foto 1 de 6" aria-pressed="true"></button>
-            <button class="about-dot" type="button" data-slide="1" aria-label="Mostrar foto 2 de 6" aria-pressed="false"></button>
-            <button class="about-dot" type="button" data-slide="2" aria-label="Mostrar foto 3 de 6" aria-pressed="false"></button>
-            <button class="about-dot" type="button" data-slide="3" aria-label="Mostrar foto 4 de 6" aria-pressed="false"></button>
-            <button class="about-dot" type="button" data-slide="4" aria-label="Mostrar foto 5 de 6" aria-pressed="false"></button>
-            <button class="about-dot" type="button" data-slide="5" aria-label="Mostrar foto 6 de 6" aria-pressed="false"></button>
-          </div>
         </div>
         <div class="reveal about-content">
           <span class="eyebrow"></span>
@@ -903,124 +901,117 @@
     }
 
 
-    /* 27.A Carrusel automático: fundido sin pantalla vacía ni texto de prueba. */
+    /* 27.A Seis fotografías: fundido cinematográfico y movimiento lento.
+       Sin textos, sin puntos y sin pantallas vacías entre cambios. */
     const aboutSlideshow = document.getElementById("aboutSlideshow");
     if (aboutSlideshow) {
       const slides = [...aboutSlideshow.querySelectorAll(".about-slide")];
-      const dots = [...aboutSlideshow.querySelectorAll(".about-dot")];
       let currentSlide = 0;
       let slideshowTimer = null;
       let slideshowInView = false;
       let transitioning = false;
-      const slideInterval = 5000;
+      const slideInterval = 5800;
 
+      // No iniciar transiciones hacia imágenes que aún no han cargado.
       slides.forEach(img => {
         const markFailed = () => {
           img.dataset.failed = "true";
           img.hidden = true;
+          img.setAttribute("aria-hidden", "true");
         };
         img.addEventListener("error", markFailed);
         if (img.complete && !img.naturalWidth) markFailed();
       });
 
-      function updateDots(index) {
-        dots.forEach((dot, i) => {
-          const selected = i === index;
-          dot.classList.toggle("is-active", selected);
-          dot.setAttribute("aria-pressed", String(selected));
-        });
+      const isReady = img =>
+        img.dataset.failed !== "true" && img.complete && img.naturalWidth > 0;
+
+      // Si la primera fotografía no existe, mostrar la primera disponible.
+      if (!isReady(slides[0])) {
+        const firstLoaded = slides.findIndex(isReady);
+        if (firstLoaded > 0) {
+          slides[0].classList.remove("is-active");
+          slides[0].setAttribute("aria-hidden", "true");
+          slides[firstLoaded].classList.add("is-active");
+          slides[firstLoaded].setAttribute("aria-hidden", "false");
+          currentSlide = firstLoaded;
+        }
       }
 
-      function showAboutSlide(index) {
-        if (!slides.length || transitioning) return;
-        let next = ((index % slides.length) + slides.length) % slides.length;
-        let attempts = 0;
-        while (attempts < slides.length) {
-          const img = slides[next];
-          // No iniciar el cambio hasta que la imagen de destino esté cargada.
-          if (img.dataset.failed !== "true" && img.complete && img.naturalWidth > 0) break;
-          next = (next + 1) % slides.length;
-          attempts++;
-        }
-        if (attempts >= slides.length || next === currentSlide) return;
+      function showNextCinematicSlide() {
+        if (slides.length < 2 || transitioning) return;
 
-        const previous = slides[currentSlide];
+        let next = (currentSlide + 1) % slides.length;
+        let checked = 0;
+        while (checked < slides.length && !isReady(slides[next])) {
+          next = (next + 1) % slides.length;
+          checked++;
+        }
+        if (checked >= slides.length || next === currentSlide) return;
+
+        const outgoing = slides[currentSlide];
         const incoming = slides[next];
         if (reducirMovimiento) {
           incoming.classList.add("is-active");
-          previous.classList.remove("is-active");
-          previous.setAttribute("aria-hidden", "true");
+          outgoing.classList.remove("is-active");
+          outgoing.setAttribute("aria-hidden", "true");
           incoming.setAttribute("aria-hidden", "false");
           currentSlide = next;
-          updateDots(next);
           return;
         }
 
         transitioning = true;
         incoming.classList.add("is-preparing");
-        void incoming.offsetWidth; // Registra opacidad 0 antes del fundido.
-        incoming.classList.add("is-entering");
-        // IMPORTANTE: no se oculta la foto anterior durante el fundido.
+        void incoming.offsetWidth; // Fijar el estado inicial antes del fundido.
+
         let finished = false;
-        let fallback;
-        const onTransition = event => {
-          if (event.propertyName === "opacity") finish();
-        };
+        let backupTimer;
         const finish = () => {
           if (finished) return;
           finished = true;
-          incoming.removeEventListener("transitionend", onTransition);
-          window.clearTimeout(fallback);
+          incoming.removeEventListener("transitionend", onFinish);
+          window.clearTimeout(backupTimer);
           incoming.classList.add("is-active");
-          previous.classList.remove("is-active");
           incoming.classList.remove("is-preparing", "is-entering");
-          previous.setAttribute("aria-hidden", "true");
+          outgoing.classList.remove("is-active");
+          outgoing.setAttribute("aria-hidden", "true");
           incoming.setAttribute("aria-hidden", "false");
           currentSlide = next;
-          updateDots(next);
           transitioning = false;
         };
-        incoming.addEventListener("transitionend", onTransition);
-        fallback = window.setTimeout(finish, 1150);
+        const onFinish = event => {
+          if (event.target === incoming && event.propertyName === "opacity") finish();
+        };
+        incoming.addEventListener("transitionend", onFinish);
+        backupTimer = window.setTimeout(finish, 1600);
+        requestAnimationFrame(() => incoming.classList.add("is-entering"));
       }
 
-      function stopAboutSlideshow() {
+      function stopCinematicSlideshow() {
         if (slideshowTimer !== null) {
           window.clearInterval(slideshowTimer);
           slideshowTimer = null;
         }
       }
-
-      function startAboutSlideshow() {
-        stopAboutSlideshow();
-        if (reducirMovimiento || document.hidden || !slideshowInView) return;
-        slideshowTimer = window.setInterval(() => {
-          showAboutSlide(currentSlide + 1);
-        }, slideInterval);
+      function startCinematicSlideshow() {
+        stopCinematicSlideshow();
+        if (document.hidden || !slideshowInView || reducirMovimiento) return;
+        slideshowTimer = window.setInterval(showNextCinematicSlide, slideInterval);
       }
-
-      dots.forEach(dot => {
-        dot.addEventListener("click", () => {
-          showAboutSlide(Number(dot.dataset.slide));
-          startAboutSlideshow();
-        });
-      });
-
       if ("IntersectionObserver" in window) {
-        const visibilityObserver = new IntersectionObserver(entries => {
+        const inViewObserver = new IntersectionObserver(entries => {
           slideshowInView = entries[0].isIntersecting;
-          if (slideshowInView) startAboutSlideshow();
-          else stopAboutSlideshow();
-        }, {threshold:0.15});
-        visibilityObserver.observe(aboutSlideshow);
+          if (slideshowInView) startCinematicSlideshow();
+          else stopCinematicSlideshow();
+        }, { threshold: 0.1 });
+        inViewObserver.observe(aboutSlideshow);
       } else {
         slideshowInView = true;
-        startAboutSlideshow();
+        startCinematicSlideshow();
       }
-
       document.addEventListener("visibilitychange", () => {
-        if (document.hidden) stopAboutSlideshow();
-        else startAboutSlideshow();
+        if (document.hidden) stopCinematicSlideshow();
+        else startCinematicSlideshow();
       });
     }
 
