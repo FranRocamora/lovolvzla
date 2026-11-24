@@ -654,6 +654,9 @@
       .accessory-grid { grid-template-columns: 1fr; }
       .accessory-photo { height: 210px; }
     }
+    /* Enlace al catálogo de repuestos (sección Ventajas) */
+    .benefit-link{display:inline-flex;gap:8px;align-items:center;margin-top:14px;color:var(--verde);font-size:.8rem;font-weight:700;transition:gap .25s}
+    .benefit-link:hover{gap:14px}
   </style>
 </head>
 
@@ -696,6 +699,7 @@
         <a href="#nosotros">Nosotros</a>
         <a href="#tractores">Tractores</a>
         <a href="#accesorios">Accesorios</a>
+        <a href="repuestos.html">Repuestos</a>
         <a href="#ventajas">Ventajas</a>
         <a href="#galeria">Galería</a>
         <a class="nav-cta" href="#contacto">Contáctanos</a>
@@ -915,7 +919,7 @@
         <div class="benefits">
           <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg" viewBox="0 0 24 24"><use href="#icon-power"/></svg></div><h3>Potencia</h3><p>Maquinaria preparada para afrontar diferentes exigencias agrícolas.</p></article>
           <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg" viewBox="0 0 24 24"><use href="#icon-durable"/></svg></div><h3>Durabilidad</h3><p>Equipos diseñados para acompañar el trabajo diario en el campo.</p></article>
-          <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg nut-icon" viewBox="0 0 24 24"><use href="#icon-parts"/></svg></div><h3>Repuestos</h3><p>Consulta la disponibilidad de componentes para cada modelo.</p></article>
+          <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg nut-icon" viewBox="0 0 24 24"><use href="#icon-parts"/></svg></div><h3>Repuestos</h3><p>Consulta la disponibilidad de componentes para cada modelo.</p><a class="benefit-link" href="repuestos.html">Ver catálogo de repuestos <span aria-hidden="true">→</span></a></article>
           <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg" viewBox="0 0 24 24"><use href="#icon-warranty"/></svg></div><h3>Garantía</h3><p>Solicita información sobre condiciones y cobertura de garantía.</p></article>
           <article class="benefit reveal"><div class="benefit-icon" aria-hidden="true"><svg class="benefit-svg" viewBox="0 0 24 24"><use href="#icon-service"/></svg></div><h3>Servicio técnico</h3><p>Consulta opciones de mantenimiento y asistencia para tu tractor.</p></article>
         </div>
@@ -1001,7 +1005,7 @@
           <p>Distribuidor Oficial en Venezuela.<br>Tractores disponibles en toda Venezuela.</p>
           <span class="footer-rif">RIF: J-506542161</span>
         </div>
-        <div class="footer-col"><h4>Explorar</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#tractores">Tractores</a><a href="#accesorios">Accesorios</a><a href="#ventajas">Ventajas</a><a href="#galeria">Galería</a></div>
+        <div class="footer-col"><h4>Explorar</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#tractores">Tractores</a><a href="#accesorios">Accesorios</a><a href="repuestos.html">Repuestos</a><a href="#ventajas">Ventajas</a><a href="#galeria">Galería</a></div>
         <div class="footer-col">
           <h4>Contacto</h4>
           <div class="footer-socials" aria-label="Canales de contacto">
@@ -1499,4 +1503,4 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
-</html>
+</html>
