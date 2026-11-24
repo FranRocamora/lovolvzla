@@ -98,7 +98,7 @@
        4. DIAGRAMA INTERACTIVO DEL TRACTOR
     ========================================== */
     .explorer{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(28px,5vw,70px);align-items:center;margin-top:40px}
-    .diagram-wrap{position:relative;background:linear-gradient(160deg,var(--azul-hielo),#f6f9ff 60%,var(--blanco));border:1px solid var(--gris-claro);border-radius:6px;padding:clamp(10px,2vw,24px)}
+    .diagram-wrap{position:relative;background:var(--blanco);border:1px solid var(--gris-claro);border-radius:6px;padding:clamp(10px,2vw,24px)}
     .diagram{width:100%;height:auto;overflow:visible}
     .diagram .linea{fill:none;stroke:var(--verde);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
     .diagram .relleno{fill:var(--blanco);stroke:var(--verde);stroke-width:3;stroke-linejoin:round}
@@ -385,39 +385,8 @@
         <p class="description">Elige una zona del tractor o un sistema de la lista para ver sus repuestos.</p>
         <div class="explorer">
           <div class="diagram-wrap">
-            <svg class="diagram" id="diagram" viewBox="0 0 800 470" role="group" aria-label="Diagrama del tractor con zonas para explorar repuestos">
-              <line class="suelo" x1="20" y1="440" x2="780" y2="440"/>
-              <!-- Enganche de tres puntos -->
-              <path class="linea" d="M150 330 L86 352 M86 352 L86 392 M150 280 L96 300 L86 352"/>
-              <!-- Cabina (marco ROPS y techo) -->
-              <path class="linea" d="M190 250 L208 70 M352 250 L336 70"/>
-              <path class="relleno" d="M176 70 Q272 46 368 70 L368 88 Q272 66 176 88 Z"/>
-              <!-- Asiento y volante -->
-              <path class="tenue" d="M226 232 L228 186 Q232 172 246 174 L252 176 L250 232 Z"/>
-              <path class="linea" d="M300 236 L318 172 M300 170 L338 176"/>
-              <!-- Chasis y capó -->
-              <path class="tenue" d="M160 250 L400 250 L400 300 L160 300 Z"/>
-              <path class="relleno" d="M370 196 L690 196 Q716 196 720 220 L728 300 L370 300 Z"/>
-              <path class="linea" d="M420 220 L690 220 M420 244 L690 244"/>
-              <!-- Rejilla y faro -->
-              <path class="linea" d="M700 214 L708 292"/>
-              <circle class="rin" cx="712" cy="214" r="10"/>
-              <!-- Escape -->
-              <path class="linea" d="M540 196 L540 110" stroke-width="7"/>
-              <path class="linea" d="M532 112 L548 104"/>
-              <!-- Tanque / motor bajo capó (detalle) -->
-              <rect class="tenue" x="430" y="262" width="150" height="30" rx="4"/>
-              <!-- Guardabarros trasero -->
-              <path class="relleno" d="M100 300 Q110 186 230 182 Q350 186 360 300 L332 300 Q324 214 230 212 Q136 214 128 300 Z"/>
-              <!-- Rueda trasera -->
-              <circle class="llanta" cx="230" cy="345" r="95"/>
-              <circle class="rin" cx="230" cy="345" r="52"/>
-              <circle class="tenue" cx="230" cy="345" r="16"/>
-              <!-- Eje delantero y rueda -->
-              <path class="linea" d="M600 300 L610 360"/>
-              <circle class="llanta" cx="612" cy="385" r="55"/>
-              <circle class="rin" cx="612" cy="385" r="28"/>
-              <circle class="tenue" cx="612" cy="385" r="9"/>
+            <svg class="diagram" id="diagram" viewBox="0 0 800 565" role="group" aria-label="Foto del tractor LOVOL TD 1304 de lado con zonas para explorar repuestos">
+              <image href="TRACTOR_LADO.jpg" x="0" y="0" width="800" height="565" preserveAspectRatio="xMidYMid meet"/>
               <g id="hotspots"></g>
             </svg>
             <div class="diagram-tip"><i></i> Toca los puntos para ver los repuestos de cada zona</div>
@@ -684,11 +653,11 @@
     {"c": "TS06402450032", "n": "Filtro hidráulico de succión", "s": "filtros", "d": "Elemento de malla perforada con rosca.", "img": "repuestos/TS06402450032.jpg", "m": []}
   ];
 
-  // Posición de cada sistema en el diagrama del tractor (x, y)
+  // Posición de cada sistema sobre la foto TRACTOR_LADO.jpg (x, y). La foto mide 800 × 565 en el diagrama.
   const PUNTOS = {
-    motor:[560,232], filtros:[470,277], embrague:[388,276], transmision:[300,276],
-    hidraulico:[160,262], enganche:[90,360], frenos:[230,345], direccion:[605,330],
-    electrico:[712,214], cabina:[272,110], rodamientos:[612,385]
+    electrico:[127,283], motor:[299,319], filtros:[351,167], embrague:[387,342],
+    transmision:[476,310], hidraulico:[480,234], direccion:[445,179], cabina:[539,50],
+    frenos:[614,390], rodamientos:[228,435], enganche:[772,429]
   };
 
   /* ---------- Utilidades ---------- */
