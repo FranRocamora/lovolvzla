@@ -2,7 +2,7 @@
 <html lang="es-VE">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#00765A">
   <meta name="description" content="Repuestos LOVOL en Venezuela: filtros, motor, transmisión, hidráulico, frenos y más. Busca por nombre o código y cotiza por WhatsApp con Agromaquinaria Latina C.A.">
   <meta property="og:type" content="website">
@@ -31,6 +31,9 @@
     html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header) + 70px)}
     body{margin:0;background:var(--blanco);color:var(--gris);font-family:var(--texto);-webkit-font-smoothing:antialiased}
     body.sin-scroll{overflow:hidden}
+    /* Bloqueo de scroll estable (iPhone incluido): la página no se mueve al abrir/cerrar ventanas */
+    body.bloqueado{position:fixed;left:0;right:0;width:100%;overflow:hidden}
+    button,a,input,select,textarea{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     a{text-decoration:none;color:inherit}
     button,input,select,textarea{font:inherit}
     button{cursor:pointer}
@@ -45,7 +48,7 @@
     .description{max-width:640px;font-size:1rem;line-height:1.85;margin:0}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
     .button{display:inline-flex;justify-content:center;align-items:center;gap:12px;min-height:50px;padding:14px 22px;border:1px solid transparent;border-radius:3px;font-size:.84rem;font-weight:700;transition:transform .3s var(--suave),background .3s,box-shadow .3s,color .3s}
-    .button:hover{transform:translateY(-2px)}
+    @media(hover:hover) and (pointer:fine){.button:hover{transform:translateY(-2px)}}
     .button-green{background:var(--verde);color:var(--blanco)}
     .button-green:hover{box-shadow:0 12px 28px color-mix(in srgb,var(--verde) 30%,transparent)}
     .button-ghost{background:transparent;color:var(--verde);border-color:var(--gris-claro)}
@@ -121,7 +124,8 @@
     .diagram-tip i{width:9px;height:9px;border-radius:50%;background:var(--verde);display:inline-block}
     .systems{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .system{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;background:var(--blanco);border:1px solid var(--gris-claro);border-radius:4px;padding:15px 16px;color:var(--texto-fuerte);font-size:.86rem;font-weight:600;transition:border-color .25s,transform .25s,background .25s}
-    .system:hover,.system.activo{border-color:var(--verde);transform:translateY(-2px)}
+    .system.activo{border-color:var(--verde)}
+    @media(hover:hover) and (pointer:fine){.system:hover{border-color:var(--verde);transform:translateY(-2px)}}
     .system.activo{background:var(--azul-hielo)}
     .system b{font:700 .74rem var(--mono);color:var(--verde);background:var(--azul-hielo);border-radius:20px;padding:3px 9px}
     .system.activo b{background:var(--blanco)}
@@ -132,7 +136,7 @@
     .catalog{background:var(--azul-hielo)}
     .toolbar{position:sticky;top:var(--header);z-index:40;background:color-mix(in srgb,var(--azul-hielo) 92%,transparent);backdrop-filter:blur(10px);padding:14px 0;margin-bottom:26px;border-bottom:1px solid var(--gris-claro)}
     .toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px;flex:1 1 560px;scroll-snap-type:x proximity}
+    .chips{display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:2px;flex:1 1 100%;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
     .chips::-webkit-scrollbar{display:none}
     .chip{flex:0 0 auto;scroll-snap-align:start;border:1px solid var(--gris-claro);background:var(--blanco);color:var(--verde);border-radius:30px;padding:9px 15px;font-size:.78rem;font-weight:700;display:flex;gap:8px;align-items:center;transition:background .25s,color .25s,border-color .25s}
     .chip small{font:600 .68rem var(--mono);opacity:.7}
@@ -140,17 +144,17 @@
     .chip.activo{background:var(--verde);color:var(--blanco);border-color:var(--verde)}
     .tools{display:flex;gap:10px;align-items:center}
     .tools select{height:40px;border:1px solid var(--gris-claro);border-radius:3px;background:var(--blanco);color:var(--texto-fuerte);padding:0 12px;font-size:.8rem}
-    .result-line{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 20px;font-size:.84rem}
+    .result-line{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 20px;font-size:.84rem;scroll-margin-top:calc(var(--header) + 80px)}
     .result-line strong{color:var(--verde)}
     .reset-link{background:none;border:0;color:var(--verde);font-weight:700;font-size:.8rem;text-decoration:underline;text-underline-offset:3px;padding:0}
     .parts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:18px}
     .part{position:relative;display:flex;flex-direction:column;background:var(--blanco);border:1px solid var(--gris-claro);border-radius:5px;overflow:hidden;transition:transform .4s var(--suave),box-shadow .4s,border-color .3s;animation:entrar .5s var(--suave) both}
-    .part:hover{transform:translateY(-5px);box-shadow:var(--sombra)}
+    @media(hover:hover) and (pointer:fine){.part:hover{transform:translateY(-5px);box-shadow:var(--sombra)}.part:hover .part-photo img{transform:scale(1.05)}}
     .part.en-lista{border-color:var(--verde)}
     @keyframes entrar{from{opacity:0;transform:translateY(14px)}}
+    @keyframes aparecer{from{opacity:0}}
     .part-photo{display:block;position:relative;aspect-ratio:1/1;background:var(--blanco);border:0;padding:0;cursor:zoom-in;border-bottom:1px solid #f0f0ef}
     .part-photo img{width:100%;height:100%;object-fit:contain;padding:8px;transition:transform .5s var(--suave)}
-    .part:hover .part-photo img{transform:scale(1.05)}
     .part-check{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:var(--verde);color:var(--blanco);display:grid;place-items:center;font-size:.9rem;font-weight:800;transform:scale(0);transition:transform .3s var(--suave)}
     .part.en-lista .part-check{transform:scale(1)}
     .part-body{display:flex;flex-direction:column;gap:8px;padding:16px 16px 18px;flex:1}
@@ -198,7 +202,7 @@
     ========================================== */
     .drawer-backdrop{position:fixed;inset:0;z-index:90;background:rgba(15,25,25,.45);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .35s}
     .drawer-backdrop.abierto{opacity:1;pointer-events:auto}
-    .drawer{position:fixed;top:0;right:0;bottom:0;z-index:95;width:min(460px,100%);background:var(--blanco);display:flex;flex-direction:column;transform:translateX(105%);transition:transform .45s var(--suave);box-shadow:-20px 0 60px rgba(0,0,0,.15)}
+    .drawer{position:fixed;top:0;right:0;bottom:0;height:100dvh;z-index:95;width:min(460px,100%);background:var(--blanco);display:flex;flex-direction:column;transform:translateX(105%);transition:transform .45s var(--suave);box-shadow:-20px 0 60px rgba(0,0,0,.15)}
     .drawer.abierto{transform:none}
     .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--gris-claro)}
     .drawer-head h2{margin:0;font:700 1.4rem var(--display);color:var(--verde)}
@@ -228,15 +232,15 @@
     /* ==========================================
        8. DETALLE DE PIEZA
     ========================================== */
-    .modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:18px;background:color-mix(in srgb,var(--azul-acero) 70%,transparent);backdrop-filter:blur(6px)}
-    .modal-box{position:relative;width:min(980px,100%);max-height:92dvh;overflow:auto;background:var(--blanco);border-radius:6px;display:grid;grid-template-columns:1.05fr 1fr;animation:entrar .4s var(--suave)}
+    .modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:18px;overscroll-behavior:contain;background:color-mix(in srgb,var(--azul-acero) 70%,transparent);backdrop-filter:blur(6px)}
+    .modal-box{position:relative;width:min(980px,100%);max-height:92dvh;overflow:auto;overscroll-behavior:contain;background:var(--blanco);border-radius:6px;display:grid;grid-template-columns:1.05fr 1fr;animation:entrar .4s var(--suave)}
     .modal-photo{background:var(--blanco);border-right:1px solid #eeeeed;display:grid;place-items:center;padding:24px;min-height:360px}
     .modal-photo img{width:100%;max-height:520px;object-fit:contain}
     .modal-info{padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:14px}
     .modal-info h2{margin:0;font:700 clamp(1.6rem,3vw,2.2rem)/1.15 var(--display);color:var(--verde)}
     .modal-info p{margin:0;line-height:1.8}
     .modal-info .code{font-size:.85rem;padding:7px 10px}
-    .modal-close{position:absolute;right:14px;top:10px;z-index:2}
+    .modal-close{position:absolute;right:14px;top:10px;z-index:3;background:var(--blanco);border-radius:50%}
     .modal-actions{display:grid;gap:10px;margin-top:8px}
     .related h4{margin:14px 0 10px;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--azul-acero)}
     .related-list{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
@@ -288,8 +292,25 @@
       .footer-grid{grid-template-columns:1fr 1fr}
       .footer-about{grid-column:1/-1}
     }
+    @media(max-width:860px){
+      /* 16px evita el zoom automático del iPhone al tocar campos */
+      input,select,textarea,.search input{font-size:16px!important}
+      .toolbar{padding:10px 0;margin-bottom:18px}
+      /* Detalle de pieza como hoja que sube desde abajo: estable y cómoda con el pulgar */
+      .modal{place-items:end center;padding:0}
+      .modal-box{width:100%;max-height:88dvh;border-radius:16px 16px 0 0;animation:subir .38s var(--suave);padding-bottom:env(safe-area-inset-bottom)}
+      .modal-photo{min-height:0;padding:30px 20px 14px}
+      .modal-photo img{max-height:230px}
+      .modal-info{padding:6px 20px 24px;gap:12px}
+      .modal-close{position:sticky;top:8px;justify-self:end;grid-column:1/-1;grid-row:1;margin:8px 8px -46px 0;width:38px;height:38px;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+      .related-list{grid-template-columns:repeat(4,1fr)}
+      .drawer{width:100%}
+      .drawer-body{padding:4px 18px 16px}
+      .drawer-form{padding:14px 18px calc(16px + env(safe-area-inset-bottom))}
+    }
+    @keyframes subir{from{transform:translateY(100%)}to{transform:none}}
     @media(max-width:580px){
-      .search input{height:58px;padding-right:56px;font-size:.95rem}
+      .search input{height:58px;padding-right:56px}
       .search kbd{display:none}
       .systems{grid-template-columns:1fr 1fr}
       .system{padding:13px 12px;font-size:.8rem}
@@ -300,11 +321,13 @@
       .add-btn,.stepper{height:38px;font-size:.74rem}
       .stepper button{width:36px}
       .field-row{grid-template-columns:1fr}
-      .tools{width:100%}
-      .tools select{flex:1}
+      .result-line{flex-direction:column;align-items:stretch;gap:10px}
+      .tools{width:100%;justify-content:space-between}
+      .tools select{flex:1;height:44px}
+      .part{animation-name:aparecer}
       .footer-bottom{flex-direction:column}
-      .whatsapp-float{width:52px;height:52px;right:16px;bottom:16px}
-      .quote-float{bottom:16px;left:16px;transform:translate(0,140%)}
+      .whatsapp-float{width:52px;height:52px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom))}
+      .quote-float{bottom:calc(16px + env(safe-area-inset-bottom));left:16px;transform:translate(0,140%)}
       .quote-float.visible{transform:none}
       .diagram-tip{display:none}
     }
@@ -357,7 +380,7 @@
         <div class="search" role="search">
           <label for="searchInput" class="sr-only">Buscar repuesto por nombre o código</label>
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="searchInput" type="search" autocomplete="off" spellcheck="false" placeholder="Ej.: filtro de aceite, bomba, FT800.37.119…">
+          <input id="searchInput" type="search" enterkeyhint="search" autocomplete="off" spellcheck="false" placeholder="Ej.: filtro de aceite, bomba, FT800.37.119…">
           <kbd id="searchKbd" aria-hidden="true">/</kbd>
           <button type="button" class="search-clear" id="searchClear" aria-label="Borrar búsqueda" hidden>×</button>
         </div>
@@ -405,7 +428,13 @@
       <div class="toolbar">
         <div class="container toolbar-row">
           <div class="chips" id="chips" role="group" aria-label="Filtrar por sistema"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="result-line" id="resultLine" aria-live="polite">
+          <span id="resultText"></span>
           <div class="tools">
+            <button type="button" class="reset-link" id="resetFilters" hidden>Quitar filtros</button>
             <label class="sr-only" for="modelSelect">Mi máquina</label>
             <select id="modelSelect" hidden></select>
             <label class="sr-only" for="sortSelect">Ordenar</label>
@@ -415,12 +444,6 @@
               <option value="codigo">Código (A–Z)</option>
             </select>
           </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="result-line" aria-live="polite">
-          <span id="resultText"></span>
-          <button type="button" class="reset-link" id="resetFilters" hidden>Quitar filtros</button>
         </div>
         <div class="parts-grid" id="partsGrid"></div>
         <div class="empty" id="emptyState" hidden>
@@ -702,6 +725,25 @@
     return out + (abierto ? "</mark>" : "");
   }
 
+  /* ---------- Bloqueo de scroll: la página queda quieta detrás de las ventanas ---------- */
+  let bloqueos = 0, posicionGuardada = 0;
+  function bloquearScroll() {
+    if (bloqueos++ > 0) return;
+    posicionGuardada = window.scrollY;
+    document.body.style.top = -posicionGuardada + "px";
+    document.body.classList.add("bloqueado");
+  }
+  function desbloquearScroll() {
+    if (bloqueos === 0 || --bloqueos > 0) return;
+    document.body.classList.remove("bloqueado");
+    document.body.style.top = "";
+    const html = document.documentElement, antes = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+    window.scrollTo(0, posicionGuardada);
+    html.style.scrollBehavior = antes;
+  }
+  const enfocar = el => { if (el && el.focus) el.focus({ preventScroll: true }); };
+
   /* ---------- Estado ---------- */
   REPUESTOS.forEach((p, i) => { p.id = p.c || ("sin-codigo-" + i); p._txt = normalizar([p.n, p.c, p.d, nombreSistema(p.s)].join(" ")); p._cod = compacto(p.c); });
   const estado = { q: "", sistema: "todos", modelo: "", orden: "sistema", visibles: 24 };
@@ -737,8 +779,16 @@
 
   function marcarSistema(id) {
     $$("[data-sistema]").forEach(el => el.classList.toggle("activo", el.dataset.sistema === id));
-    const chip = $(`.chip[data-sistema="${id}"]`);
-    if (chip) chip.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    const chip = $(`.chip[data-sistema="${id}"]`), barra = $("#chips");
+    if (chip && barra.scrollWidth > barra.clientWidth) {
+      barra.scrollTo({ left: chip.offsetLeft - barra.offsetLeft - (barra.clientWidth - chip.offsetWidth) / 2, behavior: "smooth" });
+    }
+  }
+  // Si el usuario está más abajo del inicio de los resultados, lo lleva al comienzo de la lista nueva
+  function alInicioDeResultados() {
+    const linea = $("#resultLine"), tope = linea.getBoundingClientRect().top;
+    const barra = $("#header").offsetHeight + $(".toolbar").offsetHeight;
+    if (tope < barra) window.scrollTo({ top: window.scrollY + tope - barra - 8, behavior: "smooth" });
   }
   function elegirSistema(id, irAlCatalogo) {
     estado.sistema = (estado.sistema === id && id !== "todos" && !irAlCatalogo) ? "todos" : id;
@@ -746,6 +796,7 @@
     marcarSistema(estado.sistema);
     pintar(); actualizarURL();
     if (irAlCatalogo) $("#catalogo").scrollIntoView({ behavior: "smooth" });
+    else alInicioDeResultados();
   }
   $("#chips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b) elegirSistema(b.dataset.sistema, false); });
   $("#systemList").addEventListener("click", e => { const b = e.target.closest(".system"); if (b) elegirSistema(b.dataset.sistema, true); });
@@ -838,14 +889,14 @@
     clearTimeout(tBusqueda);
     tBusqueda = setTimeout(() => { estado.q = input.value.trim(); estado.visibles = POR_PAGINA; pintar(); actualizarURL(); }, 140);
   });
-  input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("#catalogo").scrollIntoView({ behavior: "smooth" }); } });
+  input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); input.blur(); setTimeout(() => $("#catalogo").scrollIntoView({ behavior: "smooth" }), 250); } });
   $("#searchClear").addEventListener("click", () => { input.value = ""; input.dispatchEvent(new Event("input")); input.focus(); });
   $$(".hint").forEach(b => b.addEventListener("click", () => {
     input.value = b.dataset.hint; input.dispatchEvent(new Event("input"));
     setTimeout(() => $("#catalogo").scrollIntoView({ behavior: "smooth" }), 160);
   }));
-  $("#sortSelect").addEventListener("change", e => { estado.orden = e.target.value; pintar(); });
-  $("#loadMore").addEventListener("click", () => { estado.visibles += POR_PAGINA; pintar(); });
+  $("#sortSelect").addEventListener("change", e => { estado.orden = e.target.value; pintar(); alInicioDeResultados(); });
+  $("#loadMore").addEventListener("click", () => { const y = window.scrollY; estado.visibles += POR_PAGINA; pintar(); window.scrollTo(0, y); });
   $("#resetFilters").addEventListener("click", () => {
     input.value = ""; $("#searchClear").hidden = true; $("#searchKbd").hidden = false;
     estado.q = ""; estado.modelo = ""; if (modelos.length) $("#modelSelect").value = "";
@@ -885,7 +936,7 @@
     const it = enLista(id);
     if (it) it.cant = Math.min(it.cant + cant, 999); else cotizacion.push({ id, cant });
     const p = REPUESTOS.find(x => x.id === id);
-    if (!it) aviso("✓ " + p.n + " agregado a tu cotización");
+    if (!it) aviso("✓ Agregado a tu cotización: " + p.n);
     guardarCotizacion(); refrescarTarjeta(id); refrescarModal();
   }
   function restar(id) {
@@ -920,14 +971,15 @@
   function abrirPanel() {
     focoAntes = document.activeElement;
     drawer.classList.add("abierto"); fondo.classList.add("abierto"); drawer.setAttribute("aria-hidden", "false");
-    document.body.classList.add("sin-scroll"); $("#quoteFloat").classList.remove("visible");
-    setTimeout(() => $("#drawerClose").focus(), 50);
+    bloquearScroll(); $("#quoteFloat").classList.remove("visible"); $("#toast").classList.remove("visible");
+    setTimeout(() => enfocar($("#drawerClose")), 50);
   }
   function cerrarPanel() {
+    if (!drawer.classList.contains("abierto")) return;
     drawer.classList.remove("abierto"); fondo.classList.remove("abierto"); drawer.setAttribute("aria-hidden", "true");
-    if ($("#partModal").hidden) document.body.classList.remove("sin-scroll");
+    desbloquearScroll();
     guardarCotizacion();
-    if (focoAntes && focoAntes.focus) focoAntes.focus();
+    enfocar(focoAntes);
   }
   $$("[data-open-quote]").forEach(b => b.addEventListener("click", abrirPanel));
   $("#drawerClose").addEventListener("click", cerrarPanel);
@@ -989,13 +1041,14 @@
     $("#pmRelatedWrap").hidden = !rel.length;
     $("#pmRelated").innerHTML = rel.map(r => `<button type="button" data-ver="${escapar(r.id)}" title="${escapar(r.n)}"><img src="${r.img}" alt="${escapar(r.n)}" loading="lazy"></button>`).join("");
     refrescarModal();
-    $("#partModal").hidden = false; document.body.classList.add("sin-scroll");
-    $(".modal-box").scrollTop = 0; $("#pmClose").focus();
+    if ($("#partModal").hidden) { $("#partModal").hidden = false; bloquearScroll(); }
+    $(".modal-box").scrollTop = 0; enfocar($("#pmClose"));
   }
   function cerrarDetalle() {
+    if ($("#partModal").hidden) return;
     $("#partModal").hidden = true; detalleId = null;
-    if (!drawer.classList.contains("abierto")) document.body.classList.remove("sin-scroll");
-    if (focoModal && focoModal.focus) focoModal.focus();
+    desbloquearScroll();
+    enfocar(focoModal);
   }
   $("#pmClose").addEventListener("click", cerrarDetalle);
   $("#partModal").addEventListener("click", e => { if (e.target.id === "partModal") cerrarDetalle(); });
