@@ -556,6 +556,104 @@
     @media (max-width:580px) {
       .catalog .tractor-photo.tractor-photo--130 { height: 320px; }
     }
+    /* ==========================================
+       ACCESORIOS E IMPLEMENTOS
+    ========================================== */
+    .accessory-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 35px;
+    }
+    .filter-chip {
+      border: 1px solid var(--gris-claro);
+      background: var(--blanco);
+      color: var(--verde);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: .8rem;
+      font-weight: 700;
+      transition: background .25s, color .25s, border-color .25s;
+    }
+    .filter-chip:hover { border-color: var(--verde); }
+    .filter-chip.is-active {
+      background: var(--verde);
+      color: var(--blanco);
+      border-color: var(--verde);
+    }
+    .accessory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 45px;
+    }
+    .accessory-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--blanco);
+      border: 1px solid var(--gris-claro);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform .45s var(--suave), box-shadow .45s;
+    }
+    .accessory-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px color-mix(in srgb, var(--azul-acero) 20%, transparent);
+    }
+    .accessory-card[hidden] { display: none; }
+    .accessory-photo { height: 230px; background: var(--blanco); }
+    .visual.accessory-photo img { object-fit: contain; padding: 14px; background: var(--blanco); }
+    .accessory-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      padding: 24px;
+    }
+    .accessory-info h3 {
+      font: 700 1.3rem var(--display);
+      color: var(--verde);
+      margin: 12px 0 12px;
+    }
+    .accessory-info p { font-size: .82rem; line-height: 1.75; margin: 0 0 18px; }
+    .accessory-quote {
+      margin-top: auto;
+      align-self: flex-start;
+      background: none;
+      border: 0;
+      padding: 0;
+      color: var(--verde);
+      font-weight: 700;
+      font-size: .83rem;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      transition: gap .25s;
+    }
+    .accessory-quote:hover { gap: 20px; }
+    .accessory-specs {
+      list-style: none;
+      margin: 0 0 22px;
+      padding: 0;
+      border-top: 1px solid var(--gris-claro);
+      font-size: .8rem;
+    }
+    .accessory-specs li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--gris-claro);
+    }
+    .accessory-specs strong { color: var(--verde); text-align: right; }
+    .accessory-filters[hidden], .filter-chip[hidden] { display: none; }
+    @media (max-width: 1100px) {
+      .accessory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 580px) {
+      .accessory-grid { grid-template-columns: 1fr; }
+      .accessory-photo { height: 210px; }
+    }
   </style>
 </head>
 
@@ -597,6 +695,7 @@
         <a href="#inicio">Inicio</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#tractores">Tractores</a>
+        <a href="#accesorios">Accesorios</a>
         <a href="#ventajas">Ventajas</a>
         <a href="#galeria">Galería</a>
         <a class="nav-cta" href="#contacto">Contáctanos</a>
@@ -691,6 +790,120 @@
       </div>
     </section>
 
+    <!-- 17.B ACCESORIOS E IMPLEMENTOS
+         Para añadir uno: copia un <article class="accessory-card">, cambia la foto,
+         el nombre, la descripción y el data-category (labranza, siembra, mantenimiento o carga).
+         Cada accesorio usa la información de la primera hoja de su ficha en PDF. -->
+    <section class="section" id="accesorios" aria-labelledby="accessoriesTitle">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">Accesorios e implementos</span>
+          <h2 class="title" id="accessoriesTitle">Completa tu equipo.</h2>
+          <p class="description">Implementos para sacarle el máximo provecho a tu máquina LOVOL. Consulta compatibilidad y disponibilidad con nuestro equipo.</p>
+        </div>
+
+        <div class="accessory-filters reveal" role="group" aria-label="Filtrar accesorios por categoría">
+          <button type="button" class="filter-chip is-active" data-filter="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="filter-chip" data-filter="labranza" aria-pressed="false">Labranza</button>
+          <button type="button" class="filter-chip" data-filter="siembra" aria-pressed="false">Siembra</button>
+          <button type="button" class="filter-chip" data-filter="mantenimiento" aria-pressed="false">Mantenimiento</button>
+          <button type="button" class="filter-chip" data-filter="carga" aria-pressed="false">Carga y transporte</button>
+        </div>
+
+        <div class="accessory-grid" id="accessoryGrid">
+          <!-- ROTATIVA 9G-1.0 (datos de la ficha del fabricante) -->
+          <article class="accessory-card reveal" data-category="mantenimiento">
+            <div class="visual accessory-photo">
+              <div class="placeholder">ACCESORIO_01.jpg</div>
+              <img src="ACCESORIO_01.jpg" alt="Rotativa LOVOL modelo 9G-1.0 de color amarillo" loading="lazy" decoding="async" onerror="this.hidden=true">
+            </div>
+            <div class="accessory-info">
+              <span class="tractor-category">Mantenimiento</span>
+              <h3>Rotativa</h3>
+              <ul class="accessory-specs">
+                <li><span>Modelo</span><strong>9G-1.0</strong></li>
+                <li><span>Ancho de corte</span><strong>1000</strong></li>
+                <li><span>Altura de corte</span><strong>100-300</strong></li>
+                <li><span>Peso</span><strong>260 kg</strong></li>
+                <li><span>Potencia requerida</span><strong>25 HP</strong></li>
+                <li><span>Dimensiones totales (mm)</span><strong>1200 × 1400 × 800</strong></li>
+
+              </ul>
+              <button type="button" class="accessory-quote" data-accessory="Rotativa 9G-1.0">Cotizar <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+          <!-- ROTATIVA 9GH-3 (datos de la ficha del fabricante) -->
+          <article class="accessory-card reveal" data-category="mantenimiento">
+            <div class="visual accessory-photo">
+              <div class="placeholder">ACCESORIO_02.jpg</div>
+              <img src="ACCESORIO_02.jpg" alt="Rotativa LOVOL modelo 9GH-3 de color amarillo con ruedas traseras" loading="lazy" decoding="async" onerror="this.hidden=true">
+            </div>
+            <div class="accessory-info">
+              <span class="tractor-category">Mantenimiento</span>
+              <h3>Rotativa</h3>
+              <ul class="accessory-specs">
+                <li><span>Modelo</span><strong>9GH-3</strong></li>
+                <li><span>Ancho de corte</span><strong>3000</strong></li>
+                <li><span>Altura de corte</span><strong>40-140</strong></li>
+                <li><span>Número de cuchillas</span><strong>4</strong></li>
+                <li><span>Peso</span><strong>960 kg</strong></li>
+                <li><span>Velocidad de giro de la cuchilla (rpm)</span><strong>810</strong></li>
+                <li><span>Dimensiones (mm)</span><strong>2850 × 3300 × 1230</strong></li>
+                <li><span>Peso (kg)</span><strong>880</strong></li>
+                <li><span>Potencia requerida</span><strong>70 HP o más</strong></li>
+
+              </ul>
+              <button type="button" class="accessory-quote" data-accessory="Rotativa 9GH-3">Cotizar <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+          <!-- RASTRA LA-2.0 (datos de la ficha del fabricante) -->
+          <article class="accessory-card reveal" data-category="labranza">
+            <div class="visual accessory-photo">
+              <div class="placeholder">ACCESORIO_03.jpg</div>
+              <img src="ACCESORIO_03.jpg" alt="Rastra de discos LOVOL modelo LA-2.0 de color amarillo con ruedas" loading="lazy" decoding="async" onerror="this.hidden=true">
+            </div>
+            <div class="accessory-info">
+              <span class="tractor-category">Labranza</span>
+              <h3>Rastra</h3>
+              <ul class="accessory-specs">
+                <li><span>Modelo</span><strong>LA-2.0</strong></li>
+                <li><span>Número de discos</span><strong>18</strong></li>
+                <li><span>Dimensiones del disco</span><strong>660-6 mm</strong></li>
+                <li><span>Espacio entre discos</span><strong>230 mm</strong></li>
+                <li><span>Paso de la rastra</span><strong>2000 mm</strong></li>
+                <li><span>Potencia requerida</span><strong>85-95 HP</strong></li>
+                <li><span>Peso</span><strong>1.740 kg</strong></li>
+
+              </ul>
+              <button type="button" class="accessory-quote" data-accessory="Rastra LA-2.0">Cotizar <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+          <!-- ROTATIVA 9G-2.0 (datos de la ficha del fabricante) -->
+          <article class="accessory-card reveal" data-category="mantenimiento">
+            <div class="visual accessory-photo">
+              <div class="placeholder">ACCESORIO_04.jpg</div>
+              <img src="ACCESORIO_04.jpg" alt="Rotativa LOVOL modelo 9G-2.0 de color amarillo" loading="lazy" decoding="async" onerror="this.hidden=true">
+            </div>
+            <div class="accessory-info">
+              <span class="tractor-category">Mantenimiento</span>
+              <h3>Rotativa</h3>
+              <ul class="accessory-specs">
+                <li><span>Modelo</span><strong>9G-2.0</strong></li>
+                <li><span>Ancho de corte</span><strong>1000</strong></li>
+                <li><span>Altura de corte</span><strong>100-300</strong></li>
+                <li><span>Peso</span><strong>960 kg</strong></li>
+                <li><span>Potencia requerida</span><strong>90 HP</strong></li>
+                <li><span>Dimensiones totales (mm)</span><strong>2300 × 2500 × 960</strong></li>
+
+              </ul>
+              <button type="button" class="accessory-quote" data-accessory="Rotativa 9G-2.0">Cotizar <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+        </div>
+        <p class="catalog-note center">¿No ves el implemento que buscas? Escríbenos y te ayudamos a conseguirlo.</p>
+      </div>
+    </section>
+
     <!-- 18. VENTAJAS -->
     <section class="section" id="ventajas" aria-labelledby="benefitsTitle">
       <div class="container">
@@ -770,7 +983,7 @@
           <form id="contactForm">
             <div class="form-group"><label for="nombre">Nombre completo *</label><input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="100" placeholder="Tu nombre" required></div>
             <div class="form-group"><label for="telefono">Número de teléfono *</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="35" placeholder="+58 412 000 0000" required></div>
-            <div class="form-group"><label for="modelo">Tractor de interés</label><select id="modelo" name="modelo"><option value="Asesoría general">Seleccionar una opción</option><option value="LOVOL TD 1304 (130 HP)">LOVOL TD 1304 — 130 HP</option><option value="LOVOL TD 904 (90 HP)">LOVOL TD 904 — 90 HP</option><option value="Otro modelo">Otro modelo</option></select></div>
+            <div class="form-group"><label for="modelo">Tractor de interés</label><select id="modelo" name="modelo"><option value="Asesoría general">Seleccionar una opción</option><option value="LOVOL TD 1304 (130 HP)">LOVOL TD 1304 — 130 HP</option><option value="LOVOL TD 904 (90 HP)">LOVOL TD 904 — 90 HP</option><option value="Accesorios / implementos">Accesorios / implementos</option><option value="Otro modelo">Otro modelo</option></select></div>
             <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" maxlength="1000" placeholder="Cuéntanos qué tractor necesitas..."></textarea></div>
             <button class="button button-green" type="submit">Enviar por WhatsApp <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"/></svg></button>
           </form>
@@ -788,7 +1001,7 @@
           <p>Distribuidor Oficial en Venezuela.<br>Tractores disponibles en toda Venezuela.</p>
           <span class="footer-rif">RIF: J-506542161</span>
         </div>
-        <div class="footer-col"><h4>Explorar</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#tractores">Tractores</a><a href="#ventajas">Ventajas</a><a href="#galeria">Galería</a></div>
+        <div class="footer-col"><h4>Explorar</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#tractores">Tractores</a><a href="#accesorios">Accesorios</a><a href="#ventajas">Ventajas</a><a href="#galeria">Galería</a></div>
         <div class="footer-col">
           <h4>Contacto</h4>
           <div class="footer-socials" aria-label="Canales de contacto">
@@ -1247,6 +1460,31 @@
       if (e.shiftKey && document.activeElement === focos[0]) { e.preventDefault(); focos[focos.length - 1].focus(); }
       else if (!e.shiftKey && document.activeElement === focos[focos.length - 1]) { e.preventDefault(); focos[0].focus(); }
     });
+
+    /* 28.B ACCESORIOS: filtros por categoría y cotización por WhatsApp */
+    const filterChips = document.querySelectorAll(".filter-chip");
+    const accessoryCards = document.querySelectorAll(".accessory-card");
+    // Solo se muestran los filtros que tienen accesorios; si hay una sola categoría, se ocultan todos.
+    const categoriasUsadas = new Set([...accessoryCards].map(c => c.dataset.category));
+    filterChips.forEach(chip => {
+      if (chip.dataset.filter !== "todos") chip.hidden = !categoriasUsadas.has(chip.dataset.filter);
+    });
+    document.querySelector(".accessory-filters").hidden = categoriasUsadas.size < 2;
+    filterChips.forEach(chip => chip.addEventListener("click", () => {
+      const filtro = chip.dataset.filter;
+      filterChips.forEach(c => {
+        const activo = c === chip;
+        c.classList.toggle("is-active", activo);
+        c.setAttribute("aria-pressed", String(activo));
+      });
+      accessoryCards.forEach(card => {
+        card.hidden = filtro !== "todos" && card.dataset.category !== filtro;
+        card.classList.add("visible"); // Evita que una tarjeta filtrada quede invisible por la animación.
+      });
+    }));
+    document.querySelectorAll(".accessory-quote").forEach(boton => boton.addEventListener("click", () => {
+      abrirWhatsApp("Hola, quiero cotizar el accesorio: " + boton.dataset.accessory + ".\nMi máquina es: ");
+    }));
 
     /* 29. FORMULARIO: CREA MENSAJE DE WHATSAPP */
     document.getElementById("contactForm").addEventListener("submit", e => {
