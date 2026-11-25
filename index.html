@@ -556,6 +556,29 @@
     @media (max-width:580px) {
       .catalog .tractor-photo.tractor-photo--130 { height: 320px; }
     }
+    /* AJUSTE TD 904 — mismo encuadre y comportamiento que el TD 1304. */
+    .catalog .tractor-photo.tractor-photo--90 {
+      height: clamp(360px, 32vw, 440px);
+      background: #fff;
+    }
+    .catalog .tractor-photo--90 .tractor-photo-trigger {
+      padding: 5px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .catalog .tractor-photo--90 .tractor-photo-trigger img,
+    .catalog .tractor-photo--90:hover .tractor-photo-trigger img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      transform: none;
+      background: #fff;
+    }
+    @media (max-width:580px) {
+      .catalog .tractor-photo.tractor-photo--90 { height: 320px; }
+    }
+
     /* ==========================================
        ACCESORIOS E IMPLEMENTOS
     ========================================== */
@@ -777,9 +800,11 @@
             </div>
           </article>
           <article class="tractor-card reveal">
-            <div class="visual tractor-photo">
-              <div class="placeholder">TRACTOR_02.jpg</div>
-              <img src="TRACTOR_02.jpg" alt="Tractor LOVOL TD 904" loading="lazy" onerror="this.hidden=true">
+            <!-- Foto principal del tractor de 90 HP: al pulsar, abre la galería -->
+            <div class="visual tractor-photo tractor-photo--90">
+              <button class="tractor-photo-trigger" id="openTractor90Photos" type="button" aria-label="Ver cuatro fotografías ampliadas del tractor LOVOL TD 904 de 90 HP">
+                <img src="TRACTOR_90_01.jpg" alt="Tractor LOVOL TD 904 de 90 HP azul, vista de tres cuartos" loading="lazy" decoding="async" width="1086" height="1448">
+              </button>
             </div>
             <div class="tractor-info">
               <span class="tractor-category">Tractor agrícola</span>
@@ -1059,17 +1084,17 @@
   </div>
 
 
-  <!-- Ficha técnica oficial del LOVOL TD 1304 (las dos páginas originales) -->
+  <!-- Ficha técnica oficial (TD 1304 y TD 904). Las páginas se cargan según el modelo elegido. -->
   <div class="modal td1304-sheet" id="td1304SheetModal" role="dialog" aria-modal="true" aria-labelledby="td1304SheetTitle" hidden>
     <div class="modal-box td1304-sheet-panel">
       <div class="td1304-sheet-header">
         <h2 id="td1304SheetTitle">Ficha técnica · TD 1304</h2>
         <div class="td1304-sheet-actions">
-          <a class="td1304-sheet-pdf" href="1304 LOVOL FICHA S-C.pdf" target="_blank" rel="noopener noreferrer">Abrir PDF</a>
+          <a class="td1304-sheet-pdf" id="td1304SheetPdf" href="1304 LOVOL FICHA S-C.pdf" target="_blank" rel="noopener noreferrer">Abrir PDF</a>
           <button class="modal-close td1304-sheet-close" id="td1304SheetClose" type="button" aria-label="Cerrar ficha técnica">&times;</button>
         </div>
       </div>
-      <div class="td1304-sheet-pages" tabindex="0" aria-label="Ficha técnica del TD 1304, dos páginas. Desliza hacia abajo para leerla completa.">
+      <div class="td1304-sheet-pages" id="td1304SheetPages" tabindex="0" aria-label="Ficha técnica del TD 1304, dos páginas. Desliza hacia abajo para leerla completa.">
         <img src="FICHA_TD1304_01.jpg" alt="Ficha técnica del LOVOL TD 1304: página 1, portada y características de la serie D" width="1275" height="1650" decoding="async">
         <img src="FICHA_TD1304_02.jpg" alt="Ficha técnica del LOVOL TD 1304: página 2, características clave y tabla de especificaciones" width="1275" height="1650" loading="lazy" decoding="async">
       </div>
@@ -1283,12 +1308,30 @@
     /* 27.B Galería del tractor LOVOL TD 1304 de 130 HP: ventana, flechas y swipe */
     // Las fotos se muestran en el orden 01 → 02 → 03 → 04.
     // Sin zoom artificial para evitar recortes en pantallas de laptop.
-    const tractor130Photos = [
-      { src: "TRACTOR_130_01.jpg", alt: "Tractor LOVOL TD 1304, vista de tres cuartos", zoom: 1 },
-      { src: "TRACTOR_130_02.jpg", alt: "Tractor LOVOL TD 1304, vista frontal", zoom: 1 },
-      { src: "TRACTOR_130_03.jpg", alt: "Tractor LOVOL TD 1304, vista posterior", zoom: 1 },
-      { src: "TRACTOR_130_04.jpg", alt: "Tractor LOVOL TD 1304, vista frontal en diagonal", zoom: 1 }
-    ];
+    // Galerías de cada tractor. El visor es el mismo para ambos modelos.
+    const tractorGalleries = {
+      "LOVOL TD 1304": {
+        title: "TD 1304",
+        photos: [
+          { src: "TRACTOR_130_01.jpg", alt: "Tractor LOVOL TD 1304, vista de tres cuartos", zoom: 1 },
+          { src: "TRACTOR_130_02.jpg", alt: "Tractor LOVOL TD 1304, vista frontal", zoom: 1 },
+          { src: "TRACTOR_130_03.jpg", alt: "Tractor LOVOL TD 1304, vista posterior", zoom: 1 },
+          { src: "TRACTOR_130_04.jpg", alt: "Tractor LOVOL TD 1304, vista frontal en diagonal", zoom: 1 }
+        ]
+      },
+      "LOVOL TD 904": {
+        title: "TD 904",
+        photos: [
+          { src: "TRACTOR_90_01.jpg", alt: "Tractor LOVOL TD 904, vista de tres cuartos", zoom: 1 },
+          { src: "TRACTOR_90_02.jpg", alt: "Tractor LOVOL TD 904, vista frontal", zoom: 1 },
+          { src: "TRACTOR_90_03.jpg", alt: "Tractor LOVOL TD 904, vista posterior", zoom: 1 },
+          { src: "TRACTOR_90_04.jpg", alt: "Tractor LOVOL TD 904, vista frontal en diagonal", zoom: 1 }
+        ]
+      }
+    };
+    let tractor130Photos = tractorGalleries["LOVOL TD 1304"].photos;
+    const tractor130ViewerTitle = document.getElementById("tractor130ViewerTitle");
+
     const tractor130Viewer = document.getElementById("tractor130Viewer");
     const tractor130Image = document.getElementById("tractor130Image");
     const tractor130Close = document.getElementById("tractor130Close");
@@ -1330,8 +1373,15 @@
       }
     }
 
-    function openTractor130Viewer() {
+    function openTractor130Viewer(model) {
+      const gallery = tractorGalleries[model] || tractorGalleries["LOVOL TD 1304"];
+      tractor130Photos = gallery.photos;
+      tractor130ViewerTitle.textContent = gallery.title;
+      // Muestra de inmediato la primera foto del modelo elegido (sin restos del otro tractor).
+      tractor130Image.src = gallery.photos[0].src;
+      tractor130Image.alt = gallery.photos[0].alt;
       tractor130FocusBefore = document.activeElement;
+
       // Carga anticipada de las cuatro imágenes para una navegación fluida.
       tractor130Photos.forEach(preloadTractor130Photo);
       selectTractor130Photo(0);
@@ -1348,7 +1398,8 @@
       }
     }
 
-    document.getElementById("openTractor130Photos").addEventListener("click", openTractor130Viewer);
+    document.getElementById("openTractor130Photos").addEventListener("click", () => openTractor130Viewer("LOVOL TD 1304"));
+    document.getElementById("openTractor90Photos").addEventListener("click", () => openTractor130Viewer("LOVOL TD 904"));
     tractor130Close.addEventListener("click", closeTractor130Viewer);
     document.getElementById("tractor130Prev").addEventListener("click", () => selectTractor130Photo(tractor130PhotoIndex - 1));
     document.getElementById("tractor130Next").addEventListener("click", () => selectTractor130Photo(tractor130PhotoIndex + 1));
@@ -1373,12 +1424,48 @@
       }
     }, { passive: true });
 
-    /* Ficha técnica del TD 1304. El TD 904 conserva la ventana de antes. */
+    /* Fichas técnicas del TD 1304 y del TD 904 (misma ventana para ambos). */
+    const fichasTecnicas = {
+      "LOVOL TD 1304": {
+        titulo: "Ficha técnica · TD 1304",
+        pdf: "1304 LOVOL FICHA S-C.pdf",
+        paginas: [
+          { src: "FICHA_TD1304_01.jpg", alt: "Ficha técnica del LOVOL TD 1304: página 1, portada y características de la serie D" },
+          { src: "FICHA_TD1304_02.jpg", alt: "Ficha técnica del LOVOL TD 1304: página 2, características clave y tabla de especificaciones" }
+        ]
+      },
+      "LOVOL TD 904": {
+        titulo: "Ficha técnica · TD 904",
+        pdf: "TD-904_C-C.pdf",
+        paginas: [
+          { src: "FICHA_TD904_01.jpg", alt: "Ficha técnica del LOVOL TD 904: página 1, portada y características" },
+          { src: "FICHA_TD904_02.jpg", alt: "Ficha técnica del LOVOL TD 904: página 2, tabla de especificaciones" }
+        ]
+      }
+    };
     const td1304SheetModal = document.getElementById("td1304SheetModal");
     const td1304SheetClose = document.getElementById("td1304SheetClose");
+    const td1304SheetTitle = document.getElementById("td1304SheetTitle");
+    const td1304SheetPdf = document.getElementById("td1304SheetPdf");
+    const td1304SheetPages = document.getElementById("td1304SheetPages");
     let td1304SheetPreviousFocus = null;
 
-    function abrirFichaTD1304() {
+    function abrirFichaTD1304(model) {
+      const ficha = fichasTecnicas[model] || fichasTecnicas["LOVOL TD 1304"];
+      td1304SheetTitle.textContent = ficha.titulo;
+      td1304SheetPdf.href = ficha.pdf;
+      td1304SheetPages.setAttribute("aria-label", ficha.titulo + ", " + ficha.paginas.length + " páginas. Desliza hacia abajo para leerla completa.");
+      td1304SheetPages.replaceChildren(...ficha.paginas.map((pagina, i) => {
+        const img = document.createElement("img");
+        img.src = pagina.src;
+        img.alt = pagina.alt;
+        img.width = 1275;
+        img.height = 1650;
+        img.decoding = "async";
+        if (i > 0) img.loading = "lazy";
+        return img;
+      }));
+      td1304SheetPages.scrollTop = 0;
       td1304SheetPreviousFocus = document.activeElement;
       td1304SheetModal.hidden = false;
       document.body.classList.add("sin-scroll");
@@ -1409,8 +1496,8 @@
       if (elementoAnterior) elementoAnterior.focus();
     }
     document.querySelectorAll(".detail-button").forEach(boton => boton.addEventListener("click", () => {
-      if (boton.dataset.model === "LOVOL TD 1304") {
-        abrirFichaTD1304();
+      if (fichasTecnicas[boton.dataset.model]) {
+        abrirFichaTD1304(boton.dataset.model);
         return;
       }
       elementoAnterior = document.activeElement;
@@ -1503,4 +1590,4 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
-</html>
+</html>
